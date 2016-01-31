@@ -6,6 +6,9 @@
 package andromeda;
 
 import byui.cit260.andromeda.model.Enemy;
+import byui.cit260.andromeda.model.Excelsior;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Logbook;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.MaterialResources;
 import byui.cit260.andromeda.model.Planet;
@@ -29,6 +32,38 @@ public class Andromeda {
         
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);
+        
+        //Excelsior
+        Excelsior excelsior = new Excelsior();
+        
+        excelsior.setDescription("This is the description of the ship");
+        excelsior.setShipIntegrity(100);
+        excelsior.setArmor(100);
+        excelsior.setWeapons(5);
+        excelsior.setCrew(12);
+        excelsior.setCredits(57000);
+        
+        String spaceshipInfo = excelsior.toString();
+        System.out.println(spaceshipInfo);
+        
+        //game class
+        Game newGame = new Game();
+        
+        newGame.setTotalTime("2016-01-30 00:00:00.00000000");
+        
+        String gameTime = newGame.toString();
+        System.out.println(gameTime);
+        
+        
+        //Logbook class
+        Logbook newLog = new Logbook();
+        
+        newLog.setExplored(5);
+        newLog.setEncounter(8);
+        newLog.setCredits(excelsior.getCredits());
+        
+        String log = newLog.toString();
+        System.out.println(log);
         
         // map class 
         
