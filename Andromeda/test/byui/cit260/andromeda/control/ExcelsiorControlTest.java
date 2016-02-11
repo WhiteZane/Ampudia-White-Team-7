@@ -30,6 +30,34 @@ public class ExcelsiorControlTest {
         double result = instance.calcRepairs(time, cost);
         assertEquals(expResult, result, 0.01);
         
+        /***************
+         * Test case #2
+         **************/
+       
+        System.out.println("Test case #2");
+        time = 2;
+        cost = -100;
+        
+         expResult = -1;
+        
+         result = instance.calcRepairs(time, cost);
+        
+         assertEquals(expResult, result, 0.01);
+         
+         /***************
+         * Test case #3
+         **************/
+       
+        System.out.println("Test case #3");
+        time = -5;
+        cost = 25;
+        
+         expResult = -1;
+        
+         result = instance.calcRepairs(time, cost);
+        
+         assertEquals(expResult, result, 0.01);
+
     }
     
 }
