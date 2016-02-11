@@ -8,7 +8,7 @@ package byui.cit260.andromeda.model;
 import java.io.Serializable;
 
 /**
- *
+ * @author zane
  * @author oscar
  */
 public class Logbook implements Serializable{
