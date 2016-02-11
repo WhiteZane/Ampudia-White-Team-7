@@ -7,7 +7,7 @@ package byui.cit260.andromeda.control;
 
 /**
  *
- * @author oscar
+ * @author zane and oscar
  */
 public class MapControl {
 
