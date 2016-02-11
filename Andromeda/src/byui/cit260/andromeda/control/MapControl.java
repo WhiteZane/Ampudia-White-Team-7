@@ -7,29 +7,48 @@ package byui.cit260.andromeda.control;
 
 /**
  *
- * @author ghosty
+ * @author oscar
  */
-public class MapControl{
-    public double calcPlanetDistance(double xOne, double xTwo, double yOne, double yTwo ){
-    
-        double distance;
-        if (( xOne < -100 || xOne > 100 )||(yOne < -100 || yOne > 100) ){
+public class MapControl {
+
+    public double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) {
+
+        String planets[][] = {
+            {"Earth", "0", "0"},
+            {"Mars", "1", "1"},
+            {"Jupiter", "4", "4"},
+            {"Saturn", "8", "5"},
+            {"Uranus", "18", "7"},
+            {"Neptune", "30", "7"}
+        };
+
+        if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
             return -1;
-            
+
         }
-        if (( xTwo < -100 || xTwo > 100 )||(yTwo < -100 || yTwo > 100) ){
+        if ((x2 < -100 || x2 > 100) || (y2 < -100 || y2 > 100)) {
             return -1;
         }
-       
-        //if ((xOne && yOne == planet coordinates)&&(xTwo and yTwo == planet coordinates)){
-                  distance = Math.sqrt( Math.pow((xTwo-xOne), 2) + Math.pow((yTwo-yOne),2));
-                  // distance == planet 
-                  if (distance == 23.0){ 
-                      return distance;
-                  }
-                  return -1;
-    
-                 
-                  
+
+        double isValid = 0;
+        double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+
+        for (int i = 0; i <= planets.length; i++) {
+            if (fromPlanet.equals(planets[i][0])) {
+                if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
+                    isValid = 1;
+                } else {
+                    return -1;
+                }
+            }
+            if (toPlanet.equals(planets[i][0]) && isValid == 1) {
+                if ((Double.parseDouble(planets[i][1]) == x2) && Double.parseDouble(planets[i][2]) == y2) {
+                    return distance;
+                } else {
+                    return -1;
+                }
+            }
+        }
+        return -1;
     }
 }

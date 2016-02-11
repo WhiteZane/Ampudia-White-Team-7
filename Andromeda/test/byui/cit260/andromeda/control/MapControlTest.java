@@ -10,56 +10,66 @@ import static org.junit.Assert.*;
 
 /**
  *
- * @author ghosty
+ * @author oscar
  */
 public class MapControlTest {
-    
+
     public MapControlTest() {
     }
+
     @Test
-    public void testCalcPlanetDistance(){
-        System.out.println("calcPlanetDistance");
-        double xOne = 0.0;
-        double xTwo = 0.0;
-        double yOne = 30.0;
-        double yTwo = 7.0;
+    public void testCalcPlanetDistance() {
+
+        String fromPlanet = "Earth";
+        double x1 = 0.0;
+        double y1 = 0.0;
+        String toPlanet = "Neptune";
+        double x2 = 30.0;
+        double y2 = 7.0;
         MapControl instance = new MapControl();
-        double expResult = 23.0;
-        double result = instance.calcPlanetDistance(xOne, xTwo, yOne, yTwo);
+        double expResult = 30.8;
+        double result = instance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
         assertEquals(expResult, result, .01);
-    
-    /******************
-     * Test Case #2
-     *****************/
-    System.out.println("\tTest case #2");
+
+        System.out.println("calcPlanetDistance\n\tTest case #1 | Valid");
         
-        xOne = 2.0;
-        yOne = 2.0;
-        xTwo = 8.0;
-        yTwo = 5.0;
         
+        /*
+         * ****************
+         * Test Case #2
+         * ****************
+         */
+        fromPlanet = "Mars";
+        x1 = 2.0;
+        y1 = 2.0;
+        toPlanet = "Saturn";
+        x2 = 8.0;
+        y2 = 5.0;
+
         expResult = -1;
+        result = instance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
+        assertEquals(expResult, result, .01);
         
-        result = instance.calcPlanetDistance(xOne, xTwo, yOne, yTwo);
+        System.out.println("\tTest case #2 | Wrong Coordinates");
         
-        assertEquals(expResult, result, 0.01);
-    
-    /******************
-     * Test Case #3
-     *****************/
-    System.out.println("\tTest case #3");
         
-        xOne = -101.0;
-        xTwo = 4.0;
-        yOne = 18.0;
-        yTwo = 7.0;
-        
+        /*
+         * ****************
+         * Test Case #3
+         * ****************
+         */
+
+        fromPlanet = "Jupiter";
+        x1 = -101.0;
+        y1 = 4.0;
+        toPlanet = "Uranus";
+        x2 = 18.0;
+        y2 = 7.0;
+
         expResult = -1;
+        result = instance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
+        assertEquals(expResult, result, .01);
         
-        result = instance.calcPlanetDistance(xOne, xTwo, yOne, yTwo);
-        
-        assertEquals(expResult, result, 0.01);
-    
-        
+        System.out.println("\tTest case #3 | Out of Range");
     }
 }

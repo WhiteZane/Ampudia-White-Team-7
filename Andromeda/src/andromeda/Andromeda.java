@@ -99,12 +99,13 @@ public class Andromeda {
         
         Planet planetOne = new Planet();
         
-        planetOne.setName("Andromeda");
-        planetOne.setDescription("M2 class planet");
-        planetOne.setSystem("Lylat System");
+        planetOne.setName("Mars");
+        planetOne.setDescription("Red planet");
+        planetOne.setSystem("Local Cluster");
         planetOne.setVisited(Boolean.TRUE);
         planetOne.setExplored(Boolean.TRUE);
-        
+        planetOne.setX(1);
+        planetOne.setY(1);
         
         String PlanetOne = planetOne.toString();
         System.out.println(PlanetOne);

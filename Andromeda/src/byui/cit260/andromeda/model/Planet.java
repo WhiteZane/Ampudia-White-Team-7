@@ -18,6 +18,8 @@ public class Planet implements Serializable{
     private String system;
     private Boolean visited;
     private Boolean explored;
+    private int x;
+    private int y;
 
     public Planet() {
     }
@@ -64,6 +66,22 @@ public class Planet implements Serializable{
         this.explored = explored;
     }
 
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -78,7 +96,7 @@ public class Planet implements Serializable{
     @Override
     public String toString() {
         return "Planet{" + "name=" + name + ", description=" + description + ", system=" 
-                + system + ", visited=" + visited + ", explored=" + explored + '}';
+                + system + ", visited=" + visited + ", explored=" + explored + ", x="+x+", y="+y+""+'}';
     }
     
     
