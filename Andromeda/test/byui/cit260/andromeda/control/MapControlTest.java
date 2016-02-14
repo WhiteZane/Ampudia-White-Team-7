@@ -72,4 +72,45 @@ public class MapControlTest {
         
         System.out.println("\tTest case #3 | Out of Range");
     }
+    
+    @Test
+    public void testCalcTime() {
+    
+        // Test Case #1
+        String fromPlanet = "Illium";
+        String toPlanet = "Bergale";
+        double inputDistance = 11.7;
+        int speed = 6;
+        MapControl instance2 = new MapControl();
+        double expResult = 1.95;
+        double result = instance2.calcTime(inputDistance, speed, fromPlanet, toPlanet);
+        assertEquals(expResult, result, .01);
+
+        System.out.println("calcTime\n\tTest case #1 | Valid");
+        
+        // Test Case #2
+        fromPlanet = "Illium";
+        toPlanet = "Ponolus";
+        inputDistance = 52.3;
+        speed = 6;
+        
+        expResult = -1;
+        result = instance2.calcTime(inputDistance, speed, fromPlanet, toPlanet);
+        assertEquals(expResult, result, .01);
+
+        System.out.println("\tTest case #2 | Wrong distance input");
+        
+        
+        // Test Case #3
+        fromPlanet = "Bergale";
+        toPlanet = "Illium";
+        inputDistance = 11.7;
+        speed = 9;
+        
+        expResult = -1;
+        result = instance2.calcTime(inputDistance, speed, fromPlanet, toPlanet);
+        assertEquals(expResult, result, .01);
+
+        System.out.println("\tTest case #3 | Speed out of range");
+    }
 }
