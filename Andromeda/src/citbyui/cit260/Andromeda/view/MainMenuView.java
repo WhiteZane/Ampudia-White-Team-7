@@ -63,10 +63,10 @@ public class MainMenuView {
     }
 
     public boolean doAction(String choice) {
-        
+
         choice = choice.toUpperCase();
-        
-        switch (choice){
+
+        switch (choice) {
             case "G":
                 this.startNewGame();
                 break;
@@ -85,6 +85,7 @@ public class MainMenuView {
         }
         return false;
     }
+    
 
     private void startNewGame() {
         //create a new game
@@ -101,6 +102,11 @@ public class MainMenuView {
 
     private void howToPlay() {
         System.out.println("*** howToPlay function called ***");
+        
+        //display help menu
+        HelpMenuView helpMenu;
+        helpMenu = new HelpMenuView();
+        helpMenu.displayHelpMenu();
     }
 
     private void quitGame() {
