@@ -13,6 +13,7 @@ import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.MaterialResources;
 import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
+import citbyui.cit260.Andromeda.view.StartProgramView;
 
 /**
  *
@@ -25,8 +26,12 @@ public class Andromeda {
      */
     public static void main(String[] args) {
         
+        // create StartProgramView and display
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+        
         // player class
-        Player playerOne = new Player();
+        /*Player playerOne = new Player();
         
         playerOne.setName("Fred");
         
@@ -111,7 +116,7 @@ public class Andromeda {
         System.out.println(PlanetOne);
         
         
-        
+    */    
     }
     
 }
