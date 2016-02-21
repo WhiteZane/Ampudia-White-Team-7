@@ -33,9 +33,9 @@ public class MainMenuView {
     private String menu;
 
     public MainMenuView() {
-        this.menu = "\n"
-                + "\n----------"
-                + "\n Main Menu"
+        this.menu = "…………………………………………………………………………………"
+                + "\n  Main Menu"
+                + "\n…………………………………………………………………………………"
                 + "\nG : Start new game "
                 + "\nL : Load saved game "
                 + "\nH : How to play"
@@ -97,13 +97,10 @@ public class MainMenuView {
     }
 
     private void loadSavedGame() {
-        System.out.println("*** leadSavedGame function called ***");
+        System.out.println("*** loadSavedGame function called ***");
     }
 
     private void howToPlay() {
-        System.out.println("*** howToPlay function called ***");
-        
-        //display help menu
         HelpMenuView helpMenu;
         helpMenu = new HelpMenuView();
         helpMenu.displayHelpMenu();

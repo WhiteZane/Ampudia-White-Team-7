@@ -20,7 +20,7 @@ public class GameMenuView {
         do {
             //prompt for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
+            if (menuOption.toUpperCase().equals("E")) {
                 return; // exit the game
             }
             //do the requested action and display the next view
@@ -30,9 +30,9 @@ public class GameMenuView {
     private String menu;
 
     public GameMenuView() {
-        this.menu = "\n"
-                + "\n----------"
-                + "\n Game Menu"
+        this.menu = "…………………………………………………………………………………"
+                + "\n  Game Menu"
+                + "\n…………………………………………………………………………………"
                 + "\nM : Move to location "
                 + "\nV : View Ship Status "
                 + "\nT : Talk to Crew Members"
@@ -53,7 +53,7 @@ public class GameMenuView {
             value = value.trim();
 
             if (value.length() < 1) {//value is blank
-                System.out.println("\nInvalid value: value can not be blank");
+                System.out.println("\n\t*** Error *** Value can not be blank.");
                 continue;
             }
             break; //end loop
@@ -73,7 +73,7 @@ public class GameMenuView {
                 this.viewShipStatus();
                 break;
             case "T":
-                this.crewMembers();
+                this.talkToCrew();
                 break;
             case "C":
                 this.checkLogbook();
@@ -85,22 +85,22 @@ public class GameMenuView {
                 this.exit();
                 break;
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
     }
 
     private void moveToLocation() {
-        System.out.println("*** leadmoveToLocation function called ***");
+        System.out.println("*** moveToLocation function called ***");
     }
 
     private void viewShipStatus() {
-        System.out.println("*** leadShipStatus function called ***");
+        System.out.println("*** viewShipStatus function called ***");
     }
 
-    private void crewMembers() {
-        System.out.println("*** CrewMembers function called ***");
+    private void talkToCrew() {
+        System.out.println("*** talkToCrew function called ***");
     }
 
     private void checkLogbook() {
@@ -110,7 +110,6 @@ public class GameMenuView {
         System.out.println("*** saveGame function called ***");
     }
     private void exit() {
-        System.out.println("*** quitGame function called ***");
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
     }
