@@ -11,13 +11,12 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class LocationMenuView {
-    
-    public void displayLocationMenu() {
+public class RepairShip {
+    public void displayRepairMenu() {
 
         boolean done = false;
         do {
-            String menuOption = this.getLocationOption();
+            String menuOption = this.getRepairOption();
             if (menuOption.toUpperCase().equals("E")) {
                 return;
             }
@@ -25,11 +24,11 @@ public class LocationMenuView {
         } while (!done);
     }
 
-    private String menuLocation;
+    private String menuRepair;
 
-    public LocationMenuView() {
-        this.menuLocation = "…………………………………………………………………………………"
-                + "\n  Location Menu"
+    public RepairShip() {
+        this.menuRepair = "…………………………………………………………………………………"
+                + "\n  Repair Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nL : Explore location "
                 + "\nF : Fortify/Repair Excelsior "
@@ -39,13 +38,13 @@ public class LocationMenuView {
                 + "\nE : Return to Excelsior ";
     }
 
-    private String getLocationOption() {
+    private String getRepairOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean isValid = false;
 
         while (!isValid) {
-            System.out.println(menuLocation);
+            System.out.println(menuRepair);
 
             value = keyboard.nextLine();
             value = value.trim();
@@ -59,11 +58,11 @@ public class LocationMenuView {
         return value; // return entered value
     }
 
-    private boolean doAction(String locationOption) {
+    private boolean doAction(String repairOption) {
 
-        locationOption = locationOption.toUpperCase();
+        repairOption = repairOption.toUpperCase();
 
-        switch (locationOption) {
+        switch (repairOption) {
             case "L":
                 this.exploreLocation();
                 break;
@@ -122,10 +121,7 @@ public class LocationMenuView {
     }
 
     private void repairFortify() {
-        //System.out.println("*** repairFortify function called ***");
-        RepairShip repairs;
-        repairs = new RepairShip();
-        repairs.displayRepairMenu();
+        System.out.println("*** repairFortify function called ***");
     }
 
     private void armorReinforce() {
@@ -145,4 +141,5 @@ public class LocationMenuView {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
     }
+    
 }

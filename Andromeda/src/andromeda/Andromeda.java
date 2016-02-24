@@ -29,17 +29,6 @@ public class Andromeda {
 
     public static void main(String[] args) {
 
-        // create StartProgramView and display
-        StartProgramView startProgramView = new StartProgramView();
-        startProgramView.displayStartProgramView();
-
-        // player class
-        /*Player playerOne = new Player();
-        
-        playerOne.setName("Fred");
-        
-        String playerInfo = playerOne.toString();
-        System.out.println(playerInfo);
         
         //Excelsior
         Excelsior excelsior = new Excelsior();
@@ -51,9 +40,23 @@ public class Andromeda {
         excelsior.setCrew(12);
         excelsior.setCredits(57000);
         
-        String spaceshipInfo = excelsior.toString();
-        System.out.println(spaceshipInfo);
+        //String spaceshipInfo = excelsior.toString();
+        //System.out.println(spaceshipInfo);
         
+        // create StartProgramView and display
+        StartProgramView startProgramView = new StartProgramView();
+        startProgramView.displayStartProgramView();
+
+        // player class
+        /*Player playerOne = new Player();
+        
+        playerOne.setName("Fred");
+        
+        String playerInfo = playerOne.toString();
+        System.out.println(playerInfo);*/
+        
+        
+        /*
         //game class
         Game newGame = new Game();
         
