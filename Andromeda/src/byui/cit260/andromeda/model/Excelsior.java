@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Excelsior implements Serializable{
     
     private String description;
-    private int shipIntegrity;
+    private int shipIntegrity = 90;
     private int armor;
     private int weapons;
     private int crew;

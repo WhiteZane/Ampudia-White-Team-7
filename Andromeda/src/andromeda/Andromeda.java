@@ -30,18 +30,7 @@ public class Andromeda {
     public static void main(String[] args) {
 
         
-        //Excelsior
-        Excelsior excelsior = new Excelsior();
-        
-        excelsior.setDescription("This is the description of the ship");
-        excelsior.setShipIntegrity(100);
-        excelsior.setArmor(100);
-        excelsior.setWeapons(5);
-        excelsior.setCrew(12);
-        excelsior.setCredits(57000);
-        
-        //String spaceshipInfo = excelsior.toString();
-        //System.out.println(spaceshipInfo);
+       
         
         // create StartProgramView and display
         StartProgramView startProgramView = new StartProgramView();
@@ -55,7 +44,21 @@ public class Andromeda {
         String playerInfo = playerOne.toString();
         System.out.println(playerInfo);*/
         
+         //Excelsior
+       /* Excelsior excelsior = new Excelsior();
         
+        excelsior.setDescription("This is the description of the ship");
+        excelsior.setShipIntegrity(100);
+        excelsior.setArmor(100);
+        excelsior.setWeapons(5);
+        excelsior.setCrew(12);
+        excelsior.setCredits(57000);
+        
+        int status;
+        status = excelsior.getShipIntegrity();
+        */
+        //String spaceshipInfo = excelsior.toString();
+        //System.out.println(status);
         /*
         //game class
         Game newGame = new Game();

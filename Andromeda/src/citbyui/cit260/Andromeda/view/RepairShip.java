@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import byui.cit260.andromeda.model.Excelsior;
 import java.util.Scanner;
 
 /**
@@ -12,6 +13,10 @@ import java.util.Scanner;
  * @author ghosty
  */
 public class RepairShip {
+
+    Excelsior excelsior = new Excelsior();
+    int status = excelsior.getShipIntegrity();
+
     public void displayRepairMenu() {
 
         boolean done = false;
@@ -27,15 +32,15 @@ public class RepairShip {
     private String menuRepair;
 
     public RepairShip() {
-        this.menuRepair = "…………………………………………………………………………………"
+        this.menuRepair
+                = "…………………………………………………………………………………"
                 + "\n  Repair Menu"
                 + "\n…………………………………………………………………………………"
-                + "\nL : Explore location "
-                + "\nF : Fortify/Repair Excelsior "
-                + "\nA : Armor reinforcment"
-                + "\nB : Buy/Create weapons"
-                + "\nR : Recruit new crew members"
-                + "\nE : Return to Excelsior ";
+                + "\nC : Check ship Status"
+                + "\nO : Repair orders"
+                + "\nM : Make Repairs "
+                + "\nE : Return to Location Menu ";
+
     }
 
     private String getRepairOption() {
@@ -45,7 +50,6 @@ public class RepairShip {
 
         while (!isValid) {
             System.out.println(menuRepair);
-
             value = keyboard.nextLine();
             value = value.trim();
 
@@ -63,20 +67,15 @@ public class RepairShip {
         repairOption = repairOption.toUpperCase();
 
         switch (repairOption) {
-            case "L":
-                this.exploreLocation();
+
+            case "C":
+                this.checkStatus();
                 break;
-            case "F":
-                this.repairFortify();
+            case "O":
+                this.repairOrders();
                 break;
-            case "A":
-                this.armorReinforce();
-                break;
-            case "B":
-                this.createWeapons();
-                break;
-            case "R":
-                this.recruitMembers();
+            case "M":
+                this.makeRepairs();
                 break;
             case "E":
                 this.exit();
@@ -116,24 +115,66 @@ public class RepairShip {
         return value;
     }
 
-    private void exploreLocation() {
-        System.out.println("*** exploreLocation function called ***");
+    private void checkStatus() {
+        Excelsior excelsior = new Excelsior();
+        int status = excelsior.getShipIntegrity();
+        System.out.println("\n\t Ship Status:  " + status);
+        if (status == 100) {
+            System.out.println("\t Excelsior has taken no damage");
+        } else if (status <= 90) {
+            System.out.println("\t Excelsior has taken minor damage");
+
+        } else if (status <= 80) {
+            System.out.println("\t Excelsior has taken moderate damage");
+        } else if (status <= 70) {
+            System.out.println("\t Excelsior has taken moderate damage");
+        } else if (status <= 60) {
+            System.out.println("\t Excelsior has taken major damage");
+        } else if (status <= 50) {
+            System.out.println("\t Excelsior has taken major damage");
+        }
+
     }
 
-    private void repairFortify() {
-        System.out.println("*** repairFortify function called ***");
+    private void repairOrders() {
+        Excelsior excelsior = new Excelsior();
+        int status = excelsior.getShipIntegrity();
+        if (status == 100) {
+            System.out.println("\t Excelsior has no repairs to be made");
+        } else if (status <= 90) {
+            System.out.println("\t Excelsior has taken minor damage"
+                    + "\n repair costs : shield generator 3 platinum 1 hour "
+                    + "\n\t\tshield alignment module 2 paladium 1 hour");
+        } else if (status <= 80) {
+            System.out.println("\t Excelsior has taken moderate damage"
+                    + "\n repair costs : shield generator 3 platinum 1 hour "
+                    + "\n\t\tshield alignment module 2 paladium 1 hour"
+                    + "\n\t\tminor hull damage module 2 iriduim 2 hours");
+        } else if (status <= 70) {
+            System.out.println("\t Excelsior has taken moderate damage"
+                    + "\n repair costs : shield generator 4 platinum 1 hour "
+                    + "\n\t\tshield alignment module 2 paladium 1 hour"
+                    + "\n\t\ttminor hull damage module 3 iriduim 2 hours");
+        } else if (status <= 60) {
+            System.out.println("\t Excelsior has taken major damage"
+                    + "\n repair costs : shield generator 4 platinum 1 hour "
+                    + "\n\t\tshield alignment module 2 paladium 1 hour"
+                    + "\n\t\tmoderate hull damage    5 iriduim  4 hours");
+        } else if (status <= 50) {
+            System.out.println("\t Excelsior has taken major damage"
+                    + "\n repair costs : shield generator 4 platinum 1 hour "
+                    + "\n\t\tshield alignment module 4 paladium 1 hour"
+                    + "\n\t\tsevere hull damage      5 iriduim  5 hours"
+                    + "\n\t\tDamage to weapons and engine 3 paladium 2 hours");
+        }
+
     }
 
-    private void armorReinforce() {
-        System.out.println("*** armorReinforce function called ***");
-    }
-
-    private void createWeapons() {
-        System.out.println("*** createWeapons function called ***");
-    }
-    
-    private void recruitMembers() {
-        System.out.println("*** recruitMembers function called ***");
+    private void makeRepairs() {
+        System.out.println("To make repairs you need to calculate the repair Orders"
+                           + "\n To calculate repair orders use this formula: "
+                           + " Repairs = (Cost * time) "
+                           + "\nEnter Repair here: ");
     }
 
     private void exit() {
@@ -141,5 +182,5 @@ public class RepairShip {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
     }
-    
+
 }
