@@ -105,6 +105,9 @@ public class GameMenuView {
 
     private void checkLogbook() {
         System.out.println("*** checkLogbook function called ***");
+        LogBookView logBook;
+        logBook = new LogBookView();
+        logBook.displayLogBook();
     }
     private void saveGame() {
         System.out.println("*** saveGame function called ***");
