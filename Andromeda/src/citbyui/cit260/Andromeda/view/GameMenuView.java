@@ -97,6 +97,9 @@ public class GameMenuView {
 
     private void viewShipStatus() {
         System.out.println("*** viewShipStatus function called ***");
+        StarshipStatus status;
+        status = new StarshipStatus();
+        status.displayStatus();
     }
 
     private void talkToCrew() {
@@ -104,7 +107,7 @@ public class GameMenuView {
     }
 
     private void checkLogbook() {
-        System.out.println("*** checkLogbook function called ***");
+        // calls the log book view
         LogBookView logBook;
         logBook = new LogBookView();
         logBook.displayLogBook();
