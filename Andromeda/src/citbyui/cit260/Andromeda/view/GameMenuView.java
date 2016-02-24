@@ -93,10 +93,13 @@ public class GameMenuView {
 
     private void moveToLocation() {
         System.out.println("*** moveToLocation function called ***");
+        LocationMenuView locationMenu;
+        locationMenu = new LocationMenuView();
+        locationMenu.displayLocationMenu();
     }
 
     private void viewShipStatus() {
-        System.out.println("*** viewShipStatus function called ***");
+        
         StarshipStatus status;
         status = new StarshipStatus();
         status.displayStatus();
