@@ -36,7 +36,7 @@ public class LocationMenuView {
                 + "\nA : Armor reinforcment"
                 + "\nB : Buy/Create weapons"
                 + "\nR : Recruit new crew members"
-                + "\nE : Return t Excelsior ";
+                + "\nE : Return to Excelsior ";
     }
 
     private String getLocationOption() {
