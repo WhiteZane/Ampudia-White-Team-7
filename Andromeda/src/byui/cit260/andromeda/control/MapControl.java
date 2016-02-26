@@ -12,17 +12,38 @@ package byui.cit260.andromeda.control;
 public class MapControl {
 
     String planets[][] = {
+        //Local Cluster
         {"Earth", "0", "0"},
         {"Mars", "1", "1"},
         {"Jupiter", "4", "4"},
         {"Saturn", "8", "5"},
         {"Uranus", "18", "7"},
         {"Neptune", "30", "7"},
+        //Crescent Nebula
         {"Naxel", "-120", "-280"},
         {"Thai", "-88", "-38"},
         {"Bergale", "0", "0"},
         {"Illium", "11", "4"},
-        {"Ponolus", "46", "25"}
+        {"Ponolus", "46", "25"},
+        //Nubian Expanse
+        {"Gamayun","-25","36"},
+        {"Alkonost","-21","5"},
+        {"Bannik","0","0"},
+        {"Pragia","13","-13"},
+        {"Zimitra","34","-48"},
+        //Krogan System
+        {"Ruam","32","66"},
+        {"Tuchanka","33","60"},
+        {"Kruban","5","6"},
+        {"Durak","0","0"},
+        {"Kanin","-2","-1"},
+        //Perseus Veil
+        {"Uriyah","-2","6"},
+        {"Rannoch","-2","2"},
+        {"Geth Debris Field","0","0"},
+        {"Geth Dreadnought","1","-1"},
+        {"Migrant Fleet","2","-4"},
+        {"Mass Relay","6","6"}
     };
 
     public double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) {
@@ -39,19 +60,26 @@ public class MapControl {
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
         for (int i = 0; i <= planets.length; i++) {
-            if (fromPlanet.equals(planets[i][0])) {
-                if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
-                    isValid = 1;
-                } else {
-                    return -1;
+            try {
+                if (fromPlanet.equals(planets[i][0])) {
+                    if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
+                        isValid = 1;
+
+                        for (int j = 0; j <= planets.length; j++) {
+                            if (toPlanet.equals(planets[j][0]) && isValid == 1) {
+                                if ((Double.parseDouble(planets[j][1]) == x2) && Double.parseDouble(planets[j][2]) == y2) {
+                                    return distance;
+                                } else {
+                                    return -1;
+                                }
+                            }
+                        }
+
+                    } else {
+                        return -1;
+                    }
                 }
-            }
-            if (toPlanet.equals(planets[i][0]) && isValid == 1) {
-                if ((Double.parseDouble(planets[i][1]) == x2) && Double.parseDouble(planets[i][2]) == y2) {
-                    return distance;
-                } else {
-                    return -1;
-                }
+            } catch (ArrayIndexOutOfBoundsException e) {
             }
         }
         return -1;
@@ -69,16 +97,6 @@ public class MapControl {
         return -1;
     }
 
-    /*
-    calcTime(double distance, int speed)
-    BEGIN
-	IF(distance == Distance)AND
-	  (speed >= 6 AND speed <= 8)THEN
-	  Time = distance/speed
-	RETURN Time
-    END
-     */
-    
     public double planetDistance(String fromPlanet, String toPlanet) {
 
         //From planet coodinates

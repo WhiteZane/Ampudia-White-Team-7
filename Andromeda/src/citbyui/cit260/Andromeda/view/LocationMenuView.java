@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class LocationMenuView {
     
-    public void displayLocationMenu() {
+    public void displayLocationMenu(String toPlanet) {
 
         boolean done = false;
         do {
@@ -26,11 +26,12 @@ public class LocationMenuView {
     }
 
     private String menuLocation;
-
-    public LocationMenuView() {
-        this.menuLocation = "…………………………………………………………………………………"
-                + "\n  Location Menu"
-                + "\n…………………………………………………………………………………"
+    
+    public LocationMenuView(String toPlanet) {
+        this.menuLocation 
+                = "\n……………………………………………………………………………………………………………"
+                + "\n  Current Location: "+ toPlanet+" "
+                + "\n……………………………………………………………………………………………………………"
                 + "\nL : Explore location "
                 + "\nF : Fortify/Repair Excelsior "
                 + "\nA : Armor reinforcment"
@@ -58,6 +59,7 @@ public class LocationMenuView {
         }
         return value; // return entered value
     }
+    String fromPlanet = "";
 
     private boolean doAction(String locationOption) {
 
@@ -79,9 +81,9 @@ public class LocationMenuView {
             case "R":
                 this.recruitMembers();
                 break;
-            case "E":
-                this.exit();
-                break;
+                /*case "E":
+                this.exit(fromPlanet);
+                break;*/
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
@@ -140,9 +142,9 @@ public class LocationMenuView {
         System.out.println("*** recruitMembers function called ***");
     }
 
-    private void exit() {
-        //System.out.println("*** leadQuitGame function called ***");
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
-    }
+    /*private void exit() {
+    //System.out.println("*** leadQuitGame function called ***");
+    MainMenuView mainMenuView = new MainMenuView();
+    mainMenuView.displayMainMenuView();
+    }*/
 }

@@ -16,15 +16,14 @@ import java.util.Scanner;
 public class MainMenuView {
 
     //private String promptMessage;
-
     public void displayMainMenuView() {
         boolean done = false; //set flag to not done
         do {
             //prompt for and get players name
             String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q"))
+            if (menuOption.toUpperCase().equals("Q")) {
                 return; // exit the game
-            
+            }
             //do the requested action and display the next view
             done = this.doAction(menuOption);
         } while (!done);
@@ -39,7 +38,9 @@ public class MainMenuView {
                 + "\nG : Start new game "
                 + "\nL : Load saved game "
                 + "\nH : How to play"
-                + "\nQ : Quit game";
+                + "\nQ : Quit game"
+                + "\n"
+                + "\n1 : Calculate Planets Distance";
     }
 
     private String getMenuOption() {
@@ -79,18 +80,22 @@ public class MainMenuView {
             case "Q":
                 this.quitGame();
                 break;
+
+            case "1":
+                this.calculation();
+                break;
+
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
     }
-    
 
     private void startNewGame() {
         //create a new game
         GameControl.createNewGame(Andromeda.getPlayer());
-        
+
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayMenu();
@@ -108,5 +113,10 @@ public class MainMenuView {
 
     private void quitGame() {
         System.out.println("*** quitGame function called ***");
+    }
+
+    private void calculation() {
+        CalcDistanceView view = new CalcDistanceView();
+        view.displayCalcDistanceView();
     }
 }

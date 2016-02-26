@@ -15,22 +15,20 @@ import java.util.Scanner;
 public class GameMenuView {
 
     public void displayMenu() {
-        //System.out.println("\n*** displayMenu stub function called ***");
-        boolean done = false; //set flag to not done
+        boolean done = false;
         do {
-            //prompt for and get players name
             String menuOption = this.getMenuOption();
             if (menuOption.toUpperCase().equals("E")) {
-                return; // exit the game
+                return;
             }
-            //do the requested action and display the next view
             done = this.doAction(menuOption);
         } while (!done);
     }
     private String menu;
 
     public GameMenuView() {
-        this.menu = "…………………………………………………………………………………"
+        this.menu 
+                = "\n…………………………………………………………………………………"
                 + "\n  Game Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nM : Move to location "
@@ -84,6 +82,7 @@ public class GameMenuView {
             case "E":
                 this.exit();
                 break;
+                
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
@@ -92,10 +91,10 @@ public class GameMenuView {
     }
 
     private void moveToLocation() {
-        System.out.println("*** moveToLocation function called ***");
-        LocationMenuView locationMenu;
-        locationMenu = new LocationMenuView();
-        locationMenu.displayLocationMenu();
+        //System.out.println("*** moveToLocation function called ***");
+        MapView map;
+        map = new MapView();
+        map.displayMapView();
     }
 
     private void viewShipStatus() {
