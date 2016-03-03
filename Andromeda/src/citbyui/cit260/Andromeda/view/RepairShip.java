@@ -58,19 +58,19 @@ public class RepairShip extends View {
         return false;
     }
 
-    public void displayExitMenu() {
+    /*public void displayExitMenu() {
 
-        boolean done = false;
-        do {
-            String menuOption = this.getExitMenuOption();
-            if (menuOption.toUpperCase().equals("")) {
+       boolean done = false;
+       do {
+           String menuOption = this.getExitMenuOption();
+           if (menuOption.toUpperCase().equals("")) {
                 return;
             }
             done = this.doAction(menuOption);
-        } while (!done);
-    }
+       } while (!done);
+    }*/
 
-    private String getExitMenuOption() {
+    /*private String getExitMenuOption() {
         Scanner keyboard = new Scanner(System.in);
         String value = "";
         boolean isValid = true;
@@ -84,7 +84,7 @@ public class RepairShip extends View {
             break;
         }
         return value;
-    }
+    }*/
 
     private void checkStatus() {
         Excelsior excelsior = new Excelsior();

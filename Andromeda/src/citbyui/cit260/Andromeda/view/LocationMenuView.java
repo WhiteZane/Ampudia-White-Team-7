@@ -135,7 +135,10 @@ public class LocationMenuView {
     }
 
     private void createWeapons() {
-        System.out.println("*** createWeapons function called ***");
+        //System.out.println("*** createWeapons function called ***");
+        CreateWeapons buyWeapons;
+        buyWeapons = new CreateWeapons();
+        buyWeapons.display();
     }
     
     private void recruitMembers() {
