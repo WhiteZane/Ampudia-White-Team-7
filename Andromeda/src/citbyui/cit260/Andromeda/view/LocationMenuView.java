@@ -127,7 +127,7 @@ public class LocationMenuView {
         //System.out.println("*** repairFortify function called ***");
         RepairShip repairs;
         repairs = new RepairShip();
-        repairs.displayRepairMenu();
+        repairs.display();
     }
 
     private void armorReinforce() {

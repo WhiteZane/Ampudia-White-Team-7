@@ -11,23 +11,12 @@ import java.util.Scanner;
  *
  * @author oscar
  */
-public class PerseusVeilView {
+public class PerseusVeilView extends View{
 
-    public void displayPerseusVeilView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-    private String menu;
+
 
     public PerseusVeilView() {
-        this.menu
-                = "——————————————————————— [ Perseus Veil ] ———————————————————————"
+       super("——————————————————————— [ Perseus Veil ] ———————————————————————"
                 + "\n      O Uriyah                                         ! Unknown"
                 + "\n        [-2][6]                                           [?][?]"
                 + "\n                                                                "
@@ -45,27 +34,7 @@ public class PerseusVeilView {
                 + "\n                                                      [2][-4]   "
                 + "\n                                                                "
                 + "\n[Enter coordinates – Example: 4,4]"
-                + "\nE : Return to Galaxy Map";
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-
-        while (!valid) {
-            System.out.println(menu);
-
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n\t*** Error *** Value can not be blank.");
-                continue;
-            }
-            break;
-        }
-        return value;
+                + "\nE : Return to Galaxy Map");
     }
 
     String planet = "";
@@ -115,6 +84,6 @@ public class PerseusVeilView {
 
     private void exit() {
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 }

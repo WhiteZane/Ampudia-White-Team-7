@@ -12,9 +12,9 @@ import java.util.Scanner;
  *
  * @author oscar
  */
-public class GameMenuView {
+public class GameMenuView extends View {
 
-    public void displayMenu() {
+    /*public void displayMenu() {
         boolean done = false;
         do {
             String menuOption = this.getMenuOption();
@@ -23,12 +23,13 @@ public class GameMenuView {
             }
             done = this.doAction(menuOption);
         } while (!done);
-    }
-    private String menu;
+    }*/
+    //private String menu;
 
     public GameMenuView() {
-        this.menu 
-                = "\n…………………………………………………………………………………"
+         
+                
+                super( "\n…………………………………………………………………………………"
                 + "\n  Game Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nM : Move to location "
@@ -36,10 +37,10 @@ public class GameMenuView {
                 + "\nT : Talk to Crew Members"
                 + "\nC : Check Logbook"
                 + "\nS : Save Game"
-                + "\nE : Exit to Main Menu";
+                + "\nE : Exit to Main Menu");
     }
 
-    private String getMenuOption() {
+    /*private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get from keyboard
         String value = ""; //value returned
         boolean valid = false; //initalize not valid
@@ -57,7 +58,7 @@ public class GameMenuView {
             break; //end loop
         }
         return value; // return entered value
-    }
+    }*/
 
     public boolean doAction(String choice) {
         
@@ -94,14 +95,14 @@ public class GameMenuView {
         //System.out.println("*** moveToLocation function called ***");
         MapView map;
         map = new MapView();
-        map.displayMapView();
+        map.display();
     }
 
     private void viewShipStatus() {
         
         StarshipStatus status;
         status = new StarshipStatus();
-        status.displayStatus();
+        status.display();
     }
 
     private void talkToCrew() {
@@ -112,13 +113,13 @@ public class GameMenuView {
         // calls the log book view
         LogBookView logBook;
         logBook = new LogBookView();
-        logBook.displayLogBook();
+        logBook.display();
     }
     private void saveGame() {
         System.out.println("*** saveGame function called ***");
     }
     private void exit() {
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 }

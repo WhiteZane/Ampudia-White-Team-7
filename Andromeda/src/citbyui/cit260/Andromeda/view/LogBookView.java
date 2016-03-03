@@ -11,54 +11,20 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class LogBookView {
+public class LogBookView extends View{
     
-    public void displayLogBook() {
-
-        boolean done = false;
-        do {
-            String menuOption = this.getLogBookOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-    
-    private String menuLogBook;
-
     public LogBookView() {
-        this.menuLogBook = "…………………………………………………………………………………"
+        super("…………………………………………………………………………………"
                 + "\n\t  Logbook"
                 + "\n…………………………………………………………………………………"
                 + "\n\t Planets explored : "
                 + "\n\t Enemies encountered : "
                 + "\n\t Enemies defeated : "
                 + "\n\t Total credits acquired : "
-                + "\nE : Exit to Main Menu";
+                + "\nE : Exit to Main Menu");
     }
 
-    private String getLogBookOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean isValid = false;
-
-        while (!isValid) {
-            System.out.println(menuLogBook);
-
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n*** Error *** Value can not be blank.");
-                continue;
-            }
-            break; //end loop
-        }
-        return value; // return entered value
-    }
-
-    private boolean doAction(String helpOption) {
+    public boolean doAction(String helpOption) {
 
         helpOption = helpOption.toUpperCase();
 
@@ -107,6 +73,6 @@ public class LogBookView {
     private void exit() {
         //System.out.println("*** leadQuitGame function called ***");
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 }

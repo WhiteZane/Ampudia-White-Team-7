@@ -11,23 +11,10 @@ import java.util.Scanner;
  *
  * @author oscar
  */
-public class MapView {
-
-    public void displayMapView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-    private String menu;
+public class MapView extends View{
 
     public MapView() {
-        this.menu
-                = "\n————————————————————————— [ Galaxy ] ———————————————————————————"
+        super("\n————————————————————————— [ Galaxy ] ———————————————————————————"
                 + "\n                                                               "
                 + "\n  Local Cluster [LC]                                           "
                 + "\n                                                               "
@@ -40,27 +27,7 @@ public class MapView {
                 + "\n                                                               "
                 + "\n                                           Krogan System [KS]  "
                 + "\n"
-                + "\nE : Exit to Game Menu";
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-
-        while (!valid) {
-            System.out.println(menu);
-
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n\t*** Error *** Value can not be blank.");
-                continue;
-            }
-            break;
-        }
-        return value;
+                + "\nE : Exit to Game Menu");
     }
 
     public boolean doAction(String choice) {
@@ -104,7 +71,7 @@ public class MapView {
     private void PerseusVeil() {
         PerseusVeilView perseusVeil;
         perseusVeil = new PerseusVeilView();
-        perseusVeil.displayPerseusVeilView();
+        perseusVeil.display();
     }
 
 }

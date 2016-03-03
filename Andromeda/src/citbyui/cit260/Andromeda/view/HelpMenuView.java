@@ -11,54 +11,20 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class HelpMenuView {
-
-    public void displayHelpMenu() {
-
-        boolean done = false;
-        do {
-            String menuOption = this.getHelpMenuOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-
-    private String menuHelp;
+public class HelpMenuView extends View{
 
     public HelpMenuView() {
-        this.menuHelp = "…………………………………………………………………………………"
+       super("…………………………………………………………………………………"
                 + "\n  Help Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nG : What is your goal? "
                 + "\nS : Ship status explanation and upgrades "
                 + "\nR : Recruiting Crew Members"
                 + "\nA : About Enemies"
-                + "\nE : Exit to Main Menu";
+                + "\nE : Exit to Main Menu");
     }
 
-    private String getHelpMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean isValid = false;
-
-        while (!isValid) {
-            System.out.println(menuHelp);
-
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n*** Error *** Value can not be blank.");
-                continue;
-            }
-            break; //end loop
-        }
-        return value; // return entered value
-    }
-
-    private boolean doAction(String helpOption) {
+    public boolean doAction(String helpOption) {
 
         helpOption = helpOption.toUpperCase();
 
@@ -173,7 +139,7 @@ public class HelpMenuView {
     private void exit() {
         //System.out.println("*** leadQuitGame function called ***");
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 
 }

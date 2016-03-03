@@ -13,10 +13,10 @@ import java.util.Scanner;
  *
  * @author oscar
  */
-public class MainMenuView {
+public class MainMenuView extends View {
 
     //private String promptMessage;
-    public void displayMainMenuView() {
+    /*public void displayMainMenuView() {
         boolean done = false; //set flag to not done
         do {
             //prompt for and get players name
@@ -27,23 +27,23 @@ public class MainMenuView {
             //do the requested action and display the next view
             done = this.doAction(menuOption);
         } while (!done);
-    }
+    }*/
 
-    private String menu;
+    //private String menu;
 
     public MainMenuView() {
-        this.menu = "…………………………………………………………………………………"
+        super( "…………………………………………………………………………………"
                 + "\n  Main Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nG : Start new game "
                 + "\nL : Load saved game "
                 + "\nH : How to play"
-                + "\nQ : Quit game"
+                + "\nE : Exit game"
                 + "\n"
-                + "\n1 : Calculate Planets Distance";
+                + "\n1 : Calculate Planets Distance");
     }
 
-    private String getMenuOption() {
+    /*private String getMenuOption() {
         Scanner keyboard = new Scanner(System.in); // get from keyboard
         String value = ""; //value returned
         boolean valid = false; //initalize not valid
@@ -61,7 +61,7 @@ public class MainMenuView {
             break; //end loop
         }
         return value; // return entered value
-    }
+    }*/
 
     public boolean doAction(String choice) {
 
@@ -77,9 +77,9 @@ public class MainMenuView {
             case "H":
                 this.howToPlay();
                 break;
-            case "Q":
+                /*case "E":
                 this.quitGame();
-                break;
+                break;*/
 
             case "1":
                 this.calculation();
@@ -98,7 +98,7 @@ public class MainMenuView {
 
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayMenu();
+        gameMenu.display();
     }
 
     private void loadSavedGame() {
@@ -108,12 +108,12 @@ public class MainMenuView {
     private void howToPlay() {
         HelpMenuView helpMenu;
         helpMenu = new HelpMenuView();
-        helpMenu.displayHelpMenu();
+        helpMenu.display();
     }
 
-    private void quitGame() {
-        System.out.println("*** quitGame function called ***");
-    }
+    /*private void quitGame() {
+    System.out.println("*** quitGame function called ***");
+    }*/
 
     private void calculation() {
         CalcDistanceView view = new CalcDistanceView();

@@ -12,57 +12,28 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class RepairShip {
+public class RepairShip extends View {
 
     Excelsior excelsior = new Excelsior();
     int status = excelsior.getShipIntegrity();
 
-    public void displayRepairMenu() {
 
-        boolean done = false;
-        do {
-            String menuOption = this.getRepairOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-
-    private String menuRepair;
 
     public RepairShip() {
-        this.menuRepair
-                = "…………………………………………………………………………………"
+
+                super("…………………………………………………………………………………"
                 + "\n  Repair Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nC : Check ship Status"
                 + "\nO : Repair orders"
                 + "\nM : Make Repairs "
-                + "\nE : Return to Location Menu ";
+                + "\nE : Return to Location Menu ");
 
     }
 
-    private String getRepairOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean isValid = false;
+    
 
-        while (!isValid) {
-            System.out.println(menuRepair);
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n*** Error *** Value can not be blank.");
-                continue;
-            }
-            break; //end loop
-        }
-        return value; // return entered value
-    }
-
-    private boolean doAction(String repairOption) {
+    public boolean doAction(String repairOption) {
 
         repairOption = repairOption.toUpperCase();
 
@@ -180,7 +151,7 @@ public class RepairShip {
     private void exit() {
         //System.out.println("*** leadQuitGame function called ***");
         MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.displayMainMenuView();
+        mainMenuView.display();
     }
 
 }
