@@ -5,16 +5,15 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author oscar
  */
-public class MapView extends View{
+public class MapView extends View {
 
     public MapView() {
-        super("\n————————————————————————— [ Galaxy ] ———————————————————————————"
+        super(
+                "\n————————————————————————— [ Galaxy ] ———————————————————————————"
                 + "\n                                                               "
                 + "\n  Local Cluster [LC]                                           "
                 + "\n                                                               "
@@ -31,7 +30,7 @@ public class MapView extends View{
     }
 
     public boolean doAction(String choice) {
-
+        
         choice = choice.toUpperCase();
 
         switch (choice) {
@@ -44,15 +43,15 @@ public class MapView extends View{
                 break;
 
             case "CN":
-                System.out.println("\n\n\t*** In development… ***\n\n");
+                this.CrescentNebula();
                 break;
 
             case "NE":
-                System.out.println("\n\n\t*** In development… ***\n\n");
+                this.NubianExpanse();
                 break;
 
             case "KS":
-                System.out.println("\n\n\t*** In development… ***\n\n");
+                this.KroganSystem();
                 break;
 
             default:
@@ -65,7 +64,7 @@ public class MapView extends View{
     private void LocalCluster() {
         LocalClusterView localCluster;
         localCluster = new LocalClusterView();
-        localCluster.displayLocalClusterView();
+        localCluster.display();
     }
 
     private void PerseusVeil() {
@@ -74,4 +73,21 @@ public class MapView extends View{
         perseusVeil.display();
     }
 
+    private void CrescentNebula() {
+        CrescentNebulaView crescentNebula;
+        crescentNebula = new CrescentNebulaView();
+        crescentNebula.display();
+    }
+
+    private void NubianExpanse() {
+        NubianExpanseView nubianExpanse;
+        nubianExpanse = new NubianExpanseView();
+        nubianExpanse.display();
+    }
+
+    private void KroganSystem() {
+        KroganSystemView kroganSystem;
+        kroganSystem = new KroganSystemView();
+        kroganSystem.display();
+    }
 }

@@ -26,13 +26,10 @@ public class Andromeda {
      */
     private static Game currentGame = null;
     private static Player player = null;
+    //private static Planet[] planet = null;
 
     public static void main(String[] args) {
 
-        
-       
-        
-        // create StartProgramView and display
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.displayStartProgramView();
 

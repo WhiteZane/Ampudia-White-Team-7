@@ -10,9 +10,11 @@ package citbyui.cit260.Andromeda.view;
  * @author ghosty
  */
 public interface ViewInterface {
-    
+
     public void display();
+
     public String getInput();
+
     public boolean doAction(String value);
-    
+
 }

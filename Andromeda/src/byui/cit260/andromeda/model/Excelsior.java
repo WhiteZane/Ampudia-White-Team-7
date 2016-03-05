@@ -16,10 +16,10 @@ public class Excelsior implements Serializable{
     
     private String description;
     private int shipIntegrity = 90;
-    private int armor;
+    private int armor = 0;
     private int weapons;
-    private int crew;
-    private int credits;
+    private int crew = 10;
+    private int credits = 500;
 
     public Excelsior(String description, int shipIntegrity, int armor, int weapons, int crew, int credits) {
         this.description = description;

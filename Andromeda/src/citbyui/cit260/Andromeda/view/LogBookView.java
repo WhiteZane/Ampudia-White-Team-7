@@ -11,10 +11,11 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class LogBookView extends View{
-    
+public class LogBookView extends View {
+
     public LogBookView() {
-        super("…………………………………………………………………………………"
+        super(
+                "…………………………………………………………………………………"
                 + "\n\t  Logbook"
                 + "\n…………………………………………………………………………………"
                 + "\n\t Planets explored : "
@@ -29,7 +30,7 @@ public class LogBookView extends View{
         helpOption = helpOption.toUpperCase();
 
         switch (helpOption) {
-            
+
             case "E":
                 this.exit();
                 break;
@@ -67,8 +68,6 @@ public class LogBookView extends View{
         }
         return value;
     }
-
-    
 
     private void exit() {
         //System.out.println("*** leadQuitGame function called ***");

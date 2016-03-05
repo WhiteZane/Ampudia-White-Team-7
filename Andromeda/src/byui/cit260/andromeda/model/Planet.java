@@ -4,15 +4,20 @@
  * and open the template in the editor.
  */
 package byui.cit260.andromeda.model;
+
 import java.io.Serializable;
-import java.util.Objects;
+
 /**
  *
  * @author ghosty
  */
-public class Planet implements Serializable{
-    //class instance variables
-    
+public enum Planet implements Serializable {
+    Earth, Mars, Jupiter, Saturn, Uranus, Neptune,
+    Naxell, Thail, Beregale, Illium, Ponolus,
+    Gamayun, Alkonost, Bannik, Pragia, Zimitra,
+    Ruam, Tuchanka, Kruban, Durak, Kanin,
+    Uriyah, Rannoch, GethDebrisField, GethDreadnought, MigrantFleet, MassRelay;
+
     private String name;
     private String description;
     private String system;
@@ -20,11 +25,17 @@ public class Planet implements Serializable{
     private Boolean explored;
     private int x;
     private int y;
-
-    public Planet() {
+    private String enemy;
+    
+    Planet(){
+        this.name = null;
+        this.description = null;
+        this.system = null;
+        this.visited = false;
+        this.x = 0;
+        this.y = 0;
+        this.enemy = null;
     }
-    
-    
 
     public String getName() {
         return name;
@@ -81,58 +92,26 @@ public class Planet implements Serializable{
     public void setY(int y) {
         this.y = y;
     }
-    
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + Objects.hashCode(this.name);
-        hash = 37 * hash + Objects.hashCode(this.description);
-        hash = 37 * hash + Objects.hashCode(this.system);
-        hash = 37 * hash + Objects.hashCode(this.visited);
-        hash = 37 * hash + Objects.hashCode(this.explored);
-        return hash;
+
+    public String getEnemy() {
+        return enemy;
+    }
+
+    public void setEnemy(String enemy) {
+        this.enemy = enemy;
     }
 
     @Override
     public String toString() {
-        return "Planet{" + "name=" + name + ", description=" + description + ", system=" 
-                + system + ", visited=" + visited + ", explored=" + explored + ", x="+x+", y="+y+""+'}';
+        return "Planet"
+                + "\nName=" + name
+                + "\nDescription=" + description
+                + "\nSystem=" + system
+                + "\nVisited=" + visited
+                + "\nExplored=" + explored
+                + "\nx=" + x
+                + "\ny=" + y
+                + "";
     }
-    
-    
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Planet other = (Planet) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.system, other.system)) {
-            return false;
-        }
-        if (!Objects.equals(this.visited, other.visited)) {
-            return false;
-        }
-        if (!Objects.equals(this.explored, other.explored)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
-    
-    
 }

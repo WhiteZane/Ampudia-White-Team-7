@@ -9,29 +9,31 @@ package citbyui.cit260.Andromeda.view;
  *
  * @author oscar
  */
-public class PerseusVeilView extends View {
+public class NubianExpanseView extends View {
 
-    public PerseusVeilView() {
+    public NubianExpanseView() {
         super(
-                "——————————————————————— [ Perseus Veil ] ———————————————————————"
-                + "\n      O Uriyah                                         ! Unknown"
-                + "\n        [-2][6]                                           [?][?]"
+                "—————————————————————— [ Nubian Expanse ] ——————————————————————"
+                + "\n-O- Gamayun                                                     "
+                + "\n    [-25][36]                                                   "
                 + "\n                                                                "
-                + "\n     o Rannoch                                                  "
-                + "\n        [-2][2]                                                 "
                 + "\n                                                                "
-                + "\n                   ¨o*’.- Geth Debris Field                     "
+                + "\n                                                                "
+                + "\n    o Alkonost                                                  "
+                + "\n       [-21][5]                                                 "
+                + "\n                             º Bannik                           "
                 + "\n                                [0][0]                          "
-                + "\n                        . Geth Dreadnought                      "
-                + "\n                                [1][-1]                         "
+                + "\n                                             O Pragia           "
+                + "\n                                               [13][-13]        "
                 + "\n                                                                "
                 + "\n                                                                "
                 + "\n                                                                "
-                + "\n                                             . Migrant Fleet    "
-                + "\n                                                      [2][-4]   "
+                + "\n                                                 . Zimitra      "
+                + "\n                                                   [34][-48]    "
                 + "\n                                                                "
-                + "\n[Enter coordinates – Example: 4,4]"
-                + "\nE : Return to Galaxy Map");
+                + "\n[Enter coordinates – Example: 4,4]                              "
+                + "\n E : Return to Galaxy Map                                       ");
+
     }
 
     String toPlanet = "";
@@ -41,28 +43,28 @@ public class PerseusVeilView extends View {
         choice = choice.toUpperCase();
 
         switch (choice) {
-            case "-2,6":
-                toPlanet = "Uriyah";
+            case "-25,36":
+                toPlanet = "Gamayun";
                 this.moveToLocation();
                 break;
 
-            case "-2,2":
-                toPlanet = "Rannoch";
+            case "-21,5":
+                toPlanet = "Alkonost";
                 this.moveToLocation();
                 break;
 
             case "0,0":
-                toPlanet = "Geth Debris Field";
+                toPlanet = "Bannik";
                 this.moveToLocation();
                 break;
 
-            case "1,-1":
-                toPlanet = "Geth Dreadnought";
+            case "13,-13":
+                toPlanet = "Pragia";
                 this.moveToLocation();
                 break;
 
-            case "2,-4":
-                toPlanet = "Migrant Fleet";
+            case "34,-48":
+                toPlanet = "Zimitra";
                 this.moveToLocation();
                 break;
 
@@ -77,10 +79,5 @@ public class PerseusVeilView extends View {
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();
-    }
-
-    private void exit() {
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
     }
 }

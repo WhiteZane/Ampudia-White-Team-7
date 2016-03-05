@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class StartProgramView {
 
-    private String promptMessage;
+    //private String promptMessage;
 
     public StartProgramView() {
         displayBanner();

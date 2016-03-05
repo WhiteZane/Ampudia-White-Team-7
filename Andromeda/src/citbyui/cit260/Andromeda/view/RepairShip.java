@@ -6,7 +6,6 @@
 package citbyui.cit260.Andromeda.view;
 
 import byui.cit260.andromeda.model.Excelsior;
-import java.util.Scanner;
 
 /**
  *
@@ -17,21 +16,16 @@ public class RepairShip extends View {
     Excelsior excelsior = new Excelsior();
     int status = excelsior.getShipIntegrity();
 
-
-
     public RepairShip() {
-
-                super("…………………………………………………………………………………"
+        super(
+                "…………………………………………………………………………………"
                 + "\n  Repair Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nC : Check ship Status"
                 + "\nO : Repair orders"
                 + "\nM : Make Repairs "
                 + "\nE : Return to Location Menu ");
-
     }
-
-    
 
     public boolean doAction(String repairOption) {
 
@@ -48,43 +42,13 @@ public class RepairShip extends View {
             case "M":
                 this.makeRepairs();
                 break;
-            case "E":
-                this.exit();
-                break;
+
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
     }
-
-    /*public void displayExitMenu() {
-
-       boolean done = false;
-       do {
-           String menuOption = this.getExitMenuOption();
-           if (menuOption.toUpperCase().equals("")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-       } while (!done);
-    }*/
-
-    /*private String getExitMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean isValid = true;
-
-        while (isValid) {
-            System.out.println("\n[Hit enter to continue]");
-
-            value = keyboard.nextLine();
-            value = "";
-
-            break;
-        }
-        return value;
-    }*/
 
     private void checkStatus() {
         Excelsior excelsior = new Excelsior();
@@ -104,7 +68,6 @@ public class RepairShip extends View {
         } else if (status <= 50) {
             System.out.println("\t Excelsior has taken major damage");
         }
-
     }
 
     private void repairOrders() {
@@ -138,20 +101,12 @@ public class RepairShip extends View {
                     + "\n\t\tsevere hull damage      5 iriduim  5 hours"
                     + "\n\t\tDamage to weapons and engine 3 paladium 2 hours");
         }
-
     }
 
     private void makeRepairs() {
         System.out.println("To make repairs you need to calculate the repair Orders"
-                           + "\n To calculate repair orders use this formula: "
-                           + " Repairs = (Cost * time) "
-                           + "\nEnter Repair here: ");
+                + "\n To calculate repair orders use this formula: "
+                + " Repairs = (Cost * time) "
+                + "\nEnter Repair here: ");
     }
-
-    private void exit() {
-        //System.out.println("*** leadQuitGame function called ***");
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
-    }
-
 }

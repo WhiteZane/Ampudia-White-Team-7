@@ -6,6 +6,8 @@
 package byui.cit260.andromeda.control;
 
 import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
 
 /**
@@ -28,7 +30,10 @@ public class GameControl {
     }
 
     public static void createNewGame(Player player) {
-        //System.out.println("\n*** createNewGame stub function called ***");
+
+        //Planet[] planetList = MapControl.createPlanetList();
+        //System.out.print(planetList.toString());
     }
     
+
 }

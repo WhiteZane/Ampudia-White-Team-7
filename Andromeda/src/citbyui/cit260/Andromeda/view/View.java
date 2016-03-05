@@ -27,11 +27,11 @@ public abstract class View implements ViewInterface {
     public void display() {
         boolean done = false;
         do {
-            String menuOption = this.getInput();
-            if (menuOption.toUpperCase().equals("E")) {
+            String input = this.getInput();
+            if (input.toUpperCase().equals("E")) {
                 return;
             }
-            done = this.doAction(menuOption);
+            done = this.doAction(input);
         } while (!done);
     }
 
@@ -43,7 +43,7 @@ public abstract class View implements ViewInterface {
         boolean valid = false; //initalize not valid
 
         while (!valid) { //loop when invalid value is entered
-            System.out.println("\n"+this.displayMessage);
+            System.out.println("\n" + this.displayMessage);
 
             value = keyboard.nextLine(); // get next line typed
             value = value.trim();
@@ -58,10 +58,8 @@ public abstract class View implements ViewInterface {
     }
 
     @Override
-    public boolean doAction(String value){
+    public boolean doAction(String value) {
         value = value.toUpperCase();
-     return true;
+        return true;
     }
-    
-    
 }

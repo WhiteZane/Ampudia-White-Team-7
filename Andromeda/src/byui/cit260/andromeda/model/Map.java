@@ -12,35 +12,31 @@ import java.util.Objects;
  * @author ghosty
  */
 public class Map implements Serializable{
-    private String planetName;
+    private Map[] map;
 
-    public Map(String planetName) {
-        this.planetName = planetName;
+    public Map[] getMap() {
+        return map;
     }
+
+    public void setMap(Map[] map) {
+        this.map = map;
+    }
+
 
     public Map() {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-
-    public String getPlanetName() {
-        return planetName;
-    }
-
-    public void setPlanetName(String planetName) {
-        this.planetName = planetName;
-    }
-
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.planetName);
+        hash = 97 * hash + Objects.hashCode(this.map);
         return hash;
     }
 
     @Override
     public String toString() {
-        return "Map{" + "planetName=" + planetName + '}';
+        return "Map{" + "planetName=" + map + '}';
     }
 
     
@@ -56,7 +52,7 @@ public class Map implements Serializable{
             return false;
         }
         final Map other = (Map) obj;
-        if (!Objects.equals(this.planetName, other.planetName)) {
+        if (!Objects.equals(this.map, other.map)) {
             return false;
         }
         return true;

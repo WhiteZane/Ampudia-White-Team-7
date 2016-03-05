@@ -11,10 +11,11 @@ import java.util.Scanner;
  *
  * @author ghosty
  */
-public class HelpMenuView extends View{
+public class HelpMenuView extends View {
 
     public HelpMenuView() {
-       super("…………………………………………………………………………………"
+        super(
+                "…………………………………………………………………………………"
                 + "\n  Help Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nG : What is your goal? "
@@ -41,9 +42,7 @@ public class HelpMenuView extends View{
             case "A":
                 this.aboutEnemy();
                 break;
-            case "E":
-                this.exit();
-                break;
+
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
@@ -86,7 +85,7 @@ public class HelpMenuView extends View{
                 + "\nYour goal is to travel through uncharted planets, defeat enemies"
                 + "\nyou might encounter, and reach the Andromeda Galaxy."
                 + "\n"
-                + "\n*** More details can be added later ***");
+                + "\n*** More details can be added later ***\n");
 
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
@@ -101,7 +100,7 @@ public class HelpMenuView extends View{
                 + "\nand fortify, reinforce armor, add weapons by collecting Material"
                 + "\nResources (Iridium, Palladium, Platinum)."
                 + "\n"
-                + "\n*** More details can be added later ***");
+                + "\n*** More details can be added later ***\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }
@@ -115,7 +114,7 @@ public class HelpMenuView extends View{
                 + "\nshould go next and based on your ship status they can help to"
                 + "\ndecide whether to face or avoid enemies."
                 + "\n"
-                + "\n*** More details can be added later ***");
+                + "\n*** More details can be added later ***\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }
@@ -131,15 +130,8 @@ public class HelpMenuView extends View{
                 + "\nyour ship can be damaged. If the ship integrity reaches 0% the"
                 + "\ngame will be over. Be careful!"
                 + "\n"
-                + "\n*** More details can be added later ***");
+                + "\n*** More details can be added later ***\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }
-
-    private void exit() {
-        //System.out.println("*** leadQuitGame function called ***");
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
-    }
-
 }

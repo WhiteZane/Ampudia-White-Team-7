@@ -7,7 +7,6 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.control.GameControl;
-import java.util.Scanner;
 
 /**
  *
@@ -15,24 +14,9 @@ import java.util.Scanner;
  */
 public class MainMenuView extends View {
 
-    //private String promptMessage;
-    /*public void displayMainMenuView() {
-        boolean done = false; //set flag to not done
-        do {
-            //prompt for and get players name
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("Q")) {
-                return; // exit the game
-            }
-            //do the requested action and display the next view
-            done = this.doAction(menuOption);
-        } while (!done);
-    }*/
-
-    //private String menu;
-
     public MainMenuView() {
-        super( "…………………………………………………………………………………"
+        super(
+                "…………………………………………………………………………………"
                 + "\n  Main Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nG : Start new game "
@@ -42,26 +26,6 @@ public class MainMenuView extends View {
                 + "\n"
                 + "\n1 : Calculate Planets Distance");
     }
-
-    /*private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in); // get from keyboard
-        String value = ""; //value returned
-        boolean valid = false; //initalize not valid
-
-        while (!valid) { //loop when invalid value is entered
-            System.out.println(menu);
-
-            value = keyboard.nextLine(); // get next line typed
-            value = value.trim();
-
-            if (value.length() < 1) {//value is blank
-                System.out.println("\nInvalid value: value can not be blank");
-                continue;
-            }
-            break; //end loop
-        }
-        return value; // return entered value
-    }*/
 
     public boolean doAction(String choice) {
 
@@ -77,10 +41,6 @@ public class MainMenuView extends View {
             case "H":
                 this.howToPlay();
                 break;
-                /*case "E":
-                this.quitGame();
-                break;*/
-
             case "1":
                 this.calculation();
                 break;
@@ -110,10 +70,6 @@ public class MainMenuView extends View {
         helpMenu = new HelpMenuView();
         helpMenu.display();
     }
-
-    /*private void quitGame() {
-    System.out.println("*** quitGame function called ***");
-    }*/
 
     private void calculation() {
         CalcDistanceView view = new CalcDistanceView();

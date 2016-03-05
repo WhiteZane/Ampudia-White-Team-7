@@ -128,8 +128,4 @@ public class CalcDistanceView {
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
     }
-
-    /*    private void planetDistance() {
-    System.out.println("planetDistance()");
-    }*/
 }

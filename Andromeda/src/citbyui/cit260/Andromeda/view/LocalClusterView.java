@@ -5,29 +5,15 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author oscar
  */
-public class LocalClusterView {
-
-    public void displayLocalClusterView() {
-        boolean done = false;
-        do {
-            String menuOption = this.getMenuOption();
-            if (menuOption.toUpperCase().equals("E")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-    private String menu;
+public class LocalClusterView extends View {
 
     public LocalClusterView() {
-        this.menu
-                = "—————————————————————— [ Local Cluster ] ———————————————————————"
+        super(
+                "—————————————————————— [ Local Cluster ] ———————————————————————"
                 + "\n                                                                "
                 + "\n                                o Uranus   o Neptune            "
                 + "\n                                  [18][7]     [30][7]           "
@@ -41,33 +27,12 @@ public class LocalClusterView {
                 + "\n. Earth                                                         "
                 + "\n  [0][0]                                                        "
                 + "\n                                                                "
-                + "\n[Enter coordinates – Example: 4,4]"
-                + "\n E : Return to Galaxy Map";
-    }
-
-    private String getMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean valid = false;
-
-        while (!valid) {
-            System.out.println(menu);
-
-            value = keyboard.nextLine();
-            value = value.trim();
-
-            if (value.length() < 1) {
-                System.out.println("\n\t*** Error *** Value can not be blank.");
-                continue;
-            }
-            break;
-        }
-        return value;
+                + "\n[Enter coordinates – Example: 4,4]                              "
+                + "\n E : Return to Galaxy Map                                       ");
     }
 
     String toPlanet = "";
-    
-    
+
     public boolean doAction(String choice) {
 
         choice = choice.toUpperCase();
@@ -102,7 +67,7 @@ public class LocalClusterView {
                 toPlanet = "Neptune";
                 this.moveToLocation();
                 break;
-                
+
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
@@ -110,10 +75,9 @@ public class LocalClusterView {
         return false;
     }
 
-    private void moveToLocation() {        
+    private void moveToLocation() {
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
-        locationMenu.displayLocationMenu(toPlanet);
+        locationMenu.display();
     }
-    
 }
