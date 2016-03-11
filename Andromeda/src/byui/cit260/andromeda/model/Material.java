@@ -4,85 +4,42 @@
  * and open the template in the editor.
  */
 package byui.cit260.andromeda.model;
+
 import java.io.Serializable;
+
 /**
  *
  * @author ghosty
  */
-public class Material implements Serializable{
-    private int iridium;
-    private int palladium;
-    private int platinum;
+public enum Material implements Serializable {
 
-    public Material() {
+    iridium("rare metal", 5),
+    palladium("rare metal", 10),
+    platinum("rare metal", 5);
+
+    private final String description;
+    private final int amount;
+
+    Material(String description, int amount) {
+        this.description = description;
+        this.amount = amount;
     }
 
-    public int getIridium() {
-        return iridium;
+    public String getDescription() {
+        return description;
     }
 
-    public void setIridium(int iridium) {
-        this.iridium = iridium;
-    }
-
-    public int getPalladium() {
-        return palladium;
-    }
-
-    public void setPalladium(int palladium) {
-        this.palladium = palladium;
-    }
-
-    public int getPlatinum() {
-        return platinum;
-    }
-
-    public void setPlatinum(int platinum) {
-        this.platinum = platinum;
-    }
-    
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 37 * hash + this.iridium;
-        hash = 37 * hash + this.palladium;
-        hash = 37 * hash + this.platinum;
-        return hash;
+    public int getAmount() {
+        return amount;
     }
 
     @Override
     public String toString() {
         return "\nMaterialResources"
-                + "\nIridium: " + iridium
-                + "\nPalladium: " + palladium
-                + "\nPlatinum: " + platinum 
+                + "\nIridium: " + this.iridium.amount
+                + "\nPalladium: " + this.palladium.amount
+                + "\nPlatinum: " + this.platinum.amount
                 + "\n";
     }
-    
-   
 
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Material other = (Material) obj;
-        if (this.iridium != other.iridium) {
-            return false;
-        }
-        if (this.palladium != other.palladium) {
-            return false;
-        }
-        if (this.platinum != other.platinum) {
-            return false;
-        }
-        return true;
-    }
 }

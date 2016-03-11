@@ -35,6 +35,12 @@ public class GameControl {
 
     public static void createNewGame(Player player) {
 
+        Game game = new Game(); // create new game
+        Andromeda.setCurrentGame(game); // save in Andromeda
+        
+        game.setPlayer(player);
+        
+        
         //Planet[] planetList = MapControl.createPlanetList();
         //System.out.print(planetList.toString());
         
@@ -49,7 +55,7 @@ public class GameControl {
     }
 
     private static void MaterialsList() {
-        List<Material> materialsList = createMaterialsList();
-        //System.out.print(materialsList);
+        Material[] materialsList = createMaterialList();
+        System.out.print(materialsList);
     }
 }

@@ -15,17 +15,35 @@ import java.util.List;
  */
 public class MaterialControl {
 
-    public static List<Material> createMaterialsList() {
+    public static Material[] createMaterialList() {
+        Material[] materialList = new Material[3];
 
-        List<Material> material = new ArrayList<>();
+        Material iridium = new Material();
+        iridium.getAmount();
+        materialList[Material.iridium.ordinal()] = iridium;
 
-        Material shipMaterials = new Material();
-        shipMaterials.setIridium(5);
-        shipMaterials.setPalladium(10);
-        shipMaterials.setPlatinum(5);
+        Material palladium = new Material();
+        palladium.getAmount();
+        materialList[Material.palladium.ordinal()] = palladium;
 
-        material.add(shipMaterials);
+        Material platinum = new Material();
+        platinum.getAmount();
+        materialList[Material.platinum.ordinal()] = platinum;
 
-        return material;
+        return materialList;
     }
+
+    /*    public static List<Material> createMaterialsList() {
+    
+    List<Material> material = new ArrayList<>();
+    
+    Material shipMaterials = new Material();
+    shipMaterials.setIridium(5);
+    shipMaterials.setPalladium(10);
+    shipMaterials.setPlatinum(5);
+    
+    material.add(shipMaterials);
+    
+    return material;
+    }*/
 }
