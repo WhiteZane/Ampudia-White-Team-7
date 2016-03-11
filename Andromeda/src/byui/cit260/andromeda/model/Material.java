@@ -5,21 +5,18 @@
  */
 package byui.cit260.andromeda.model;
 import java.io.Serializable;
-import java.util.Objects;
 /**
  *
  * @author ghosty
  */
-public class MaterialResources implements Serializable{
+public class Material implements Serializable{
     private int iridium;
     private int palladium;
     private int platinum;
 
-    public MaterialResources() {
+    public Material() {
     }
 
-    
-    
     public int getIridium() {
         return iridium;
     }
@@ -56,7 +53,11 @@ public class MaterialResources implements Serializable{
 
     @Override
     public String toString() {
-        return "MaterialResources{" + "iridium=" + iridium + ", palladium=" + palladium + ", platinum=" + platinum + '}';
+        return "\nMaterialResources"
+                + "\nIridium: " + iridium
+                + "\nPalladium: " + palladium
+                + "\nPlatinum: " + platinum 
+                + "\n";
     }
     
    
@@ -72,7 +73,7 @@ public class MaterialResources implements Serializable{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final MaterialResources other = (MaterialResources) obj;
+        final Material other = (Material) obj;
         if (this.iridium != other.iridium) {
             return false;
         }
@@ -84,8 +85,4 @@ public class MaterialResources implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
 }

@@ -12,11 +12,30 @@ import java.util.Objects;
  *
  * @author oscar
  */
-public class Game implements Serializable{
+public class Game implements Serializable {
+
+    private Player player;
+    private Map map;
     private String totalTime;
-    
-    public Game(){
-    
+
+    public Game() {
+
+    }
+
+    public Player getPlayer() {
+        return player;
+    }
+
+    public void setPlayer(Player player) {
+        this.player = player;
+    }
+
+    public Map getMap() {
+        return map;
+    }
+
+    public void setMap(Map map) {
+        this.map = map;
     }
 
     public String getTotalTime() {
@@ -56,6 +75,5 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "totalTime=" + totalTime + '}';
     }
-    
-    
+
 }

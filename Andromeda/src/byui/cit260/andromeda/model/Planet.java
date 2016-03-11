@@ -11,12 +11,7 @@ import java.io.Serializable;
  *
  * @author ghosty
  */
-public enum Planet implements Serializable {
-    Earth, Mars, Jupiter, Saturn, Uranus, Neptune,
-    Naxell, Thail, Beregale, Illium, Ponolus,
-    Gamayun, Alkonost, Bannik, Pragia, Zimitra,
-    Ruam, Tuchanka, Kruban, Durak, Kanin,
-    Uriyah, Rannoch, GethDebrisField, GethDreadnought, MigrantFleet, MassRelay;
+public class Planet implements Serializable {
 
     private String name;
     private String description;
@@ -26,8 +21,9 @@ public enum Planet implements Serializable {
     private int x;
     private int y;
     private String enemy;
-    
-    Planet(){
+    private Material material;
+
+    public Planet() {
         this.name = null;
         this.description = null;
         this.system = null;
@@ -35,6 +31,7 @@ public enum Planet implements Serializable {
         this.x = 0;
         this.y = 0;
         this.enemy = null;
+        this.material = null;
     }
 
     public String getName() {
@@ -101,17 +98,25 @@ public enum Planet implements Serializable {
         this.enemy = enemy;
     }
 
+    public Material getMaterial() {
+        return material;
+    }
+
+    public void setMaterial(Material material) {
+        this.material = material;
+    }
+
     @Override
     public String toString() {
-        return "Planet"
-                + "\nName=" + name
-                + "\nDescription=" + description
-                + "\nSystem=" + system
-                + "\nVisited=" + visited
-                + "\nExplored=" + explored
-                + "\nx=" + x
-                + "\ny=" + y
-                + "";
+        return "\nName: " + name
+                + "\nDescription: " + description
+                + "\nSystem: " + system
+                + "\nVisited: " + visited
+                + "\nExplored: " + explored
+                + "\nx: " + x
+                + "\ny: " + y
+                + "\nMaterial: "+ material
+                + "\n";
     }
 
 }

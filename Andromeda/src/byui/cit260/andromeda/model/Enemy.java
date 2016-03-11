@@ -14,12 +14,28 @@ public class Enemy implements Serializable {
     
     private String name;
     private String description;
-
+    private double hitPoints;
+    private double attackPoints;
+    
     public Enemy() {
     }
-    
-    
 
+    public double getHitPoints() {
+        return hitPoints;
+    }
+
+    public void setHitPoints(double hitPoints) {
+        this.hitPoints = hitPoints;
+    }
+
+    public double getAttackPoints() {
+        return attackPoints;
+    }
+
+    public void setAttackPoints(double attackPoints) {
+        this.attackPoints = attackPoints;
+    }
+    
     public String getName() {
         return name;
     }

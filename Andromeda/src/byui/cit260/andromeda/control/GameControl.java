@@ -6,9 +6,13 @@
 package byui.cit260.andromeda.control;
 
 import andromeda.Andromeda;
+import static byui.cit260.andromeda.control.MapControl.createPlanetList;
+import static byui.cit260.andromeda.control.MaterialControl.createMaterialsList;
 import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
+import java.util.List;
 
 /**
  *
@@ -17,15 +21,15 @@ import byui.cit260.andromeda.model.Player;
 public class GameControl {
 
     public static Player createPlayer(String name) {
-        if (name == null){
+        if (name == null) {
             return null;
         }
-        
+
         Player player = new Player();
         player.setName(name);
-        
+
         Andromeda.setPlayer(player);
-        
+
         return player;
     }
 
@@ -33,7 +37,19 @@ public class GameControl {
 
         //Planet[] planetList = MapControl.createPlanetList();
         //System.out.print(planetList.toString());
+        
+        //Test to show Planets and Materials
+        //PlanetsList();
+        MaterialsList();
     }
-    
 
+    public static void PlanetsList() {
+        List<Planet> planetList = createPlanetList();
+        System.out.print(planetList);
+    }
+
+    private static void MaterialsList() {
+        List<Material> materialsList = createMaterialsList();
+        //System.out.print(materialsList);
+    }
 }

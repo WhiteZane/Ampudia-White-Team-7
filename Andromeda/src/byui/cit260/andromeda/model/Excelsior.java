@@ -15,23 +15,16 @@ import java.util.Objects;
 public class Excelsior implements Serializable{
     
     private String description;
-    private int shipIntegrity = 90;
-    private int armor = 0;
+    private int shipIntegrity;
+    private int armor;
     private int weapons;
-    private int crew = 10;
-    private int credits = 500;
-
-    public Excelsior(String description, int shipIntegrity, int armor, int weapons, int crew, int credits) {
-        this.description = description;
-        this.shipIntegrity = shipIntegrity;
-        this.armor = armor;
-        this.weapons = weapons;
-        this.crew = crew;
-        this.credits = credits;
-    }
-
+    private int crew;
+    private int credits;
+    Planet location;
+    Material materials;
+    
     public Excelsior() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
     }
 
     public String getDescription() {
@@ -80,6 +73,22 @@ public class Excelsior implements Serializable{
 
     public void setCredits(int credits) {
         this.credits = credits;
+    }
+
+    public Planet getLocation() {
+        return location;
+    }
+
+    public void setLocation(Planet location) {
+        this.location = location;
+    }
+
+    public Material getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(Material materials) {
+        this.materials = materials;
     }
 
     @Override
