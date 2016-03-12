@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ghosty
+ * @author Oscar
  */
 public class HelpMenuView extends View {
 

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author ghosty
+ * @author Oscar
  */
 public class CreateWeapons extends View{
     

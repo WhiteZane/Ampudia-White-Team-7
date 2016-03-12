@@ -17,7 +17,7 @@ import citbyui.cit260.Andromeda.view.StartProgramView;
 
 /**
  *
- * @author ghosty
+ * @author Oscar
  */
 public class Andromeda {
 

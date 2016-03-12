@@ -10,7 +10,7 @@ import java.util.Objects;
 
 /**
  *
- * @author ghosty
+ * @author Oscar
  */
 public enum Enemy implements Serializable {
 
