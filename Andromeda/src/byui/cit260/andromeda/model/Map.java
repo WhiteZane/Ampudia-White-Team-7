@@ -5,60 +5,58 @@
  */
 package byui.cit260.andromeda.model;
 
+import byui.cit260.andromeda.control.MapControl;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 /**
  *
  * @author ghosty
  */
 public class Map implements Serializable{
-    private Map[] map;
+    
+    private String system;
+    private List<Planet> planets;
+    private String coordinates;
 
-    public Map[] getMap() {
-        return map;
+    
+    public Map(){
+    }
+    
+    public String getSystem(String system) {
+        return system;
     }
 
-    public void setMap(Map[] map) {
-        this.map = map;
+    public void setSystem(String system) {
+        this.system = system;
     }
 
-
-    public Map() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public List<Planet> getPlanets() {
+        return planets;
     }
 
-    @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.map);
-        return hash;
+    public void setPlanets(List<Planet> planets) {
+        this.planets = planets;
     }
+
+    public String getCoordinates() {
+        return coordinates;
+    }
+
+    public void setCoordinates(String coordinates) {
+        this.coordinates = coordinates;
+    }
+
+    
 
     @Override
     public String toString() {
-        return "Map{" + "planetName=" + map + '}';
+        return    "\nMap"
+                + "\nSystem: " + system 
+                + "\nPlanets: " + planets
+                + "\nCoordinates: " + coordinates
+                + "\n";
     }
-
-    
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (!Objects.equals(this.map, other.map)) {
-            return false;
-        }
-        return true;
-    }
-    
-    
-    
     
 }

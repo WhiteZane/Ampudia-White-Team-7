@@ -24,7 +24,7 @@ public class MapView extends View {
                 + "\n                                                               "
                 + "\n        Nubian Expanse [NE]                                    "
                 + "\n                                                               "
-                + "\n                                           Krogan System [KS]  "
+                + "\n                                           Krogan DMZ [KD]  "
                 + "\n"
                 + "\nE : Exit to Game Menu");
     }
@@ -50,8 +50,8 @@ public class MapView extends View {
                 this.NubianExpanse();
                 break;
 
-            case "KS":
-                this.KroganSystem();
+            case "KD":
+                this.KroganDMZ();
                 break;
 
             default:
@@ -85,7 +85,7 @@ public class MapView extends View {
         nubianExpanse.display();
     }
 
-    private void KroganSystem() {
+    private void KroganDMZ() {
         KroganSystemView kroganSystem;
         kroganSystem = new KroganSystemView();
         kroganSystem.display();

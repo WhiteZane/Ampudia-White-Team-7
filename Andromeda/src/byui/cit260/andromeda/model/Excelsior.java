@@ -6,6 +6,7 @@
 package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -14,14 +15,14 @@ import java.util.Objects;
  */
 public class Excelsior implements Serializable{
     
-    private String description;
-    private int shipIntegrity;
-    private int armor;
-    private int weapons;
-    private int crew;
-    private int credits;
-    Planet location;
-    Material materials;
+    private String description = "This is a cool space ship!";
+    private int shipIntegrity = 100;
+    private int armor = 100;
+    List<Weapon> weapons;
+    private int crew = 10;
+    private int credits = 500;
+    Planet planet;
+    List<Material> materials;
     
     public Excelsior() {
         
@@ -51,13 +52,15 @@ public class Excelsior implements Serializable{
         this.armor = armor;
     }
 
-    public int getWeapons() {
+    public List<Weapon> getWeapons() {
         return weapons;
     }
 
-    public void setWeapons(int weapons) {
+    public void setWeapons(List<Weapon> weapons) {
         this.weapons = weapons;
     }
+
+    
 
     public int getCrew() {
         return crew;
@@ -75,21 +78,25 @@ public class Excelsior implements Serializable{
         this.credits = credits;
     }
 
-    public Planet getLocation() {
-        return location;
+    public Planet getPlanet() {
+        return planet;
     }
 
-    public void setLocation(Planet location) {
-        this.location = location;
+    public void setPlanet(Planet planet) {
+        this.planet = planet;
     }
 
-    public Material getMaterials() {
+    
+
+    public List<Material> getMaterials() {
         return materials;
     }
 
-    public void setMaterials(Material materials) {
+    public void setMaterials(List<Material> materials) {
         this.materials = materials;
     }
+
+    
 
     @Override
     public int hashCode() {
@@ -97,7 +104,6 @@ public class Excelsior implements Serializable{
         hash = 29 * hash + Objects.hashCode(this.description);
         hash = 29 * hash + this.shipIntegrity;
         hash = 29 * hash + this.armor;
-        hash = 29 * hash + this.weapons;
         hash = 29 * hash + this.crew;
         hash = 29 * hash + this.credits;
         return hash;
@@ -138,7 +144,16 @@ public class Excelsior implements Serializable{
 
     @Override
     public String toString() {
-        return "Excelsior{" + "description=" + description + ", shipIntegrity=" + shipIntegrity + ", armor=" + armor + ", weapons=" + weapons + ", crew=" + crew + ", credits=" + credits + '}';
+        return "\nExcelsior"
+                + "\nDescription:\t" + description
+                + "\nShipIntegrity:\t" + shipIntegrity
+                + "\nArmor:\t\t" + armor
+                + "\nWeapons:\t" + weapons
+                + "\nCrew:\t\t" + crew 
+                + "\nCredits:\t" + credits 
+                + "\n\nMaterials\n" + materials
+                + "\n\nCurrent Planet" + planet
+                + "\n";
     }
     
 }

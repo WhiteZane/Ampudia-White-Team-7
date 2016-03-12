@@ -76,4 +76,8 @@ public class Game implements Serializable {
         return "Game{" + "totalTime=" + totalTime + '}';
     }
 
+    public void setMaterial(Material[] materialList) {
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

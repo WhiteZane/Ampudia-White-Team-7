@@ -26,6 +26,8 @@ public class Andromeda {
      */
     private static Game currentGame = null;
     private static Player player = null;
+    private static Excelsior ship = null;
+    private static Map map = null;
     private static Planet planet = null;
     private static Material material = null;
 
@@ -42,7 +44,6 @@ playerOne.setName("Fred");
 
 String playerInfo = playerOne.toString();
 System.out.println(playerInfo);*/
-
 //Excelsior
 /* Excelsior excelsior = new Excelsior();
 
@@ -55,7 +56,7 @@ excelsior.setCredits(57000);
 
 int status;
 status = excelsior.getShipIntegrity();
-*/
+         */
 //String spaceshipInfo = excelsior.toString();
 //System.out.println(status);
 /*
@@ -124,7 +125,7 @@ String PlanetOne = planetOne.toString();
 System.out.println(PlanetOne);
 
 
-*/
+         */
 //</editor-fold>
     }
 
@@ -142,6 +143,22 @@ System.out.println(PlanetOne);
 
     public static void setPlayer(Player player) {
         Andromeda.player = player;
+    }
+
+    public static Excelsior getShip() {
+        return ship;
+    }
+
+    public static void setShip(Excelsior ship) {
+        Andromeda.ship = ship;
+    }
+
+    public static Map getMap() {
+        return map;
+    }
+
+    public static void setMap(Map map) {
+        Andromeda.map = map;
     }
 
     public static Planet getPlanet() {

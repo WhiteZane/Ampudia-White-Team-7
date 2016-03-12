@@ -15,23 +15,23 @@ import java.util.List;
  */
 public class MaterialControl {
 
-    public static Material[] createMaterialList() {
-        Material[] materialList = new Material[3];
-
-        Material iridium = new Material();
-        iridium.getAmount();
-        materialList[Material.iridium.ordinal()] = iridium;
-
-        Material palladium = new Material();
-        palladium.getAmount();
-        materialList[Material.palladium.ordinal()] = palladium;
-
-        Material platinum = new Material();
-        platinum.getAmount();
-        materialList[Material.platinum.ordinal()] = platinum;
-
-        return materialList;
-    }
+    /*public static List<Material> createMaterialList() {
+    List<Material> material = new ArrayList<>();
+    
+    Material iridium = new Material();
+    iridium.getAmount();
+    material.add(iridium);
+    
+    Material palladium = new Material();
+    palladium.getAmount();
+    material.add(palladium);
+    
+    Material platinum = new Material();
+    platinum.getAmount();
+    material.add(platinum);
+    
+    return material;
+    }*/
 
     /*    public static List<Material> createMaterialsList() {
     
