@@ -18,6 +18,9 @@ public class Weapon implements Serializable{
     private int quantity;
 
     public Weapon() {
+        this.name = name;
+        this.attackpoints = attackpoints;
+        this.quantity = quantity;
     }
 
     public String getName() {
@@ -44,6 +47,13 @@ public class Weapon implements Serializable{
         this.quantity = quantity;
     }
     
+    @Override
+    public String toString() {
+        return "\nWeapon" + name
+                + "\nAttack points: \t" + attackpoints
+                + "\nQuantity:\t" + quantity
+                + "\n";
+    }
     
     
 }
