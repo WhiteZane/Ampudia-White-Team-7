@@ -5,10 +5,45 @@
  */
 package byui.cit260.andromeda.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author oscar
  */
-class Weapon {
+public class Weapon implements Serializable{
+    
+    private String name;
+    private double attackpoints;
+    private int quantity;
+
+    public Weapon() {
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public double getAttackpoints() {
+        return attackpoints;
+    }
+
+    public void setAttackpoints(double attackpoints) {
+        this.attackpoints = attackpoints;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+    
+    
     
 }

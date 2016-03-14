@@ -11,6 +11,7 @@ import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Logbook;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Material;
+import byui.cit260.andromeda.model.Weapon;
 import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
 import citbyui.cit260.Andromeda.view.StartProgramView;
@@ -30,6 +31,7 @@ public class Andromeda {
     private static Map map = null;
     private static Planet planet = null;
     private static Material material = null;
+    private static Weapon weapons = null;
 
     public static void main(String[] args) {
 
@@ -175,6 +177,14 @@ System.out.println(PlanetOne);
 
     public static void setMaterial(Material material) {
         Andromeda.material = material;
+    }
+    
+    public static Weapon getWeapon() {
+        return weapons;
+    }
+
+    public static void setWeapon(Weapon weapon) {
+        Andromeda.weapons = weapon;
     }
 
 }
