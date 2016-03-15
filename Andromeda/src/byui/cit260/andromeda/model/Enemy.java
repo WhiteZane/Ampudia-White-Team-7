@@ -6,47 +6,65 @@
 package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
-import java.util.Objects;
 
 /**
  *
  * @author Oscar
  */
-public enum Enemy implements Serializable {
+public class Enemy implements Serializable {
 
-    Enemy1("description 1."),
-    Enemy2("description 2."),
-    Enemy3("description 3."),
-    Enemy4("description 4."),
-    Enemy5("description 5.");
+    private String name;
+    private String description;
+    private double HP;
+    private double atck;
 
-    private final String description;
-
-    private final double hitPoints;
-    private final double attackPoints;
-
-    Enemy(String description) {
-
+    public Enemy() {
+        this.name = name;
         this.description = description;
-        this.hitPoints = 15;
-        this.attackPoints = 5; 
+        this.HP = HP;
+        this.atck = atck;
     }
 
-    public double getHitPoints() {
-        return hitPoints;
-    }
-
-    public double getAttackPoints() {
-        return attackPoints;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
         return description;
     }
 
+    public double getHP() {
+        return HP;
+    }
+
+    public double getAtck() {
+        return atck;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setHP(double HP) {
+        this.HP = HP;
+    }
+
+    public void setAtck(double atck) {
+        this.atck = atck;
+    }
+
     @Override
     public String toString() {
-        return "Enemy{" + "name=" + ", description=" + description + '}';
+        return ""
+                + "\nName: \t\t" + name 
+                + "\nDescription: \t" + description
+                + "\nHP: \t\t" + HP 
+                + "\nAttack: \t" + atck 
+                + "\n";
     }
 
 }

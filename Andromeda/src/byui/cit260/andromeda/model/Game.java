@@ -6,6 +6,7 @@
 package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -15,7 +16,7 @@ import java.util.Objects;
 public class Game implements Serializable {
 
     private Player player;
-    private Map map;
+    private List<Map> map;
     private String totalTime;
 
     public Game() {
@@ -30,11 +31,11 @@ public class Game implements Serializable {
         this.player = player;
     }
 
-    public Map getMap() {
+    public List<Map> getMap() {
         return map;
     }
 
-    public void setMap(Map map) {
+    public void setMap(List<Map> map) {
         this.map = map;
     }
 
@@ -73,7 +74,13 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "totalTime=" + totalTime + '}';
+        return "\nGame"
+                + "\nPlayer"
+                + "\n" + player
+                + "\n\nMap"
+                + "\n" + map
+                + "\n\nTotalTime:\t" + totalTime
+                + "\n";
     }
 
     public void setMaterial(Material[] materialList) {

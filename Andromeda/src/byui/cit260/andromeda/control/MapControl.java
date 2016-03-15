@@ -5,6 +5,8 @@
  */
 package byui.cit260.andromeda.control;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
@@ -24,7 +26,6 @@ public class MapControl {
         LocalCluster.setSystem("Local Cluster");
         LocalCluster.setPlanets(createPlanetList("Local Cluster"));
         LocalCluster.setCoordinates("LC");
-
         system.add(LocalCluster);
 
         Map CrescentNebula = new Map();
@@ -55,7 +56,7 @@ public class MapControl {
     }
 
     public static List<Planet> createPlanetList(String system) {
-            List<Planet> planetList = new ArrayList<>();
+        List<Planet> planetList = new ArrayList<>();
 
         if (system == "Local Cluster") {
             // Local Cluster
@@ -68,7 +69,7 @@ public class MapControl {
             Earth.setExplored(Boolean.FALSE);
             Earth.setX(0);
             Earth.setY(0);
-            Earth.setEnemy("");
+            Earth.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Earth);
 
             Planet Mars = new Planet();
@@ -79,7 +80,7 @@ public class MapControl {
             Mars.setExplored(Boolean.FALSE);
             Mars.setX(1);
             Mars.setY(1);
-            Mars.setEnemy("Humans");
+            Mars.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Mars);
 
             Planet Jupiter = new Planet();
@@ -90,7 +91,7 @@ public class MapControl {
             Jupiter.setExplored(Boolean.FALSE);
             Jupiter.setX(4);
             Jupiter.setY(4);
-            Jupiter.setEnemy("");
+            Jupiter.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Jupiter);
 
             Planet Saturn = new Planet();
@@ -101,7 +102,7 @@ public class MapControl {
             Saturn.setExplored(Boolean.FALSE);
             Saturn.setX(8);
             Saturn.setY(5);
-            Saturn.setEnemy("");
+            Saturn.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Saturn);
 
             Planet Uranus = new Planet();
@@ -112,7 +113,7 @@ public class MapControl {
             Uranus.setExplored(Boolean.FALSE);
             Uranus.setX(18);
             Uranus.setY(7);
-            Uranus.setEnemy("");
+            Uranus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Uranus);
 
             Planet Neptune = new Planet();
@@ -123,7 +124,7 @@ public class MapControl {
             Neptune.setExplored(Boolean.FALSE);
             Neptune.setX(30);
             Neptune.setY(7);
-            Neptune.setEnemy("");
+            Neptune.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Neptune);
 //</editor-fold>
         }
@@ -147,7 +148,7 @@ public class MapControl {
             Naxell.setExplored(Boolean.FALSE);
             Naxell.setX(-120);
             Naxell.setY(-280);
-            Naxell.setEnemy("");
+            Naxell.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Naxell);
 
             Planet Thail = new Planet();
@@ -161,7 +162,7 @@ public class MapControl {
             Thail.setExplored(Boolean.FALSE);
             Thail.setX(-88);
             Thail.setY(-38);
-            Thail.setEnemy("");
+            Thail.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Thail);
 
             Planet Beregale = new Planet();
@@ -186,7 +187,7 @@ public class MapControl {
             Beregale.setExplored(Boolean.FALSE);
             Beregale.setX(0);
             Beregale.setY(0);
-            Beregale.setEnemy("");
+            Beregale.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Beregale);
 
             Planet Illium = new Planet();
@@ -212,7 +213,7 @@ public class MapControl {
             Illium.setExplored(Boolean.FALSE);
             Illium.setX(11);
             Illium.setY(4);
-            Illium.setEnemy("Asari");
+            Illium.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Illium);
 
             Planet Ponolus = new Planet();
@@ -233,7 +234,7 @@ public class MapControl {
             Ponolus.setExplored(Boolean.FALSE);
             Ponolus.setX(46);
             Ponolus.setY(25);
-            Ponolus.setEnemy("Pirates");
+            Ponolus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Ponolus);
 //</editor-fold>
         }
@@ -254,7 +255,7 @@ public class MapControl {
             Gamayun.setExplored(Boolean.FALSE);
             Gamayun.setX(-25);
             Gamayun.setY(36);
-            Gamayun.setEnemy("");
+            Gamayun.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Gamayun);
 
             Planet Alkonost = new Planet();
@@ -268,7 +269,7 @@ public class MapControl {
             Alkonost.setExplored(Boolean.FALSE);
             Alkonost.setX(-21);
             Alkonost.setY(5);
-            Alkonost.setEnemy("");
+            Alkonost.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Alkonost);
 
             Planet Bannik = new Planet();
@@ -286,7 +287,7 @@ public class MapControl {
             Bannik.setExplored(Boolean.FALSE);
             Bannik.setX(0);
             Bannik.setY(0);
-            Bannik.setEnemy("");
+            Bannik.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Bannik);
 
             Planet Pragia = new Planet();
@@ -305,7 +306,7 @@ public class MapControl {
             Pragia.setExplored(Boolean.FALSE);
             Pragia.setX(13);
             Pragia.setY(-13);
-            Pragia.setEnemy("Mercenaries");
+            Pragia.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Pragia);
 
             Planet Zimitra = new Planet();
@@ -319,7 +320,7 @@ public class MapControl {
             Zimitra.setExplored(Boolean.FALSE);
             Zimitra.setX(34);
             Zimitra.setY(-48);
-            Zimitra.setEnemy("Pirates");
+            Zimitra.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Zimitra);
 //</editor-fold>
         }
@@ -341,7 +342,7 @@ public class MapControl {
             Ruam.setExplored(Boolean.FALSE);
             Ruam.setX(32);
             Ruam.setY(66);
-            Ruam.setEnemy("");
+            Ruam.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Ruam);
 
             Planet Tuchanka = new Planet();
@@ -376,7 +377,7 @@ public class MapControl {
             Tuchanka.setExplored(Boolean.FALSE);
             Tuchanka.setX(33);
             Tuchanka.setY(60);
-            Tuchanka.setEnemy("Krogan");
+            Tuchanka.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Tuchanka);
 
             Planet Kruban = new Planet();
@@ -407,7 +408,7 @@ public class MapControl {
             Kruban.setExplored(Boolean.FALSE);
             Kruban.setX(5);
             Kruban.setY(6);
-            Kruban.setEnemy("Krogan");
+            Kruban.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Kruban);
 
             Planet Durak = new Planet();
@@ -435,7 +436,7 @@ public class MapControl {
             Durak.setExplored(Boolean.FALSE);
             Durak.setX(0);
             Durak.setY(0);
-            Durak.setEnemy("Krogan");
+            Durak.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Durak);
 
             Planet Kanin = new Planet();
@@ -451,7 +452,7 @@ public class MapControl {
             Kanin.setExplored(Boolean.FALSE);
             Kanin.setX(-2);
             Kanin.setY(-1);
-            Kanin.setEnemy("");
+            Kanin.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Kanin);
 //</editor-fold>
         }
@@ -469,12 +470,12 @@ public class MapControl {
                     + "\nquarian space stations, even though the mined-out asteroids "
                     + "\nhave little obvious use. The current theory is that they provide "
                     + "\na staging base to exploit other asteroids in the belt. ");
-            Uriyah.setSystem("Perseus Veil");
+            Uriyah.setSystem(system);
             Uriyah.setVisited(Boolean.FALSE);
             Uriyah.setExplored(Boolean.FALSE);
             Uriyah.setX(-2);
             Uriyah.setY(6);
-            Uriyah.setEnemy("Geth");
+            Uriyah.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Uriyah);
 
             Planet Rannoch = new Planet();
@@ -494,12 +495,12 @@ public class MapControl {
                     + "\nThousands of geth space stations watch over the planet. "
                     + "\nSomewhere in this artificial swarm of constructions lurks the "
                     + "\ngeth armada, waiting for its moment to counterattack. ");
-            Rannoch.setSystem("Perseus Veil");
+            Rannoch.setSystem(system);
             Rannoch.setVisited(Boolean.FALSE);
             Rannoch.setExplored(Boolean.FALSE);
             Rannoch.setX(-2);
             Rannoch.setY(2);
-            Rannoch.setEnemy("Geth");
+            Rannoch.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(Rannoch);
 
             Planet GethDebrisField = new Planet();
@@ -517,12 +518,12 @@ public class MapControl {
                     + "\nnumber of solar sails have also been destroyed. It appears "
                     + "\nthe quarians began to destroy them but were stopped before "
                     + "\nthe attack was complete. ");
-            GethDebrisField.setSystem("Perseus Veil");
+            GethDebrisField.setSystem(system);
             GethDebrisField.setVisited(Boolean.FALSE);
             GethDebrisField.setExplored(Boolean.FALSE);
             GethDebrisField.setX(0);
             GethDebrisField.setY(0);
-            GethDebrisField.setEnemy("Geth");
+            GethDebrisField.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(GethDebrisField);
 
             Planet GethDreadnought = new Planet();
@@ -535,12 +536,12 @@ public class MapControl {
                     + "\nthe creation of their flagship, they were limited only by time "
                     + "\nand raw materials. The damage inflicted by the quarian fleet "
                     + "\nappears minor at best. ");
-            GethDreadnought.setSystem("Perseus Veil");
+            GethDreadnought.setSystem(system);
             GethDreadnought.setVisited(Boolean.FALSE);
             GethDreadnought.setExplored(Boolean.FALSE);
             GethDreadnought.setX(1);
             GethDreadnought.setY(-1);
-            GethDreadnought.setEnemy("Geth");
+            GethDreadnought.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(GethDreadnought);
 
             Planet MigrantFleet = new Planet();
@@ -561,12 +562,12 @@ public class MapControl {
                     + "\non an individual basis to pursue their own goals, on missions "
                     + "\nthat can last days or years, but usually return. As Tali'Zorah "
                     + "\nnar Rayya describes her culture: \"Home is a state of mind.\" ");
-            MigrantFleet.setSystem("Perseus Veil");
+            MigrantFleet.setSystem(system);
             MigrantFleet.setVisited(Boolean.FALSE);
             MigrantFleet.setExplored(Boolean.FALSE);
             MigrantFleet.setX(2);
             MigrantFleet.setY(-4);
-            MigrantFleet.setEnemy("");
+            MigrantFleet.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(MigrantFleet);
 
             Planet MassRelay = new Planet();
@@ -579,12 +580,12 @@ public class MapControl {
                     + "\nrelay can transport starships instantaneously to another relay "
                     + "\nwithin the network, allowing for journeys that would otherwise "
                     + "\ntake years or even centuries with only FTL drives. ");
-            MassRelay.setSystem("Perseus Veil");
+            MassRelay.setSystem(system);
             MassRelay.setVisited(Boolean.FALSE);
             MassRelay.setExplored(Boolean.FALSE);
             MassRelay.setX(66);
             MassRelay.setY(66);
-            MassRelay.setEnemy("");
+            MassRelay.setEnemy(EnemyControl.createEnemy(9).toString());
             //MassRelay.setResources(showMaterialsList());
             planetList.add(MassRelay);
 //</editor-fold>
@@ -594,6 +595,7 @@ public class MapControl {
     }
 
     String planets[][] = {
+        //<editor-fold defaultstate="collapsed" desc="comment">
         //Local Cluster
         {"Earth", "0", "0"},
         {"Mars", "1", "1"},
@@ -627,6 +629,7 @@ public class MapControl {
         {"Migrant Fleet", "2", "-4"},
         {"Mass Relay", "66", "66"}
     };
+//</editor-fold>
 
     public double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) {
 
@@ -705,4 +708,19 @@ public class MapControl {
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
         return distance;
     }
+
+    public static void showAllPlanets() {
+        Game game = Andromeda.getCurrentGame();
+        List<Map> map = game.getMap();
+
+        for (int i = 0; i <= map.size() - 1; i++) {
+            List<Planet> planetList = map.get(i).getPlanets();
+            //The use of the for-each style loop
+            for (Planet planetName : planetList) {
+                System.out.println(planetName.getName() + " - " + map.get(i).getSystem());
+            }
+        }
+
+    }
+
 }

@@ -46,26 +46,33 @@ public class GameControl {
         Excelsior ship = new Excelsior();
         ship.setMaterials(GameControl.createMaterialList());
         ship.setWeapons(GameControl.createWeaponsList());
-        Map gameMap = new Map();
-        Andromeda.setMap(gameMap);
 
+        //Map gameMap = new Map();
+        //Andromeda.setMap(gameMap);
         Material materials = new Material();
         Andromeda.setMaterial(materials);
+
         Weapon weapons = new Weapon();
         Andromeda.setWeapon(weapons);
 
         List<Map> map = MapControl.createMap();
+        game.setMap(map);
+
         List<Planet> planet = MapControl.createPlanetList("Local Cluster");
         
-
+        //Search a list for a value 
+        for (int i=0; i<=planet.size()-1; i++){
+            if(planet.get(i).getName()=="Earth"){
+                System.out.println("\nYou are on Earth");
+            }
+        }
         ship.setPlanet(planet.get(0));
 
-        System.out.print(ship);
+        System.out.print("\n\nObjects Initialized...\n\n\n" + ship);
 
-        //Test if map objects are created
-        //System.out.print(gameMap.toString());
+        //System.out.print(map.toString());
         Andromeda.setCurrentGame(game);
-
+        //System.out.println(game);
     }
 
     private static List<Material> createMaterialList() {
@@ -79,32 +86,28 @@ public class GameControl {
 
         return material;
     }
-    
+
     private static List<Weapon> createWeaponsList() {
         List<Weapon> weaponList = new ArrayList<>();
 
-        Weapon phaserBank= new Weapon();
-        
-        
+        Weapon phaserBank = new Weapon();
+
         phaserBank.setName("Phaser Bank");
         phaserBank.setAttackpoints(5);
         phaserBank.setQuantity(1);
         weaponList.add(phaserBank);
-        
-        Weapon improvedPhaserBank= new Weapon();
-        
+
+        Weapon improvedPhaserBank = new Weapon();
+
         improvedPhaserBank.setName("Improved phaser Bank");
         improvedPhaserBank.setAttackpoints(7);
         improvedPhaserBank.setQuantity(0);
-        
-        Weapon phaserArray= new Weapon();
-        
+
+        Weapon phaserArray = new Weapon();
+
         phaserArray.setName("Phaser Array");
         phaserArray.setAttackpoints(9);
         phaserArray.setQuantity(0);
-        
-        
-        
 
         return weaponList;
     }

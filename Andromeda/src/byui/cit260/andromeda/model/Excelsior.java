@@ -15,7 +15,14 @@ import java.util.Objects;
  */
 public class Excelsior implements Serializable{
     
-    private String description = "This is a cool space ship!";
+    private final String description = 
+            "\nThe Excelsior was a Systems Alliance starship. She is a prototype "
+            + "\n\"deep scout\" frigate, first of the eponymous Normandy class, "
+            + "\nco-developed by the Alliance and the Turian Hierarchy with the "
+            + "\nsponsorship of the Citadel Council. She is optimized for solo "
+            + "\nreconnaissance missions deep within unstable regions, using "
+            + "\nstate-of-the-art stealth technology powered by an experimental "
+            + "\ndrive core. ";
     private int shipIntegrity = 100;
     private int armor = 100;
     List<Weapon> weapons;
@@ -30,10 +37,6 @@ public class Excelsior implements Serializable{
 
     public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public int getShipIntegrity() {

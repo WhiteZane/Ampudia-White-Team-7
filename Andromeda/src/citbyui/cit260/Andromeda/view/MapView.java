@@ -5,6 +5,8 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import byui.cit260.andromeda.control.MapControl;
+
 /**
  *
  * @author oscar
@@ -26,11 +28,12 @@ public class MapView extends View {
                 + "\n                                                               "
                 + "\n                                           Krogan DMZ [KD]  "
                 + "\n"
+                + "\nV : View All Planets (List)"
                 + "\nE : Exit to Game Menu");
     }
 
     public boolean doAction(String choice) {
-        
+
         choice = choice.toUpperCase();
 
         switch (choice) {
@@ -52,6 +55,13 @@ public class MapView extends View {
 
             case "KD":
                 this.KroganDMZ();
+                break;
+
+            //Modify one of the Menu View classes in the View Layer to call 
+            //and display the results of the function/s by selecting an option 
+            //on the appropriate menu.
+            case "V":
+                MapControl.showAllPlanets();
                 break;
 
             default:

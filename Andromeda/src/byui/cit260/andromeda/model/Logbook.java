@@ -20,7 +20,7 @@ public class Logbook implements Serializable{
     public Logbook(){
         
     }
-    
+
     public int getExplored() {
         return explored;
     }
@@ -47,10 +47,10 @@ public class Logbook implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 89 * hash + this.explored;
-        hash = 89 * hash + this.encounter;
-        hash = 89 * hash + this.credits;
+        int hash = 7;
+        hash = 41 * hash + this.explored;
+        hash = 41 * hash + this.encounter;
+        hash = 41 * hash + this.credits;
         return hash;
     }
 

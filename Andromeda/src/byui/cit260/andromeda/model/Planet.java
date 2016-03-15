@@ -109,13 +109,16 @@ public class Planet implements Serializable {
     @Override
     public String toString() {
         return "\nName:\t\t" + name
-                + "\nDescription:\t" + description
+                + "\nDescription:"
+                + "\n" + description
                 + "\nSystem:\t\t" + system
                 + "\nVisited:\t" + visited
                 + "\nExplored:\t" + explored
                 + "\nCoordinates:\t" + x + "," + y
                 //+ "\nMaterial:\t"+ material
-                + "\n";
+                + "\n"
+                + "\nEnemies on location "
+                + "\n" + enemy;
     }
 
 }
