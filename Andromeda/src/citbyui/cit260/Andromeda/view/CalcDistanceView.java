@@ -7,6 +7,7 @@ package citbyui.cit260.Andromeda.view;
 
 import java.util.Scanner;
 import byui.cit260.andromeda.control.MapControl;
+import exceptions.MapControlException;
 
 /**
  *
@@ -14,7 +15,7 @@ import byui.cit260.andromeda.control.MapControl;
  */
 public class CalcDistanceView {
 
-    public void displayCalcDistanceView() {
+    public void displayCalcDistanceView() throws MapControlException {
         boolean done = false;
         do {
             //From Planet
@@ -98,23 +99,23 @@ public class CalcDistanceView {
                 Double.parseDouble(selection);
                 valid = true;
             } catch (NumberFormatException nfe) {
-                System.out.println("\n*** Error *** Enter a valid coordinate.");
+                System.out.println("\n*** Error *** The value is not a number.");
             }
         }
         return selection;
     }
 
-    public boolean doAction(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) {
+    public boolean doAction(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
 
         MapControl distance = new MapControl();
-        double value = distance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
+        //double value = distance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
 
-        if (value == -1) {
-            System.out.println("\n*** Calculation failed! *** Enter valid coordinates and planets names.\n");
-            return false;
+        try {
+            double value = distance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
+            this.displayNextView(value, fromPlanet, toPlanet);
+        } catch (MapControlException me){
+            System.out.println(me.getMessage());
         }
-
-        this.displayNextView(value, fromPlanet, toPlanet);
         return true;
     }
 

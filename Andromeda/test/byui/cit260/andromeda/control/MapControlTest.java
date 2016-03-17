@@ -5,6 +5,7 @@
  */
 package byui.cit260.andromeda.control;
 
+import exceptions.MapControlException;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
@@ -18,7 +19,7 @@ public class MapControlTest {
     }
 
     @Test
-    public void testCalcPlanetDistance() {
+    public void testCalcPlanetDistance() throws MapControlException {
 
         String fromPlanet = "Earth";
         double x1 = 0.0;

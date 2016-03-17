@@ -10,6 +10,7 @@ import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
+import exceptions.MapControlException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -594,7 +595,7 @@ public class MapControl {
         return planetList;
     }
 
-    String planets[][] = {
+    public static String planets[][] = {
         //<editor-fold defaultstate="collapsed" desc="comment">
         //Local Cluster
         {"Earth", "0", "0"},
@@ -631,14 +632,14 @@ public class MapControl {
     };
 //</editor-fold>
 
-    public double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) {
+    public static double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
 
         if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
-            return -1;
-
+            throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
+            
         }
         if ((x2 < -100 || x2 > 100) || (y2 < -100 || y2 > 100)) {
-            return -1;
+            throw new MapControlException("\n***Error *** Coordinates out of boundaries");
         }
 
         double isValid = 0;
@@ -655,19 +656,19 @@ public class MapControl {
                                 if ((Double.parseDouble(planets[j][1]) == x2) && Double.parseDouble(planets[j][2]) == y2) {
                                     return distance;
                                 } else {
-                                    return -1;
+                                    throw new MapControlException("\n*** Error *** To planet coordinates invalid.");
                                 }
                             }
                         }
 
                     } else {
-                        return -1;
+                        throw new MapControlException("\n*** Error *** From planet coordinates invalid.");
                     }
                 }
             } catch (ArrayIndexOutOfBoundsException e) {
             }
         }
-        return -1;
+        throw new MapControlException("\n*** Error *** Planet name invalid.");
     }
 
     public double calcTime(double inputDistance, int speed, String fromPlanet, String toPlanet) {

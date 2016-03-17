@@ -7,6 +7,9 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.control.GameControl;
+import exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -41,9 +44,14 @@ public class MainMenuView extends View {
             case "H":
                 this.howToPlay();
                 break;
-            case "1":
-                this.calculation();
-                break;
+            case "1": {
+                try {
+                    this.calculation();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            break;
 
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
@@ -71,7 +79,7 @@ public class MainMenuView extends View {
         helpMenu.display();
     }
 
-    private void calculation() {
+    private void calculation() throws MapControlException {
         CalcDistanceView view = new CalcDistanceView();
         view.displayCalcDistanceView();
     }

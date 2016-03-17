@@ -36,8 +36,13 @@ public class Andromeda {
     public static void main(String[] args) {
 
         StartProgramView startProgramView = new StartProgramView();
+        try {
         startProgramView.displayStartProgramView();
-
+        } catch (Throwable te){
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            startProgramView.displayStartProgramView();
+        }
 //<editor-fold defaultstate="collapsed" desc="comment">
 // player class
 /*Player playerOne = new Player();
