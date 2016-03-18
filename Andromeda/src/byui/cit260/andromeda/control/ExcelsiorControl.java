@@ -5,24 +5,64 @@
  */
 package byui.cit260.andromeda.control;
 
+import byui.cit260.andromeda.model.Excelsior;
+import exceptions.ExcelsiorControlExceptions;
+import static java.lang.Integer.parseInt;
+
+
 /**
  *
- * @author ghosty
+ * @author zane & oscar
  */
 public class ExcelsiorControl {
-    public double calcRepairs( int time, int cost){
-    
-        int repairCost;
-        if ((time >= 1 && time <=10) && (cost >=1 && cost <=100)){
-            repairCost = time * cost;
+
+    public double calcRepairs(String hours,  String repair,  String totals) throws ExcelsiorControlExceptions {
             
-            if( repairCost >= 1000){
-            return -1;
+        
+        Excelsior excelsior = new Excelsior();
+        int status = excelsior.getShipIntegrity();
+
+        int repairCost;
+        
+        int time = parseInt(hours);
+        int cost = parseInt(repair);
+        int total = parseInt(totals);
+        
+        try{
+        if ((time >= 1 && time <= 10) && (cost >= 1 && cost <= 100)) {
+            repairCost = time * cost;
+
+            if (repairCost >= 1000) {
+                throw new ExcelsiorControlExceptions("\n*** Error *** Repair out of boundaries");
             }
-        return repairCost;
-        
-        
+            if (repairCost == total) {
+                System.out.println("Repairs Succesful");
+                excelsior.setShipIntegrity(100);
+            }
+            else{
+                throw new ExcelsiorControlExceptions("\n*** Error *** Failed to repair");
+            
+            }
+            return repairCost;
+            
+
         }
-    return -1;
+        
+    
+    } catch(NumberFormatException e) { 
+        
     }
+    
+        return -1;
+    
+    }
+     
 }
+        
+     
+    
+    
+
+
+
+    

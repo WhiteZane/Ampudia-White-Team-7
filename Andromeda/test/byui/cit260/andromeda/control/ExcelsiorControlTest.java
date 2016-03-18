@@ -27,7 +27,7 @@ public class ExcelsiorControlTest {
         int cost = 25;
         ExcelsiorControl instance = new ExcelsiorControl();
         double expResult = 50;
-        double result = instance.calcRepairs(time, cost);
+        double result = instance.calcRepairs(time, cost, time); // this temporarily fixes it. 
         assertEquals(expResult, result, 0.01);
         
         /***************

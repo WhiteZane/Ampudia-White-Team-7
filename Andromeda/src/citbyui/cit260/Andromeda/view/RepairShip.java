@@ -5,7 +5,13 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import byui.cit260.andromeda.control.ExcelsiorControl;
 import byui.cit260.andromeda.model.Excelsior;
+import exceptions.ExcelsiorControlExceptions;
+import static java.lang.Integer.parseInt;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -39,9 +45,15 @@ public class RepairShip extends View {
             case "O":
                 this.repairOrders();
                 break;
-            case "M":
+            case "M":{
+                try {
                 this.makeRepairs();
+                } catch (ExcelsiorControlExceptions ex) {
+                Logger.getLogger(RepairShip.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            
                 break;
+            }
 
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
@@ -103,10 +115,46 @@ public class RepairShip extends View {
         }
     }
 
-    private void makeRepairs() {
+    private void makeRepairs() throws ExcelsiorControlExceptions{
+        
+        Excelsior excelsior = new Excelsior();
+        int status = excelsior.getShipIntegrity();
+        
+        ExcelsiorControl repairOrder = new ExcelsiorControl();
+
+        String time;
+        String cost;
+        String total;
+
+        Scanner inputs = new Scanner(System.in);
+        
+            
+        
         System.out.println("To make repairs you need to calculate the repair Orders"
                 + "\n To calculate repair orders use this formula: "
                 + " Repairs = (Cost * time) "
-                + "\nEnter Repair here: ");
+                + "\nEnter total Time to repair here: ");
+  
+        time = inputs.next();
+
+        System.out.println("\n Enter total repair Cost here: ");
+        cost = inputs.next();
+
+        System.out.println("\n Enter total cost of repairs here: ");
+        total = inputs.next();
+     
+        
+        double result = repairOrder.calcRepairs(time, cost, total);
+       
+        
+        } 
+        
+        
+private void RepairShip() throws ExcelsiorControlExceptions{
+        RepairShip view = new RepairShip();
+        view.RepairShip();
     }
-}
+    }
+
+    
+
