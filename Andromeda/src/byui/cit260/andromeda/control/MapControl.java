@@ -632,45 +632,111 @@ public class MapControl {
     };
 //</editor-fold>
 
-    public static double calcPlanetDistance(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+    public static double calcPlanetDistance(String system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+        Game game = Andromeda.getCurrentGame();
+
+        List<Map> map = (List<Map>) game.getMap();
 
         if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
             throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
-            
+
         }
         if ((x2 < -100 || x2 > 100) || (y2 < -100 || y2 > 100)) {
             throw new MapControlException("\n***Error *** Coordinates out of boundaries");
         }
 
-        double isValid = 0;
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
-        for (int i = 0; i <= planets.length; i++) {
-            try {
-                if (fromPlanet.equals(planets[i][0])) {
-                    if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
-                        isValid = 1;
+        boolean systemValid = false;
+        List<Planet> planets = null;
+        int mapSize = 0;
 
-                        for (int j = 0; j <= planets.length; j++) {
-                            if (toPlanet.equals(planets[j][0]) && isValid == 1) {
-                                if ((Double.parseDouble(planets[j][1]) == x2) && Double.parseDouble(planets[j][2]) == y2) {
-                                    return distance;
-                                } else {
-                                    throw new MapControlException("\n*** Error *** To planet coordinates invalid.");
-                                }
-                            }
-                        }
+        //SYSTEM
+        for (int i = 0; i <= map.size() - 1; i++) {
 
-                    } else {
-                        throw new MapControlException("\n*** Error *** From planet coordinates invalid.");
-                    }
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
+            if (system.equals(map.get(i).getSystem())) {
+                systemValid = true;
+                mapSize = map.get(i).getPlanets().size() - 1;
+                planets = map.get(i).getPlanets();
             }
         }
-        throw new MapControlException("\n*** Error *** Planet name invalid.");
+
+        boolean planetNameValid = false;
+        int index = 0;
+
+        if (systemValid == true) {
+
+            //FROM PLANET
+            //Validate name
+            for (int i = 0; i <= mapSize; i++) {
+                if (fromPlanet.equals(planets.get(i).getName())) {
+                    planetNameValid = true;
+                    index = i;
+                }
+            }
+            if (planetNameValid == false) {
+                throw new MapControlException("\n" + fromPlanet + " not found!");
+            }
+            //Validate coordinates
+            if (fromPlanet.equals(planets.get(index).getName())) {
+                if (x1 == planets.get(index).getX() && y1 == planets.get(index).getY()) {
+                    planetNameValid = false;
+                } else {
+                    throw new MapControlException("\n Wrong coordinates: " + fromPlanet);
+                }
+            }
+
+            //TO PLANET
+            //Validate name
+            for (int i = 0; i <= mapSize; i++) {
+                if (toPlanet.equals(planets.get(i).getName())) {
+                    planetNameValid = true;
+                    index = i;
+                }
+            }
+            if (planetNameValid == false) {
+                throw new MapControlException("\n" + toPlanet + " not found!");
+            }
+            //Validate coordinates
+            if (toPlanet.equals(planets.get(index).getName())) {
+                if (x2 == planets.get(index).getX() && y2 == planets.get(index).getY()) {
+                    planetNameValid = false;
+                } else {
+                    throw new MapControlException("\nWrong coordinates: " + toPlanet);
+                }
+            }
+        }
+        return distance;
     }
 
+    /*for (int i = 0; i <= planets.length ; i++) {
+                    try {
+                    if (fromPlanet.equals(planets[i][0])) {
+                    if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
+                    isValid = 1;
+                    
+                    for (int j = 0; j <= planets.length; j++) {
+                    if (toPlanet.equals(planets[j][0]) && isValid == 1) {
+                    if ((Double.parseDouble(planets[j][1]) == x2) && Double.parseDouble(planets[j][2]) == y2) {
+                    return distance;
+                    } else {
+                    throw new MapControlException("\n*** Error *** To planet coordinates invalid.");
+                    }
+                    }
+                    }
+                    
+                    } else {
+                    throw new MapControlException("\n*** Error *** From planet coordinates invalid.");
+                    }
+                    }
+                    } catch (ArrayIndexOutOfBoundsException e) {
+                    }
+                    }*/
+    //    throw new MapControlException(
+    //"\n*** Error *** Planet name invalid.");
+    //   }
+    
+    
     public double calcTime(double inputDistance, int speed, String fromPlanet, String toPlanet) {
 
         double distance = Math.round(planetDistance(fromPlanet, toPlanet) * 10) / 10.0;

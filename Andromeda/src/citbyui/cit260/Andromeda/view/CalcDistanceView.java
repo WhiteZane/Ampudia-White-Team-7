@@ -18,6 +18,8 @@ public class CalcDistanceView {
     public void displayCalcDistanceView() throws MapControlException {
         boolean done = false;
         do {
+            //From System
+            String system = "Local Cluster";
             //From Planet
             System.out.print("From planet: ");
             String fromPlanet = this.getInput();
@@ -37,7 +39,7 @@ public class CalcDistanceView {
             System.out.print("y: ");
             double y2 = Double.parseDouble(this.getNumber());
 
-            done = this.doAction(fromPlanet, x1, y1, toPlanet, x2, y2);
+            done = this.doAction(system, fromPlanet, x1, y1, toPlanet, x2, y2);
         } while (!done);
     }
 
@@ -99,19 +101,18 @@ public class CalcDistanceView {
                 Double.parseDouble(selection);
                 valid = true;
             } catch (NumberFormatException nfe) {
-                System.out.println("\n*** Error *** The value is not a number.");
+                System.out.println("\n*** Error *** The value must be a number.");
             }
         }
         return selection;
     }
 
-    public boolean doAction(String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+    public boolean doAction(String system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
 
         MapControl distance = new MapControl();
-        //double value = distance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
 
         try {
-            double value = distance.calcPlanetDistance(fromPlanet, x1, y1, toPlanet, x2, y2);
+            double value = distance.calcPlanetDistance(system, fromPlanet, x1, y1, toPlanet, x2, y2);
             this.displayNextView(value, fromPlanet, toPlanet);
         } catch (MapControlException me){
             System.out.println(me.getMessage());
@@ -126,7 +127,7 @@ public class CalcDistanceView {
                 + "\n\t" + fixedValue + " AU is the distance between " + fromPlanet + " and " + toPlanet + "."
                 + "\n*****************************************************************"
         );
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 }

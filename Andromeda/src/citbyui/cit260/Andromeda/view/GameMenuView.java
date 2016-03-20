@@ -5,6 +5,10 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import exceptions.MapControlException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author oscar
@@ -21,7 +25,9 @@ public class GameMenuView extends View {
                 + "\nT : Talk to Crew Members"
                 + "\nC : Check Logbook"
                 + "\nS : Save Game"
-                + "\nE : Exit to Main Menu");
+                + "\nE : Exit to Main Menu"
+                + "\n"
+                + "\n1 : Calculate Planets Distance");
     }
 
     public boolean doAction(String choice) {
@@ -44,6 +50,14 @@ public class GameMenuView extends View {
             case "S":
                 this.saveGame();
                 break;
+
+            case "1": {
+                try {
+                    this.calculation();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
 
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
@@ -79,5 +93,10 @@ public class GameMenuView extends View {
 
     private void saveGame() {
         System.out.println("*** saveGame function called ***");
+    }
+
+    private void calculation() throws MapControlException {
+        CalcDistanceView view = new CalcDistanceView();
+        view.displayCalcDistanceView();
     }
 }

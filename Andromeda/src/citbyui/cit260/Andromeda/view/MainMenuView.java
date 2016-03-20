@@ -26,8 +26,7 @@ public class MainMenuView extends View {
                 + "\nL : Load saved game "
                 + "\nH : How to play"
                 + "\nE : Exit game"
-                + "\n"
-                + "\n1 : Calculate Planets Distance");
+                + "\n");
     }
 
     public boolean doAction(String choice) {
@@ -44,15 +43,7 @@ public class MainMenuView extends View {
             case "H":
                 this.howToPlay();
                 break;
-            case "1": {
-                try {
-                    this.calculation();
-                } catch (MapControlException ex) {
-                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            break;
-
+            
             default:
                 System.out.println("\n*** Invalid selection *** Try again");
                 break;
@@ -63,7 +54,7 @@ public class MainMenuView extends View {
     private void startNewGame() {
         //create a new game
         GameControl.createNewGame(Andromeda.getPlayer());
-
+        
         //display the game menu
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
@@ -77,10 +68,5 @@ public class MainMenuView extends View {
         HelpMenuView helpMenu;
         helpMenu = new HelpMenuView();
         helpMenu.display();
-    }
-
-    private void calculation() throws MapControlException {
-        CalcDistanceView view = new CalcDistanceView();
-        view.displayCalcDistanceView();
     }
 }

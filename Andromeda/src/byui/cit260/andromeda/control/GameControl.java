@@ -44,14 +44,10 @@ public class GameControl {
         game.setPlayer(player);
 
         Excelsior ship = new Excelsior();
+        Andromeda.setShip(ship);
         ship.setMaterials(GameControl.createMaterialList());
         ship.setWeapons(GameControl.createWeaponsList());
-
-        //Map gameMap = new Map();
-        //Andromeda.setMap(gameMap);
-        Material materials = new Material();
-        Andromeda.setMaterial(materials);
-
+        
         Weapon weapons = new Weapon();
         Andromeda.setWeapon(weapons);
 
@@ -68,7 +64,7 @@ public class GameControl {
         }
         ship.setPlanet(planet.get(0));
 
-        System.out.print("\n\nObjects Initialized...\n\n\n" + ship);
+        System.out.print("\n\nObjects Initialized...\n\n" + ship);
 
         //System.out.print(map.toString());
         Andromeda.setCurrentGame(game);

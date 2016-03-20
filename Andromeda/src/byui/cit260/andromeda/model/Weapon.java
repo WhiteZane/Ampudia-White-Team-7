@@ -49,7 +49,7 @@ public class Weapon implements Serializable{
     
     @Override
     public String toString() {
-        return "\nWeapon" + name
+        return "\n" + name
                 + "\nAttack points: \t" + attackpoints
                 + "\nQuantity:\t" + quantity
                 + "\n";
