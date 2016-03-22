@@ -7,6 +7,7 @@ package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.ArrayList;
 /**
  *
  * @author ghosty
@@ -66,5 +67,9 @@ public class Map implements Serializable{
 
     public String getSystem() {
         return system;
+    }
+
+    public void getPlanets(List<Planet> createPlanetList) {
+        
     }
 }

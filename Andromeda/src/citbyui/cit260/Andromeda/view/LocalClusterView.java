@@ -5,11 +5,20 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class LocalClusterView extends View {
+
+    Game game = Andromeda.getCurrentGame();
+    List<Map> map = game.getMap();
+    static int currentMapIndex = 0;
 
     public LocalClusterView() {
         super(
@@ -32,6 +41,7 @@ public class LocalClusterView extends View {
     }
 
     String toPlanet = "";
+    int i = 0;
 
     public boolean doAction(String choice) {
 
@@ -39,32 +49,38 @@ public class LocalClusterView extends View {
 
         switch (choice) {
             case "0,0":
-                toPlanet = "Earth";
+                i = 0;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "1,1":
-                toPlanet = "Mars";
+                i = 1;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "4,4":
-                toPlanet = "Jupiter";
+                i = 2;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "8,5":
-                toPlanet = "Saturn";
+                i = 3;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "18,7":
-                toPlanet = "Uranus";
+                i = 4;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "30,7":
-                toPlanet = "Neptune";
+                i = 5;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
@@ -76,6 +92,9 @@ public class LocalClusterView extends View {
     }
 
     private void moveToLocation() {
+        Game game = Andromeda.getCurrentGame();
+        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
+
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();

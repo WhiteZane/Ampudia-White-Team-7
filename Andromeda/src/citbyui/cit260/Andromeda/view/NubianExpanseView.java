@@ -5,11 +5,20 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class NubianExpanseView extends View {
+
+    Game game = Andromeda.getCurrentGame();
+    List<Map> map = game.getMap();
+    static int currentMapIndex = 2;
 
     public NubianExpanseView() {
         super(
@@ -37,6 +46,7 @@ public class NubianExpanseView extends View {
     }
 
     String toPlanet = "";
+    int i = 0;
 
     public boolean doAction(String choice) {
 
@@ -44,27 +54,32 @@ public class NubianExpanseView extends View {
 
         switch (choice) {
             case "-25,36":
-                toPlanet = "Gamayun";
+                i = 0;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "-21,5":
-                toPlanet = "Alkonost";
+                i = 1;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "0,0":
-                toPlanet = "Bannik";
+                i = 2;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "13,-13":
-                toPlanet = "Pragia";
+                i = 3;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "34,-48":
-                toPlanet = "Zimitra";
+                i = 4;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
@@ -76,6 +91,9 @@ public class NubianExpanseView extends View {
     }
 
     private void moveToLocation() {
+        Game game = Andromeda.getCurrentGame();
+        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
+
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();

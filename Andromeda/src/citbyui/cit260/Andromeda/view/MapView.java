@@ -5,7 +5,10 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.control.GameControl;
 import byui.cit260.andromeda.control.MapControl;
+import byui.cit260.andromeda.model.Game;
 
 /**
  *
@@ -61,7 +64,7 @@ public class MapView extends View {
             //and display the results of the function/s by selecting an option 
             //on the appropriate menu.
             case "V":
-                MapControl.showAllPlanets();
+                //MapControl.showAllPlanets();
                 break;
 
             default:

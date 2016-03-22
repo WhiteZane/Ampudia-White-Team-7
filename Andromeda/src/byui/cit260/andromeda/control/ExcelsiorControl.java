@@ -5,10 +5,14 @@
  */
 package byui.cit260.andromeda.control;
 
+import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Excelsior;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import byui.cit260.andromeda.model.Planet;
+import byui.cit260.andromeda.model.Player;
 import exceptions.ExcelsiorControlExceptions;
 import static java.lang.Integer.parseInt;
-
 
 /**
  *
@@ -16,53 +20,41 @@ import static java.lang.Integer.parseInt;
  */
 public class ExcelsiorControl {
 
-    public double calcRepairs(String hours,  String repair,  String totals) throws ExcelsiorControlExceptions {
-            
-        
+    public double calcRepairs(String hours, String repair, String totals) throws ExcelsiorControlExceptions {
+
         Excelsior excelsior = new Excelsior();
         int status = excelsior.getShipIntegrity();
 
         int repairCost;
-        
+
         int time = parseInt(hours);
         int cost = parseInt(repair);
         int total = parseInt(totals);
-        
-        try{
-        if ((time >= 1 && time <= 10) && (cost >= 1 && cost <= 100)) {
-            repairCost = time * cost;
 
-            if (repairCost >= 1000) {
-                throw new ExcelsiorControlExceptions("\n*** Error *** Repair out of boundaries");
+        try {
+            if ((time >= 1 && time <= 10) && (cost >= 1 && cost <= 100)) {
+                repairCost = time * cost;
+
+                if (repairCost >= 1000) {
+                    throw new ExcelsiorControlExceptions("\n*** Error *** Repair out of boundaries");
+                }
+                if (repairCost == total) {
+                    System.out.println("Repairs Succesful");
+                    excelsior.setShipIntegrity(100);
+                } else {
+                    throw new ExcelsiorControlExceptions("\n*** Error *** Failed to repair");
+
+                }
+                return repairCost;
+
             }
-            if (repairCost == total) {
-                System.out.println("Repairs Succesful");
-                excelsior.setShipIntegrity(100);
-            }
-            else{
-                throw new ExcelsiorControlExceptions("\n*** Error *** Failed to repair");
-            
-            }
-            return repairCost;
-            
+
+        } catch (NumberFormatException e) {
 
         }
-        
-    
-    } catch(NumberFormatException e) { 
-        
-    }
-    
+
         return -1;
-    
+
     }
-     
+
 }
-        
-     
-    
-    
-
-
-
-    

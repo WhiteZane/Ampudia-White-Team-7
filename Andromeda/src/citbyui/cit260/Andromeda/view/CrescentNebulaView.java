@@ -5,11 +5,20 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class CrescentNebulaView extends View {
+
+    Game game = Andromeda.getCurrentGame();
+    List<Map> map = game.getMap();
+    static int currentMapIndex = 1;
 
     public CrescentNebulaView() {
         super(
@@ -37,34 +46,44 @@ public class CrescentNebulaView extends View {
     }
 
     String toPlanet = "";
+    int i = 0;
 
     public boolean doAction(String choice) {
 
         choice = choice.toUpperCase();
 
         switch (choice) {
-            case "46,25":
-                toPlanet = "Ponolus";
-                this.moveToLocation();
-                break;
-
-            case "11,4":
-                toPlanet = "Illium";
-                this.moveToLocation();
-                break;
-
-            case "0,0":
-                toPlanet = "Beregale";
+            case "-120,-280":
+                i = 0;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "-88,-38":
-                toPlanet = "Thai";
+                i = 1;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
-            case "-120,-280":
-                toPlanet = "Naxell";
+            case "0,0":
+                i = 2;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
+                this.moveToLocation();
+                break;
+
+            case "11,4":
+                i = 3;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
+                this.moveToLocation();
+                break;
+
+            case "46,25":
+                i = 4;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
@@ -76,6 +95,9 @@ public class CrescentNebulaView extends View {
     }
 
     private void moveToLocation() {
+        Game game = Andromeda.getCurrentGame();
+        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
+
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();

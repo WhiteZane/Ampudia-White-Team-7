@@ -13,10 +13,10 @@ import java.util.Objects;
  *
  * @author oscar
  */
-public class Excelsior implements Serializable{
-    
-    private final String description = 
-            "\nThe Excelsior was a Systems Alliance starship. She is a prototype "
+public class Excelsior implements Serializable {
+
+    private final String description
+            = "\nThe Excelsior was a Systems Alliance starship. She is a prototype "
             + "\n\"deep scout\" frigate, first of the eponymous Normandy class, "
             + "\nco-developed by the Alliance and the Turian Hierarchy with the "
             + "\nsponsorship of the Citadel Council. She is optimized for solo "
@@ -28,11 +28,11 @@ public class Excelsior implements Serializable{
     List<Weapon> weapons;
     private int crew = 10;
     private int credits = 500;
-    Planet planet;
+    private int codePlanet = 0;
     List<Material> materials;
-    
+
     public Excelsior() {
-        
+
     }
 
     public String getDescription() {
@@ -63,8 +63,6 @@ public class Excelsior implements Serializable{
         this.weapons = weapons;
     }
 
-    
-
     public int getCrew() {
         return crew;
     }
@@ -81,15 +79,13 @@ public class Excelsior implements Serializable{
         this.credits = credits;
     }
 
-    public Planet getPlanet() {
-        return planet;
+    public int getCodePlanet() {
+        return codePlanet;
     }
 
-    public void setPlanet(Planet planet) {
-        this.planet = planet;
+    public void setCodePlanet(int codePlanet) {
+        this.codePlanet = codePlanet;
     }
-
-    
 
     public List<Material> getMaterials() {
         return materials;
@@ -98,8 +94,6 @@ public class Excelsior implements Serializable{
     public void setMaterials(List<Material> materials) {
         this.materials = materials;
     }
-
-    
 
     @Override
     public int hashCode() {
@@ -152,11 +146,11 @@ public class Excelsior implements Serializable{
                 + "\nShipIntegrity:\t" + shipIntegrity
                 + "\nArmor:\t\t" + armor
                 + "\nWeapons:\t" + weapons
-                + "\nCrew:\t\t" + crew 
-                + "\nCredits:\t" + credits 
+                + "\nCrew:\t\t" + crew
+                + "\nCredits:\t" + credits
                 + "\n\nMaterials\n" + materials
-                + "\n\nCurrent Planet" + planet
+                + "\n\nCurrent Planet"
                 + "\n";
     }
-    
+
 }

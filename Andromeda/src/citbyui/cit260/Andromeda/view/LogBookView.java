@@ -5,24 +5,48 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import java.util.Scanner;
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
 
 /**
  *
- * @author ghosty
+ * @author oscar
  */
 public class LogBookView extends View {
+
+    static Game game = Andromeda.getCurrentGame();
+    static List<Map> map = game.getMap();
+
+    //static List<Map> map = Andromeda.getMap();
+    public static String displayList() {
+        String system = "";
+        String list = "";
+        for (int i = 0; i <= map.size() - 1; i++) {
+            for (int j = 0; j <= map.get(i).getPlanets().size() - 1; j++) {
+                if (map.get(i).getPlanets().get(j).getVisited() == true) {
+                    list += map.get(i).getPlanets().get(j).getName() + ", ";
+                }
+            }
+            system += "\n  " +  map.get(i).getSystem() + ": " + list;
+            list = "";
+        }
+        return system;
+    }
 
     public LogBookView() {
         super(
                 "…………………………………………………………………………………"
-                + "\n\t  Logbook"
+                + "\n  Logbook"
                 + "\n…………………………………………………………………………………"
-                + "\n\t Planets explored : "
-                + "\n\t Enemies encountered : "
-                + "\n\t Enemies defeated : "
-                + "\n\t Total credits acquired : "
-                + "\nE : Exit to Main Menu");
+                + "\nPlanets visited"
+                + displayList() + "\n"
+                + "\nEnemies encountered:\t"
+                + "\nEnemies defeated:\t"
+                + "\nTotal credits acquired:\t"
+                + "\n"
+                + "\nE : Exit to Game Menu");
     }
 
     public boolean doAction(String helpOption) {
@@ -31,9 +55,6 @@ public class LogBookView extends View {
 
         switch (helpOption) {
 
-            case "E":
-                this.exit();
-                break;
             default:
                 System.out.println("\n*** Error *** Invalid selection. Try again.");
                 break;
@@ -41,37 +62,4 @@ public class LogBookView extends View {
         return false;
     }
 
-    public void displayExitMenu() {
-
-        boolean done = false;
-        do {
-            String menuOption = this.getExitMenuOption();
-            if (menuOption.toUpperCase().equals("")) {
-                return;
-            }
-            done = this.doAction(menuOption);
-        } while (!done);
-    }
-
-    private String getExitMenuOption() {
-        Scanner keyboard = new Scanner(System.in);
-        String value = "";
-        boolean isValid = true;
-
-        while (isValid) {
-            System.out.println("\n[Hit enter to continue]");
-
-            value = keyboard.nextLine();
-            value = "";
-
-            break;
-        }
-        return value;
-    }
-
-    private void exit() {
-        //System.out.println("*** leadQuitGame function called ***");
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
-    }
 }

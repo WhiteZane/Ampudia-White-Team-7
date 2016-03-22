@@ -8,7 +8,6 @@ package byui.cit260.andromeda.control;
 import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
-import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
 import exceptions.MapControlException;
 import java.util.ArrayList;
@@ -70,6 +69,7 @@ public class MapControl {
             Earth.setExplored(Boolean.FALSE);
             Earth.setX(0);
             Earth.setY(0);
+            Earth.setPlanetCode(0);
             Earth.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Earth);
 
@@ -81,6 +81,7 @@ public class MapControl {
             Mars.setExplored(Boolean.FALSE);
             Mars.setX(1);
             Mars.setY(1);
+            Mars.setPlanetCode(1);
             Mars.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Mars);
 
@@ -92,6 +93,7 @@ public class MapControl {
             Jupiter.setExplored(Boolean.FALSE);
             Jupiter.setX(4);
             Jupiter.setY(4);
+            Jupiter.setPlanetCode(2);
             Jupiter.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Jupiter);
 
@@ -103,6 +105,7 @@ public class MapControl {
             Saturn.setExplored(Boolean.FALSE);
             Saturn.setX(8);
             Saturn.setY(5);
+            Saturn.setPlanetCode(3);
             Saturn.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Saturn);
 
@@ -114,6 +117,7 @@ public class MapControl {
             Uranus.setExplored(Boolean.FALSE);
             Uranus.setX(18);
             Uranus.setY(7);
+            Uranus.setPlanetCode(4);
             Uranus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Uranus);
 
@@ -125,6 +129,7 @@ public class MapControl {
             Neptune.setExplored(Boolean.FALSE);
             Neptune.setX(30);
             Neptune.setY(7);
+            Neptune.setPlanetCode(5);
             Neptune.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Neptune);
 //</editor-fold>
@@ -149,6 +154,7 @@ public class MapControl {
             Naxell.setExplored(Boolean.FALSE);
             Naxell.setX(-120);
             Naxell.setY(-280);
+            Naxell.setPlanetCode(6);
             Naxell.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Naxell);
 
@@ -163,6 +169,7 @@ public class MapControl {
             Thail.setExplored(Boolean.FALSE);
             Thail.setX(-88);
             Thail.setY(-38);
+            Thail.setPlanetCode(7);
             Thail.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Thail);
 
@@ -188,6 +195,7 @@ public class MapControl {
             Beregale.setExplored(Boolean.FALSE);
             Beregale.setX(0);
             Beregale.setY(0);
+            Beregale.setPlanetCode(8);
             Beregale.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Beregale);
 
@@ -214,6 +222,7 @@ public class MapControl {
             Illium.setExplored(Boolean.FALSE);
             Illium.setX(11);
             Illium.setY(4);
+            Illium.setPlanetCode(9);
             Illium.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Illium);
 
@@ -235,6 +244,7 @@ public class MapControl {
             Ponolus.setExplored(Boolean.FALSE);
             Ponolus.setX(46);
             Ponolus.setY(25);
+            Ponolus.setPlanetCode(10);
             Ponolus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Ponolus);
 //</editor-fold>
@@ -256,6 +266,7 @@ public class MapControl {
             Gamayun.setExplored(Boolean.FALSE);
             Gamayun.setX(-25);
             Gamayun.setY(36);
+            Gamayun.setPlanetCode(11);
             Gamayun.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Gamayun);
 
@@ -270,6 +281,7 @@ public class MapControl {
             Alkonost.setExplored(Boolean.FALSE);
             Alkonost.setX(-21);
             Alkonost.setY(5);
+            Alkonost.setPlanetCode(12);
             Alkonost.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Alkonost);
 
@@ -288,6 +300,7 @@ public class MapControl {
             Bannik.setExplored(Boolean.FALSE);
             Bannik.setX(0);
             Bannik.setY(0);
+            Bannik.setPlanetCode(13);
             Bannik.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Bannik);
 
@@ -307,6 +320,7 @@ public class MapControl {
             Pragia.setExplored(Boolean.FALSE);
             Pragia.setX(13);
             Pragia.setY(-13);
+            Pragia.setPlanetCode(14);
             Pragia.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Pragia);
 
@@ -321,6 +335,7 @@ public class MapControl {
             Zimitra.setExplored(Boolean.FALSE);
             Zimitra.setX(34);
             Zimitra.setY(-48);
+            Zimitra.setPlanetCode(15);
             Zimitra.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Zimitra);
 //</editor-fold>
@@ -343,6 +358,7 @@ public class MapControl {
             Ruam.setExplored(Boolean.FALSE);
             Ruam.setX(32);
             Ruam.setY(66);
+            Ruam.setPlanetCode(16);
             Ruam.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Ruam);
 
@@ -378,6 +394,7 @@ public class MapControl {
             Tuchanka.setExplored(Boolean.FALSE);
             Tuchanka.setX(33);
             Tuchanka.setY(60);
+            Tuchanka.setPlanetCode(17);
             Tuchanka.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Tuchanka);
 
@@ -409,6 +426,7 @@ public class MapControl {
             Kruban.setExplored(Boolean.FALSE);
             Kruban.setX(5);
             Kruban.setY(6);
+            Kruban.setPlanetCode(18);
             Kruban.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Kruban);
 
@@ -437,6 +455,7 @@ public class MapControl {
             Durak.setExplored(Boolean.FALSE);
             Durak.setX(0);
             Durak.setY(0);
+            Durak.setPlanetCode(19);
             Durak.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Durak);
 
@@ -453,6 +472,7 @@ public class MapControl {
             Kanin.setExplored(Boolean.FALSE);
             Kanin.setX(-2);
             Kanin.setY(-1);
+            Kanin.setPlanetCode(20);
             Kanin.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Kanin);
 //</editor-fold>
@@ -476,6 +496,7 @@ public class MapControl {
             Uriyah.setExplored(Boolean.FALSE);
             Uriyah.setX(-2);
             Uriyah.setY(6);
+            Uriyah.setPlanetCode(21);
             Uriyah.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
             planetList.add(Uriyah);
 
@@ -501,6 +522,7 @@ public class MapControl {
             Rannoch.setExplored(Boolean.FALSE);
             Rannoch.setX(-2);
             Rannoch.setY(2);
+            Rannoch.setPlanetCode(22);
             Rannoch.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(Rannoch);
 
@@ -524,6 +546,7 @@ public class MapControl {
             GethDebrisField.setExplored(Boolean.FALSE);
             GethDebrisField.setX(0);
             GethDebrisField.setY(0);
+            GethDebrisField.setPlanetCode(23);
             GethDebrisField.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(GethDebrisField);
 
@@ -542,6 +565,7 @@ public class MapControl {
             GethDreadnought.setExplored(Boolean.FALSE);
             GethDreadnought.setX(1);
             GethDreadnought.setY(-1);
+            GethDreadnought.setPlanetCode(24);
             GethDreadnought.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(GethDreadnought);
 
@@ -568,6 +592,7 @@ public class MapControl {
             MigrantFleet.setExplored(Boolean.FALSE);
             MigrantFleet.setX(2);
             MigrantFleet.setY(-4);
+            MigrantFleet.setPlanetCode(25);
             MigrantFleet.setEnemy(EnemyControl.createEnemy(9).toString());
             planetList.add(MigrantFleet);
 
@@ -586,6 +611,7 @@ public class MapControl {
             MassRelay.setExplored(Boolean.FALSE);
             MassRelay.setX(66);
             MassRelay.setY(66);
+            MassRelay.setPlanetCode(26);
             MassRelay.setEnemy(EnemyControl.createEnemy(9).toString());
             //MassRelay.setResources(showMaterialsList());
             planetList.add(MassRelay);
@@ -634,9 +660,9 @@ public class MapControl {
 
     public static double calcPlanetDistance(String system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
         Game game = Andromeda.getCurrentGame();
+        List<Map> map = game.getMap();
 
-        List<Map> map = (List<Map>) game.getMap();
-
+        //List<Map> map = (List<Map>) game.getMap();
         if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
             throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
 
@@ -648,10 +674,10 @@ public class MapControl {
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
         boolean systemValid = false;
-        List<Planet> planets = null;
+        List<Planet> planets = map.get(0).getPlanets();
         int mapSize = 0;
 
-        //SYSTEM
+        /*SYSTEM
         for (int i = 0; i <= map.size() - 1; i++) {
 
             if (system.equals(map.get(i).getSystem())) {
@@ -659,12 +685,13 @@ public class MapControl {
                 mapSize = map.get(i).getPlanets().size() - 1;
                 planets = map.get(i).getPlanets();
             }
-        }
+        }*/
+        mapSize = map.get(0).getPlanets().size() - 1;
 
         boolean planetNameValid = false;
         int index = 0;
 
-        if (systemValid == true) {
+        if (systemValid == false) {
 
             //FROM PLANET
             //Validate name
@@ -735,8 +762,6 @@ public class MapControl {
     //    throw new MapControlException(
     //"\n*** Error *** Planet name invalid.");
     //   }
-    
-    
     public double calcTime(double inputDistance, int speed, String fromPlanet, String toPlanet) {
 
         double distance = Math.round(planetDistance(fromPlanet, toPlanet) * 10) / 10.0;
@@ -776,7 +801,7 @@ public class MapControl {
         return distance;
     }
 
-    public static void showAllPlanets() {
+    /*public static void showAllPlanets() {
         Game game = Andromeda.getCurrentGame();
         List<Map> map = game.getMap();
 
@@ -788,6 +813,5 @@ public class MapControl {
             }
         }
 
-    }
-
+    }*/
 }

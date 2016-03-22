@@ -5,11 +5,20 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class KroganSystemView extends View {
+
+    Game game = Andromeda.getCurrentGame();
+    List<Map> map = game.getMap();
+    static int currentMapIndex = 3;
 
     public KroganSystemView() {
         super(
@@ -35,6 +44,7 @@ public class KroganSystemView extends View {
     }
 
     String toPlanet = "";
+    int i = 0;
 
     public boolean doAction(String choice) {
 
@@ -42,27 +52,32 @@ public class KroganSystemView extends View {
 
         switch (choice) {
             case "32,66":
-                toPlanet = "Ruam";
+                i = 0;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "33,60":
-                toPlanet = "Tuchanka";
+                i = 1;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "5,6":
-                toPlanet = "Kruban";
+                i = 2;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "0,0":
-                toPlanet = "Durak";
+                i = 3;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
             case "-2,-1":
-                toPlanet = "Kanin";
+                i = 4;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 this.moveToLocation();
                 break;
 
@@ -74,6 +89,9 @@ public class KroganSystemView extends View {
     }
 
     private void moveToLocation() {
+        Game game = Andromeda.getCurrentGame();
+        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
+
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();

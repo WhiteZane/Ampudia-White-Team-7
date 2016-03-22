@@ -11,46 +11,56 @@ import java.io.Serializable;
  * @author zane
  * @author oscar
  */
-public class Logbook implements Serializable{
-    
-    private int explored;
-    private int encounter;
-    private int credits;
+public class Logbook implements Serializable {
 
-    public Logbook(){
-        
+    private int planetsExplored = 0;
+    private int enemiesEncountered = 0;
+    private int enemiesDefeated = 0;
+    private int creditsAcquired = 0;
+
+    public Logbook() {
+
     }
 
-    public int getExplored() {
-        return explored;
+    public int getPlanetsExplored() {
+        return planetsExplored;
     }
 
-    public void setExplored(int explored) {
-        this.explored = explored;
+    public void setPlanetsExplored(int planetsExplored) {
+        this.planetsExplored = planetsExplored;
     }
 
-    public int getEncounter() {
-        return encounter;
+    public int getEnemiesEncountered() {
+        return enemiesEncountered;
     }
 
-    public void setEncounter(int encounter) {
-        this.encounter = encounter;
+    public void setEnemiesEncountered(int enemiesEncountered) {
+        this.enemiesEncountered = enemiesEncountered;
     }
 
-    public int getCredits() {
-        return credits;
+    public int getEnemiesDefeated() {
+        return enemiesDefeated;
     }
 
-    public void setCredits(int credits) {
-        this.credits = credits;
+    public void setEnemiesDefeated(int enemiesDefeated) {
+        this.enemiesDefeated = enemiesDefeated;
+    }
+
+    public int getCreditsAcquired() {
+        return creditsAcquired;
+    }
+
+    public void setCreditsAcquired(int creditsAcquired) {
+        this.creditsAcquired = creditsAcquired;
     }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 41 * hash + this.explored;
-        hash = 41 * hash + this.encounter;
-        hash = 41 * hash + this.credits;
+        int hash = 5;
+        hash = 59 * hash + this.planetsExplored;
+        hash = 59 * hash + this.enemiesEncountered;
+        hash = 59 * hash + this.enemiesDefeated;
+        hash = 59 * hash + this.creditsAcquired;
         return hash;
     }
 
@@ -66,13 +76,16 @@ public class Logbook implements Serializable{
             return false;
         }
         final Logbook other = (Logbook) obj;
-        if (this.explored != other.explored) {
+        if (this.planetsExplored != other.planetsExplored) {
             return false;
         }
-        if (this.encounter != other.encounter) {
+        if (this.enemiesEncountered != other.enemiesEncountered) {
             return false;
         }
-        if (this.credits != other.credits) {
+        if (this.enemiesDefeated != other.enemiesDefeated) {
+            return false;
+        }
+        if (this.creditsAcquired != other.creditsAcquired) {
             return false;
         }
         return true;
@@ -80,8 +93,12 @@ public class Logbook implements Serializable{
 
     @Override
     public String toString() {
-        return "Logbook{" + "explored=" + explored + ", encounter=" + encounter + ", credits=" + credits + '}';
+        return "Logbook"
+                + "\nplanetsExplored:\t" + planetsExplored
+                + "\nenemiesEncountered:\t" + enemiesEncountered
+                + "\nenemiesDefeated:\t" + enemiesDefeated
+                + "\ncreditsAcquired:\t" + creditsAcquired
+                + "\n";
     }
-    
-    
+
 }

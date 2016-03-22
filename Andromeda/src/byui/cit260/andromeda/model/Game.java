@@ -16,6 +16,7 @@ import java.util.Objects;
 public class Game implements Serializable {
 
     private Player player;
+    private Excelsior excelsior;
     private List<Map> map;
     private String totalTime;
 
@@ -29,6 +30,14 @@ public class Game implements Serializable {
 
     public void setPlayer(Player player) {
         this.player = player;
+    }
+
+    public Excelsior getExcelsior() {
+        return excelsior;
+    }
+
+    public void setExcelsior(Excelsior excelsior) {
+        this.excelsior = excelsior;
     }
 
     public List<Map> getMap() {
@@ -75,9 +84,9 @@ public class Game implements Serializable {
     @Override
     public String toString() {
         return "\nGame"
-                + "\nPlayer"
-                + "\n" + player
-                + "\n\nMap"
+                + "\nPlayer " + player
+                + "\nExcelsior: " + excelsior
+                + "\nMap"
                 + "\n" + map
                 + "\n\nTotalTime:\t" + totalTime
                 + "\n";

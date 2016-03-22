@@ -22,7 +22,7 @@ public class Player implements Serializable{
     }
 
     public Player() {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
     
     
@@ -44,7 +44,7 @@ public class Player implements Serializable{
 
     @Override
     public String toString() {
-        return "\nName:\t" + name;
+        return "Name:\t" + name;
     }
 
     @Override

@@ -6,13 +6,11 @@
 package byui.cit260.andromeda.control;
 
 import andromeda.Andromeda;
-import static byui.cit260.andromeda.control.MapControl.createPlanetList;
 import byui.cit260.andromeda.model.Excelsior;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Weapon;
-import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,39 +34,45 @@ public class GameControl {
         return player;
     }
 
-    public static void createNewGame(Player player) {
+    public static Excelsior createExcelsior() {
+
+        Excelsior ship = new Excelsior();
+
+        ship.getArmor();
+        ship.getCodePlanet();
+        ship.getCredits();
+        ship.getCrew();
+        ship.getDescription();
+        ship.setMaterials(GameControl.createMaterialList());
+        ship.getShipIntegrity();
+        ship.setWeapons(GameControl.createWeaponsList());
+
+        Andromeda.setShip(ship);
+
+        return ship;
+    }
+
+    public static void createNewGame(Player player, Excelsior ship) {
 
         Game game = new Game(); // create new game
         Andromeda.setCurrentGame(game); // save in Andromeda
 
         game.setPlayer(player);
-
-        Excelsior ship = new Excelsior();
-        Andromeda.setShip(ship);
-        ship.setMaterials(GameControl.createMaterialList());
-        ship.setWeapons(GameControl.createWeaponsList());
-        
-        Weapon weapons = new Weapon();
-        Andromeda.setWeapon(weapons);
+        game.setExcelsior(ship);
 
         List<Map> map = MapControl.createMap();
+        //Andromeda.setMap(map);
         game.setMap(map);
 
-        List<Planet> planet = MapControl.createPlanetList("Local Cluster");
-        
-        //Search a list for a value 
+        /*Search a list for a value 
         for (int i=0; i<=planet.size()-1; i++){
             if(planet.get(i).getName()=="Earth"){
                 System.out.println("\nYou are on Earth");
             }
-        }
-        ship.setPlanet(planet.get(0));
-
-        System.out.print("\n\nObjects Initialized...\n\n" + ship);
-
-        //System.out.print(map.toString());
+        }*/
         Andromeda.setCurrentGame(game);
-        //System.out.println(game);
+
+        //System.out.print("\n\nObjects Initialized...\n\n" + game);
     }
 
     private static List<Material> createMaterialList() {
@@ -107,4 +111,5 @@ public class GameControl {
 
         return weaponList;
     }
+
 }

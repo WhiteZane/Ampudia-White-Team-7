@@ -5,7 +5,6 @@
  */
 package andromeda;
 
-import byui.cit260.andromeda.model.Enemy;
 import byui.cit260.andromeda.model.Excelsior;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Logbook;
@@ -15,6 +14,7 @@ import byui.cit260.andromeda.model.Weapon;
 import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
 import citbyui.cit260.Andromeda.view.StartProgramView;
+import java.util.List;
 
 /**
  *
@@ -28,10 +28,11 @@ public class Andromeda {
     private static Game currentGame = null;
     private static Player player = null;
     private static Excelsior ship = null;
-    private static Map map = null;
+    private static List<Map> map = null;
     private static Planet planet = null;
     private static Material material = null;
     private static Weapon weapons = null;
+    private static Logbook logbook = null;
 
     public static void main(String[] args) {
 
@@ -160,11 +161,11 @@ System.out.println(PlanetOne);
         Andromeda.ship = ship;
     }
 
-    public static Map getMap() {
+    public static List<Map> getMap() {
         return map;
     }
 
-    public static void setMap(Map map) {
+    public static void setMap(List<Map> map) {
         Andromeda.map = map;
     }
 
@@ -190,6 +191,14 @@ System.out.println(PlanetOne);
 
     public static void setWeapon(Weapon weapon) {
         Andromeda.weapons = weapon;
+    }
+
+    public static Logbook getLogbook() {
+        return logbook;
+    }
+
+    public static void setLogbook(Logbook logbook) {
+        Andromeda.logbook = logbook;
     }
 
 }

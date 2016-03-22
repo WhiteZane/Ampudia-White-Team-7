@@ -7,7 +7,9 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.control.GameControl;
+import byui.cit260.andromeda.model.Map;
 import exceptions.MapControlException;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -52,10 +54,7 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        //create a new game
-        GameControl.createNewGame(Andromeda.getPlayer());
-        
-        //display the game menu
+        GameControl.createNewGame(Andromeda.getPlayer(),Andromeda.getShip());
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }

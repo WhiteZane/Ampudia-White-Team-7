@@ -6,7 +6,11 @@
 package citbyui.cit260.Andromeda.view;
 
 import byui.cit260.andromeda.control.GameControl;
+import byui.cit260.andromeda.control.MapControl;
+import byui.cit260.andromeda.model.Excelsior;
+import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Player;
+import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -16,7 +20,6 @@ import java.util.Scanner;
 public class StartProgramView {
 
     //private String promptMessage;
-
     public StartProgramView() {
         displayBanner();
     }
@@ -91,9 +94,10 @@ public class StartProgramView {
 
         //call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
-
+        GameControl.createExcelsior();
+        
         if (player == null) {
-            System.out.println("\n*** Error *** Erro creating the player.");
+            System.out.println("\n*** Error *** Error creating the player.");
             return false;
         }
 
@@ -102,16 +106,13 @@ public class StartProgramView {
     }
 
     private void displayNextView(Player player) {
-        // display a custom welcome message
         System.out.println("––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                 + "\n\tWelcome to Andromeda " + player.getName()
                 + "\n\tA great adventure awaits you!"
                 + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
         );
-        // Create MainMenuView object
-        MainMenuView mainMenuView = new MainMenuView();
 
-        // Display the main menu view
+        MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
     }
 }

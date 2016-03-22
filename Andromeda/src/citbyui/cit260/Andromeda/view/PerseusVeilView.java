@@ -5,11 +5,20 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class PerseusVeilView extends View {
+
+    Game game = Andromeda.getCurrentGame();
+    List<Map> map = game.getMap();
+    static int currentMapIndex = 4;
 
     public PerseusVeilView() {
         super(
@@ -35,6 +44,7 @@ public class PerseusVeilView extends View {
     }
 
     String toPlanet = "";
+    int i = 0;
 
     public boolean doAction(String choice) {
 
@@ -42,27 +52,37 @@ public class PerseusVeilView extends View {
 
         switch (choice) {
             case "-2,6":
-                toPlanet = "Uriyah";
+                i = 0;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
             case "-2,2":
-                toPlanet = "Rannoch";
+                i = 1;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
             case "0,0":
-                toPlanet = "Geth Debris Field";
+                i = 2;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
             case "1,-1":
-                toPlanet = "Geth Dreadnought";
+                i = 3;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
             case "2,-4":
-                toPlanet = "Migrant Fleet";
+                i = 4;
+                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                ;
                 this.moveToLocation();
                 break;
 
@@ -74,6 +94,9 @@ public class PerseusVeilView extends View {
     }
 
     private void moveToLocation() {
+        Game game = Andromeda.getCurrentGame();
+        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
+
         LocationMenuView locationMenu;
         locationMenu = new LocationMenuView(toPlanet);
         locationMenu.display();

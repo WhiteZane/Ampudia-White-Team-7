@@ -20,6 +20,7 @@ public class Planet implements Serializable {
     private Boolean explored;
     private int x;
     private int y;
+    private int planetCode;
     private String enemy;
     private Material material;
 
@@ -30,6 +31,7 @@ public class Planet implements Serializable {
         this.visited = false;
         this.x = 0;
         this.y = 0;
+        this.planetCode = 0;
         this.enemy = null;
         this.material = null;
     }
@@ -90,6 +92,14 @@ public class Planet implements Serializable {
         this.y = y;
     }
 
+    public int getPlanetCode() {
+        return planetCode;
+    }
+
+    public void setPlanetCode(int planetCode) {
+        this.planetCode = planetCode;
+    }
+
     public String getEnemy() {
         return enemy;
     }
@@ -109,16 +119,18 @@ public class Planet implements Serializable {
     @Override
     public String toString() {
         return "\nName:\t\t" + name
-                + "\nDescription:"
-                + "\n" + description
+                //+ "\nDescription:"
+                //+ "\n" + description
                 + "\nSystem:\t\t" + system
                 + "\nVisited:\t" + visited
                 + "\nExplored:\t" + explored
                 + "\nCoordinates:\t" + x + "," + y
                 //+ "\nMaterial:\t"+ material
                 + "\n"
-                + "\nEnemies on location "
-                + "\n" + enemy;
+                //+ "\nEnemies on location "
+                //+ "\n" + enemy
+                + "\nPlanet Code: " + planetCode
+                + "\n\n";
     }
 
 }
