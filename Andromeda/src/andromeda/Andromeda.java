@@ -14,7 +14,13 @@ import byui.cit260.andromeda.model.Weapon;
 import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Player;
 import citbyui.cit260.Andromeda.view.StartProgramView;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -25,6 +31,11 @@ public class Andromeda {
     /**
      * @param args the command line arguments
      */
+    // read and write
+    private static PrintWriter outfile = null;
+    private static BufferedReader infile = null;
+    private static PrintWriter logFile = null;
+
     private static Game currentGame = null;
     private static Player player = null;
     private static Excelsior ship = null;
@@ -36,13 +47,53 @@ public class Andromeda {
 
     public static void main(String[] args) {
 
-        StartProgramView startProgramView = new StartProgramView();
-        try {
+        StartProgramView spv = null;
+
+        /*try {
         startProgramView.displayStartProgramView();
         } catch (Throwable te){
             System.out.println(te.getMessage());
             te.printStackTrace();
             startProgramView.displayStartProgramView();
+
+
+        }*/
+        try {
+            // open stream
+            Andromeda.infile  = new BufferedReader(new InputStreamReader(System.in));
+            Andromeda.outfile = new PrintWriter(System.out, true);
+
+            //open log file
+            String filePath = "log.txt";
+            Andromeda.logFile = new PrintWriter(filePath);
+            spv = new StartProgramView();
+            spv.displayStartProgramView();
+
+        } catch (Throwable e) {
+            System.out.println("Exception: " + e.toString()
+                    + "\nCause: " + e.getCause()
+                    + "\nMessage: " + e.getMessage());
+            e.printStackTrace();
+            
+        } finally {
+            try {
+                if (Andromeda.infile != null) {
+                    Andromeda.infile.close();
+                }
+
+                if (Andromeda.outfile != null) {
+                    Andromeda.outfile.close();
+                }
+
+                if (Andromeda.logFile != null) {
+                    Andromeda.logFile.close();
+                }
+
+            } catch (IOException ex) {
+                System.out.println("Error closing files");
+                return;
+            }
+
         }
 //<editor-fold defaultstate="collapsed" desc="comment">
 // player class
@@ -184,7 +235,7 @@ System.out.println(PlanetOne);
     public static void setMaterial(Material material) {
         Andromeda.material = material;
     }
-    
+
     public static Weapon getWeapon() {
         return weapons;
     }
@@ -199,6 +250,30 @@ System.out.println(PlanetOne);
 
     public static void setLogbook(Logbook logbook) {
         Andromeda.logbook = logbook;
+    }
+
+    public static PrintWriter getOutfile() {
+        return outfile;
+    }
+
+    public static void setOutfile(PrintWriter outfile) {
+        Andromeda.outfile = outfile;
+    }
+
+    public static BufferedReader getInfile() {
+        return infile;
+    }
+
+    public static void setInfile(BufferedReader infile) {
+        Andromeda.infile = infile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        Andromeda.logFile = logFile;
     }
 
 }

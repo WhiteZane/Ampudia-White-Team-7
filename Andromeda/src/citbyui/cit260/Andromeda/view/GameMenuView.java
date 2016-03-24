@@ -5,9 +5,11 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
 import exceptions.MapControlException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import byui.cit260.andromeda.control.GameControl;
 
 /**
  *
@@ -92,7 +94,16 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-        System.out.println("*** saveGame function called ***");
+        this.console.println("\n\nEnter the file path for file where the game"
+                            + " is to be saved.");
+        
+        String filePath = this.getInput();
+        try{
+            GameControl.saveGame(Andromeda.getCurrentGame(), filePath);
+        
+        } catch (Exception ex) {
+            ErrorView.display("GameMenuView", ex.getMessage());
+        }
     }
 
     private void calculation() throws MapControlException {

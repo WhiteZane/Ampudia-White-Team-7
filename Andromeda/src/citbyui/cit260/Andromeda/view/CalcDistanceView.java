@@ -5,15 +5,22 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
 import java.util.Scanner;
 import byui.cit260.andromeda.control.MapControl;
 import exceptions.MapControlException;
+import java.io.BufferedReader;
+import java.io.PrintWriter;
 
 /**
  *
  * @author oscar
  */
 public class CalcDistanceView {
+    
+    protected final BufferedReader keyboard = Andromeda.getInfile();
+    protected final PrintWriter console = Andromeda.getOutfile();
+
 
     public void displayCalcDistanceView() throws MapControlException {
         boolean done = false;
@@ -21,22 +28,22 @@ public class CalcDistanceView {
             //From System
             String system = "Local Cluster";
             //From Planet
-            System.out.print("From planet: ");
+            this.console.print("From planet: ");
             String fromPlanet = this.getInput();
             if (fromPlanet.toUpperCase().equals("E")) {
                 return;
             }
-            System.out.print("Coodinates\nx: ");
+            this.console.print("Coodinates\nx: ");
             double x1 = Double.parseDouble(this.getNumber());
-            System.out.print("y: ");
+            this.console.print("y: ");
             double y1 = Double.parseDouble(this.getNumber());
 
             //To Planet
-            System.out.print("\nTo planet: ");
+            this.console.print("\nTo planet: ");
             String toPlanet = this.getInput();
-            System.out.print("Coodinates\nx: ");
+            this.console.print("Coodinates\nx: ");
             double x2 = Double.parseDouble(this.getNumber());
-            System.out.print("y: ");
+            this.console.print("y: ");
             double y2 = Double.parseDouble(this.getNumber());
 
             done = this.doAction(system, fromPlanet, x1, y1, toPlanet, x2, y2);
@@ -63,10 +70,10 @@ public class CalcDistanceView {
                 + "\n. Earth                                                         "
                 + "\n  [0][0]                                                        "
                 + "\n                                                                ";
-        System.out.println(menu);
+        this.console.println(menu);
     }
 
-    private String getInput() {
+    public String getInput() {
         Scanner keyboard = new Scanner(System.in);
         String selection = "";
         boolean valid = false;
@@ -122,7 +129,7 @@ public class CalcDistanceView {
 
     private void displayNextView(double value, String fromPlanet, String toPlanet) {
         double fixedValue = Math.round(value * 10) / 10.0;
-        System.out.println(
+        this.console.println(
                 "\n*****************************************************************"
                 + "\n\t" + fixedValue + " AU is the distance between " + fromPlanet + " and " + toPlanet + "."
                 + "\n*****************************************************************"

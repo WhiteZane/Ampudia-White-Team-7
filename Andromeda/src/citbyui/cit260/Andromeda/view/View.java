@@ -5,7 +5,13 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -14,6 +20,9 @@ import java.util.Scanner;
 public abstract class View implements ViewInterface {
 
     protected String displayMessage;
+
+    protected final BufferedReader keyboard = Andromeda.getInfile();
+    protected final PrintWriter console = Andromeda.getOutfile();
 
     public View() {
 
@@ -27,6 +36,7 @@ public abstract class View implements ViewInterface {
     public void display() {
         boolean done = false;
         do {
+            this.console.println(this.displayMessage);
             String input = this.getInput();
             if (input.toUpperCase().equals("E")) {
                 return;
@@ -38,22 +48,30 @@ public abstract class View implements ViewInterface {
     @Override
     public String getInput() {
 
-        Scanner keyboard = new Scanner(System.in); // get from keyboard
+        // get from keyboard
         String value = ""; //value returned
         boolean valid = false; //initalize not valid
 
-        while (!valid) { //loop when invalid value is entered
-            System.out.println("\n" + this.displayMessage);
+        try {
 
-            value = keyboard.nextLine(); // get next line typed
-            value = value.trim();
+            while (!valid) { //loop when invalid value is entered
+                this.console.println("\n" + this.displayMessage);
 
-            if (value.length() < 1) {//value is blank
-                System.out.println("\n\t*** Error *** Value can not be blank.");
-                continue;
+                value = this.keyboard.readLine(); // get next line typed
+
+                value = value.trim();
+
+                if (value.length() < 1) {//value is blank
+                    ErrorView.display(this.getClass().getName(),"\n\t*** Error *** Value can not be blank.");
+                    continue;
+                }
+                break; //end loop
             }
-            break; //end loop
+        } catch (Exception e) {
+            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+            return null;
         }
+
         return value; // return entered value
     }
 

@@ -60,7 +60,22 @@ public class MainMenuView extends View {
     }
 
     private void loadSavedGame() {
-        System.out.println("*** loadSavedGame function called ***");
+        
+        this.console.println("\n\nEnter the file path for file where the game"
+                             + "is to be saved."   );
+        
+        String filePath = this.getInput();
+        
+        try {
+            // start a saved game
+            GameControl.getSavedGame(filePath);
+            
+        } catch (Exception ex) {
+            ErrorView.display("MainMenuView", ex.getMessage());
+        } 
+            // display the main menu
+            MainMenuView mainMenu = new MainMenuView();
+            mainMenu.display();
     }
 
     private void howToPlay() {
