@@ -21,7 +21,8 @@ public class LocationMenuView extends View {
                 + "\nA : Armor reinforcment"
                 + "\nB : Buy/Create weapons"
                 + "\nR : Recruit new crew members"
-                + "\nE : Return to Excelsior ");
+                + "\n"
+                + "\nE : Return to System Map ");
     }
 
     String fromPlanet = "";
@@ -48,7 +49,7 @@ public class LocationMenuView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
@@ -61,7 +62,6 @@ public class LocationMenuView extends View {
     }
 
     private void repairFortify() {
-        //System.out.println("*** repairFortify function called ***");
         RepairShip repairs;
         repairs = new RepairShip();
         repairs.display();
@@ -72,7 +72,6 @@ public class LocationMenuView extends View {
     }
 
     private void createWeapons() {
-        //System.out.println("*** createWeapons function called ***");
         CreateWeapons buyWeapons;
         buyWeapons = new CreateWeapons();
         buyWeapons.display();

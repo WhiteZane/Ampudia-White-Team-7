@@ -88,7 +88,7 @@ public class CrescentNebulaView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;

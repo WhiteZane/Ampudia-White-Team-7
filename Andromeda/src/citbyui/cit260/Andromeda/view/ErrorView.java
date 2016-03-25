@@ -13,18 +13,19 @@ import java.io.PrintWriter;
  * @author oscar
  */
 public class ErrorView {
+
     private static final PrintWriter errorFile = Andromeda.getOutfile();
     private static final PrintWriter logFile = Andromeda.getLogFile();
-    
-    public static void display(String className, String errorMessage){
-        
+
+    public static void display(String className, String errorMessage) {
+
         errorFile.println(
-        "---------------------------------------------"
-        +"\n- ERROR -" + errorMessage
-        +"\n-------------------------------------------");
-    
+                "\n---------------------------------------------"
+                + "\n- ERROR -" + errorMessage
+                + "\n---------------------------------------------");
+
         // log error
         logFile.println(className + " - " + errorMessage);
     }
-    
+
 }

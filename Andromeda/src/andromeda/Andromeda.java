@@ -32,8 +32,8 @@ public class Andromeda {
      * @param args the command line arguments
      */
     // read and write
-    private static PrintWriter outfile = null;
-    private static BufferedReader infile = null;
+    private static PrintWriter outFile = null;
+    private static BufferedReader inFile = null;
     private static PrintWriter logFile = null;
 
     private static Game currentGame = null;
@@ -60,8 +60,8 @@ public class Andromeda {
         }*/
         try {
             // open stream
-            Andromeda.infile  = new BufferedReader(new InputStreamReader(System.in));
-            Andromeda.outfile = new PrintWriter(System.out, true);
+            Andromeda.inFile  = new BufferedReader(new InputStreamReader(System.in));
+            Andromeda.outFile = new PrintWriter(System.out, true);
 
             //open log file
             String filePath = "log.txt";
@@ -77,12 +77,12 @@ public class Andromeda {
             
         } finally {
             try {
-                if (Andromeda.infile != null) {
-                    Andromeda.infile.close();
+                if (Andromeda.inFile != null) {
+                    Andromeda.inFile.close();
                 }
 
-                if (Andromeda.outfile != null) {
-                    Andromeda.outfile.close();
+                if (Andromeda.outFile != null) {
+                    Andromeda.outFile.close();
                 }
 
                 if (Andromeda.logFile != null) {
@@ -253,19 +253,19 @@ System.out.println(PlanetOne);
     }
 
     public static PrintWriter getOutfile() {
-        return outfile;
+        return outFile;
     }
 
     public static void setOutfile(PrintWriter outfile) {
-        Andromeda.outfile = outfile;
+        Andromeda.outFile = outfile;
     }
 
     public static BufferedReader getInfile() {
-        return infile;
+        return inFile;
     }
 
     public static void setInfile(BufferedReader infile) {
-        Andromeda.infile = infile;
+        Andromeda.inFile = infile;
     }
 
     public static PrintWriter getLogFile() {

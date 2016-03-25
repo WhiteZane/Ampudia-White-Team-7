@@ -27,6 +27,7 @@ public class GameMenuView extends View {
                 + "\nT : Talk to Crew Members"
                 + "\nC : Check Logbook"
                 + "\nS : Save Game"
+                + "\n"
                 + "\nE : Exit to Main Menu"
                 + "\n"
                 + "\n1 : Calculate Planets Distance");
@@ -62,7 +63,7 @@ public class GameMenuView extends View {
             }
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
@@ -94,13 +95,12 @@ public class GameMenuView extends View {
     }
 
     private void saveGame() {
-        this.console.println("\n\nEnter the file path for file where the game"
-                            + " is to be saved.");
-        
+        this.console.println("\nEnter the file path for file where the game is to be saved.");
         String filePath = this.getInput();
-        try{
+
+        try {
             GameControl.saveGame(Andromeda.getCurrentGame(), filePath);
-        
+            this.console.println("\n\nSave complete!");
         } catch (Exception ex) {
             ErrorView.display("GameMenuView", ex.getMessage());
         }

@@ -7,13 +7,9 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.control.GameControl;
-import byui.cit260.andromeda.control.MapControl;
-import byui.cit260.andromeda.model.Excelsior;
-import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Player;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.List;
 import java.util.Scanner;
 
 /**
@@ -81,10 +77,6 @@ public class StartProgramView {
             value = keyboard.nextLine(); // get next line typed
             value = value.trim();
 
-            /*if (value.length() < 1) {//value is blank
-            System.out.println("\n*** Error *** Value can not be blank");
-            continue;
-            }*/
             break; //end loop
         }
         return value; // return entered value
@@ -92,8 +84,8 @@ public class StartProgramView {
 
     private boolean doAction(String playersName) {
         if (playersName.length() < 2 || playersName.length() >= 20 || playersName == null) {
-            ErrorView.display(this.getClass().getName(),"\n\t*** Error *** Invalid player's name."
-                    + "\n\tThe name must be greater than one and less than 20 characters in length.");
+            ErrorView.display(this.getClass().getName(),"\n* Invalid player's name."
+                    + "\n  The name must be greater than one and less than 20 characters in length.");
             return false;
         }
 

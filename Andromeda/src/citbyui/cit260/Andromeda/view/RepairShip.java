@@ -8,7 +8,6 @@ package citbyui.cit260.Andromeda.view;
 import byui.cit260.andromeda.control.ExcelsiorControl;
 import byui.cit260.andromeda.model.Excelsior;
 import exceptions.ExcelsiorControlExceptions;
-import static java.lang.Integer.parseInt;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -56,7 +55,7 @@ public class RepairShip extends View {
             }
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
@@ -65,20 +64,20 @@ public class RepairShip extends View {
     private void checkStatus() {
         Excelsior excelsior = new Excelsior();
         int status = excelsior.getShipIntegrity();
-        System.out.println("\n\t Ship Status:  " + status);
+        this.console.println("\n\t Ship Status:  " + status);
         if (status == 100) {
-            System.out.println("\t Excelsior has taken no damage");
+            this.console.println("\t Excelsior has taken no damage");
         } else if (status <= 90) {
-            System.out.println("\t Excelsior has taken minor damage");
+            this.console.println("\t Excelsior has taken minor damage");
 
         } else if (status <= 80) {
-            System.out.println("\t Excelsior has taken moderate damage");
+            this.console.println("\t Excelsior has taken moderate damage");
         } else if (status <= 70) {
-            System.out.println("\t Excelsior has taken moderate damage");
+            this.console.println("\t Excelsior has taken moderate damage");
         } else if (status <= 60) {
-            System.out.println("\t Excelsior has taken major damage");
+            this.console.println("\t Excelsior has taken major damage");
         } else if (status <= 50) {
-            System.out.println("\t Excelsior has taken major damage");
+            this.console.println("\t Excelsior has taken major damage");
         }
     }
 
@@ -86,28 +85,28 @@ public class RepairShip extends View {
         Excelsior excelsior = new Excelsior();
         int status = excelsior.getShipIntegrity();
         if (status == 100) {
-            System.out.println("\t Excelsior has no repairs to be made");
+            this.console.println("\t Excelsior has no repairs to be made");
         } else if (status <= 90) {
-            System.out.println("\t Excelsior has taken minor damage"
+            this.console.println("\t Excelsior has taken minor damage"
                     + "\n repair costs : shield generator 3 platinum 1 hour "
                     + "\n\t\tshield alignment module 2 paladium 1 hour");
         } else if (status <= 80) {
-            System.out.println("\t Excelsior has taken moderate damage"
+            this.console.println("\t Excelsior has taken moderate damage"
                     + "\n repair costs : shield generator 3 platinum 1 hour "
                     + "\n\t\tshield alignment module 2 paladium 1 hour"
                     + "\n\t\tminor hull damage module 2 iriduim 2 hours");
         } else if (status <= 70) {
-            System.out.println("\t Excelsior has taken moderate damage"
+            this.console.println("\t Excelsior has taken moderate damage"
                     + "\n repair costs : shield generator 4 platinum 1 hour "
                     + "\n\t\tshield alignment module 2 paladium 1 hour"
                     + "\n\t\ttminor hull damage module 3 iriduim 2 hours");
         } else if (status <= 60) {
-            System.out.println("\t Excelsior has taken major damage"
+            this.console.println("\t Excelsior has taken major damage"
                     + "\n repair costs : shield generator 4 platinum 1 hour "
                     + "\n\t\tshield alignment module 2 paladium 1 hour"
                     + "\n\t\tmoderate hull damage    5 iriduim  4 hours");
         } else if (status <= 50) {
-            System.out.println("\t Excelsior has taken major damage"
+            this.console.println("\t Excelsior has taken major damage"
                     + "\n repair costs : shield generator 4 platinum 1 hour "
                     + "\n\t\tshield alignment module 4 paladium 1 hour"
                     + "\n\t\tsevere hull damage      5 iriduim  5 hours"
@@ -130,17 +129,17 @@ public class RepairShip extends View {
         
             
         
-        System.out.println("To make repairs you need to calculate the repair Orders"
+        this.console.println("To make repairs you need to calculate the repair Orders"
                 + "\n To calculate repair orders use this formula: "
                 + " Repairs = (Cost * time) "
                 + "\nEnter total Time to repair here: ");
   
         time = inputs.next();
 
-        System.out.println("\n Enter total repair Cost here: ");
+        this.console.println("\n Enter total repair Cost here: ");
         cost = inputs.next();
 
-        System.out.println("\n Enter total cost of repairs here: ");
+        this.console.println("\n Enter total cost of repairs here: ");
         total = inputs.next();
      
         

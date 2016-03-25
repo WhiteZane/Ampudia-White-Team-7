@@ -7,11 +7,7 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -36,7 +32,7 @@ public abstract class View implements ViewInterface {
     public void display() {
         boolean done = false;
         do {
-            this.console.println(this.displayMessage);
+            //this.console.println(this.displayMessage);
             String input = this.getInput();
             if (input.toUpperCase().equals("E")) {
                 return;
@@ -58,17 +54,16 @@ public abstract class View implements ViewInterface {
                 this.console.println("\n" + this.displayMessage);
 
                 value = this.keyboard.readLine(); // get next line typed
-
                 value = value.trim();
 
                 if (value.length() < 1) {//value is blank
-                    ErrorView.display(this.getClass().getName(),"\n\t*** Error *** Value can not be blank.");
+                    ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.");
                     continue;
                 }
                 break; //end loop
             }
         } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"Error reading input: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(),"* Error reading input: " + e.getMessage());
             return null;
         }
 

@@ -5,8 +5,6 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author oscar
@@ -35,7 +33,7 @@ public class ExploreLocationView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
 

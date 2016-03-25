@@ -5,30 +5,24 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import byui.cit260.andromeda.model.Excelsior;
-import java.util.Scanner;
-
 /**
  *
  * @author Oscar
  */
-public class CreateWeapons extends View{
-    
-     public CreateWeapons() {
+public class CreateWeapons extends View {
 
-                super("…………………………………………………………………………………"
+    public CreateWeapons() {
+
+        super("…………………………………………………………………………………"
                 + "\n  Buy/Create Weapons Menu"
                 + "\n…………………………………………………………………………………"
                 + "\nD : Weapon Description"
                 + "\nC : Create weapons"
                 + "\nB : Buy weapons"
+                + "\n"
                 + "\nE : Return to Location Menu ");
 
     }
-
-     
-     
-    
 
     public boolean doAction(String createOption) {
 
@@ -49,18 +43,16 @@ public class CreateWeapons extends View{
                 this.exit();
                 break;
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
     }
 
-    
-
     private void createWeapon() {
         //Excelsior excelsior = new Excelsior();
         //int status = excelsior.getShipIntegrity();
-        
+
         System.out.println("\n\t∞∞∞ Create Weapons? ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\n"
@@ -73,14 +65,14 @@ public class CreateWeapons extends View{
                 + "\n 4. Photon Torpedo launcher "
                 + "\n Cost: 5 platinum, 15 iridium"
                 + "\n*** More details can be added later ***");
-        
+
         new java.util.Scanner(System.in).nextLine(); // system pause
 
     }
 
     private void buyWeapon() {
         //call for minerals and check if weapons can be bought
-         System.out.println(
+        System.out.println(
                 "\n\t∞∞∞ buy Weapons? ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\n 1. Rockets x5 "
@@ -89,8 +81,8 @@ public class CreateWeapons extends View{
                 + "\n Cost: 5 pladium, 10 iridium"
                 + "\n"
                 + "\n*** More details can be added later ***");
-        
-         new java.util.Scanner(System.in).nextLine(); // system pause
+
+        new java.util.Scanner(System.in).nextLine(); // system pause
 
     }
 
@@ -108,9 +100,9 @@ public class CreateWeapons extends View{
                 + "\n Allows you to launch Photon Torpedos"
                 + "\n"
                 + "*** More details can be added later");
-        
+
         new java.util.Scanner(System.in).nextLine(); // system pause
-    
+
     }
 
     private void exit() {
@@ -119,6 +111,4 @@ public class CreateWeapons extends View{
         mainMenuView.display();
     }
 
-    
-    
 }

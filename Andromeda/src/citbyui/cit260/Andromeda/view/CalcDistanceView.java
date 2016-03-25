@@ -17,10 +17,9 @@ import java.io.PrintWriter;
  * @author oscar
  */
 public class CalcDistanceView {
-    
+
     protected final BufferedReader keyboard = Andromeda.getInfile();
     protected final PrintWriter console = Andromeda.getOutfile();
-
 
     public void displayCalcDistanceView() throws MapControlException {
         boolean done = false;
@@ -28,22 +27,22 @@ public class CalcDistanceView {
             //From System
             String system = "Local Cluster";
             //From Planet
-            this.console.print("From planet: ");
+            this.console.println("From planet: ");
             String fromPlanet = this.getInput();
             if (fromPlanet.toUpperCase().equals("E")) {
                 return;
             }
-            this.console.print("Coodinates\nx: ");
+            this.console.println("Coodinates\nx: ");
             double x1 = Double.parseDouble(this.getNumber());
-            this.console.print("y: ");
+            this.console.println("y: ");
             double y1 = Double.parseDouble(this.getNumber());
 
             //To Planet
-            this.console.print("\nTo planet: ");
+            this.console.println("\nTo planet: ");
             String toPlanet = this.getInput();
-            this.console.print("Coodinates\nx: ");
+            this.console.println("Coodinates\nx: ");
             double x2 = Double.parseDouble(this.getNumber());
-            this.console.print("y: ");
+            this.console.println("y: ");
             double y2 = Double.parseDouble(this.getNumber());
 
             done = this.doAction(system, fromPlanet, x1, y1, toPlanet, x2, y2);
@@ -83,7 +82,7 @@ public class CalcDistanceView {
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                System.out.println("\n\t*** Error *** Value can not be blank.");
+                ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.");
                 continue;
             }
             break;
@@ -101,14 +100,14 @@ public class CalcDistanceView {
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                System.out.println("\n*** Error *** Value can not be blank.\n");
+                ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.\n");
                 continue;
             }
             try {
                 Double.parseDouble(selection);
                 valid = true;
             } catch (NumberFormatException nfe) {
-                System.out.println("\n*** Error *** The value must be a number.");
+                ErrorView.display(this.getClass().getName(), "\n* The value must be a number.");
             }
         }
         return selection;
@@ -121,8 +120,8 @@ public class CalcDistanceView {
         try {
             double value = distance.calcPlanetDistance(system, fromPlanet, x1, y1, toPlanet, x2, y2);
             this.displayNextView(value, fromPlanet, toPlanet);
-        } catch (MapControlException me){
-            System.out.println(me.getMessage());
+        } catch (MapControlException me) {
+            ErrorView.display(this.getClass().getName(), me.getMessage());
         }
         return true;
     }

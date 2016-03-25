@@ -7,7 +7,6 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Excelsior;
-import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Weapon;
 import java.util.List;
 
@@ -54,7 +53,7 @@ public class StarshipStatus extends View {
         switch (shipOption) {
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;

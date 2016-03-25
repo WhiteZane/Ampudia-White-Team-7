@@ -11,23 +11,20 @@ package exceptions;
  */
 public class GameControlException extends Exception{
 
-    public GameControlException() {
-    }
-
     public GameControlException(String message) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        super(message);
     }
 
-    public GameControlException(String string, Throwable thrwbl) {
-        super(string, thrwbl);
+    public GameControlException(String message, Throwable cause) {
+        super(message, cause);
     }
 
-    public GameControlException(Throwable thrwbl) {
-        super(thrwbl);
+    public GameControlException(Throwable cause) {
+        super(cause);
     }
-    
 
-    
-    
-    
+    public GameControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
+        super(message, cause, enableSuppression, writableStackTrace);
+    }
+
 }

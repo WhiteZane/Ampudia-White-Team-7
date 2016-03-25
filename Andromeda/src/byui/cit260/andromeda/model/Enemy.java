@@ -61,7 +61,7 @@ public class Enemy implements Serializable {
     public String toString() {
         return ""
                 + "\nName: \t\t" + name 
-                + "\nDescription: \t" + description
+                //+ "\nDescription: \t" + description
                 + "\nHP: \t\t" + HP 
                 + "\nAttack: \t" + atck 
                 + "\n";

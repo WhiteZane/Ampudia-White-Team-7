@@ -5,11 +5,6 @@
  */
 package citbyui.cit260.Andromeda.view;
 
-import andromeda.Andromeda;
-import byui.cit260.andromeda.control.GameControl;
-import byui.cit260.andromeda.control.MapControl;
-import byui.cit260.andromeda.model.Game;
-
 /**
  *
  * @author oscar
@@ -68,7 +63,7 @@ public class MapView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;

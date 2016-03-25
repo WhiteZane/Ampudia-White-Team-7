@@ -7,11 +7,6 @@ package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
 import byui.cit260.andromeda.control.GameControl;
-import byui.cit260.andromeda.model.Map;
-import exceptions.MapControlException;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -27,6 +22,7 @@ public class MainMenuView extends View {
                 + "\nG : Start new game "
                 + "\nL : Load saved game "
                 + "\nH : How to play"
+                + "\n"
                 + "\nE : Exit game"
                 + "\n");
     }
@@ -45,37 +41,36 @@ public class MainMenuView extends View {
             case "H":
                 this.howToPlay();
                 break;
-            
+
             default:
-                System.out.println("\n*** Invalid selection *** Try again");
+                this.console.println("\n*** Invalid selection *** Try again");
                 break;
         }
         return false;
     }
 
     private void startNewGame() {
-        GameControl.createNewGame(Andromeda.getPlayer(),Andromeda.getShip());
+        GameControl.createNewGame(Andromeda.getPlayer(), Andromeda.getShip());
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
 
     private void loadSavedGame() {
-        
-        this.console.println("\n\nEnter the file path for file where the game"
-                             + "is to be saved."   );
-        
+        this.console.println("\nEnter the file path where the saved file is located.");
         String filePath = this.getInput();
-        
+
         try {
             // start a saved game
             GameControl.getSavedGame(filePath);
-            
+            this.console.println(
+                    "\n\nSaved game loaded!"
+                    + "\nWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!");
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
-        } 
-            // display the main menu
-            MainMenuView mainMenu = new MainMenuView();
-            mainMenu.display();
+        }
+        // display the main menu
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.display();
     }
 
     private void howToPlay() {

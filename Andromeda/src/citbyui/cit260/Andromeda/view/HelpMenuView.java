@@ -44,7 +44,7 @@ public class HelpMenuView extends View {
                 break;
 
             default:
-                System.out.println("\n*** Error *** Invalid selection. Try again.");
+                this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
@@ -68,7 +68,7 @@ public class HelpMenuView extends View {
         boolean isValid = true;
 
         while (isValid) {
-            System.out.println("\n[Hit enter to continue]");
+            this.console.println("\n[Hit enter to continue]");
 
             value = keyboard.nextLine();
             value = "";
@@ -79,7 +79,7 @@ public class HelpMenuView extends View {
     }
 
     private void goal() {
-        System.out.println(
+        this.console.println(
                 "\n\t∞∞∞ What is Your Goal? ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\nYour goal is to travel through uncharted planets, defeat enemies"
@@ -92,7 +92,7 @@ public class HelpMenuView extends View {
     }
 
     private void shipStatus() {
-        System.out.println(
+        this.console.println(
                 "\n\t∞∞∞ Ship Status Explanation and Upgrades ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\nDuring the game, you will face space pirates in space battle."
@@ -106,7 +106,7 @@ public class HelpMenuView extends View {
     }
 
     private void crewMembers() {
-        System.out.println(
+        this.console.println(
                 "\n\t∞∞∞ Recruiting Crew Members ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\nYou will need to explore different locations to find different"
@@ -120,7 +120,7 @@ public class HelpMenuView extends View {
     }
 
     private void aboutEnemy() {
-        System.out.println(
+        this.console.println(
                 "\n\t∞∞∞ About Enemies ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
                 + "\nYou will encounter enemies while exploring a planet or when"
