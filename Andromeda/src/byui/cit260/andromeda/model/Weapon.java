@@ -54,6 +54,8 @@ public class Weapon implements Serializable{
                 + "\nQuantity:\t" + quantity
                 + "\n";
     }
+
+    
     
     
 }

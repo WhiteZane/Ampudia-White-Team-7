@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 /**
  *
- * @author ghosty
+ * @author Oscar
  */
 public class Planet implements Serializable {
 

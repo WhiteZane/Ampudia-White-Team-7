@@ -19,7 +19,17 @@ public class Game implements Serializable {
     private Excelsior excelsior;
     private List<Map> map;
     private String totalTime;
+    private List<Weapon> weapons;
 
+    public List<Weapon> getWeapons() {
+        return weapons;
+    }
+
+    public void setWeapons(List<Weapon> weapons) {
+        this.weapons = weapons;
+    }
+    
+    
     public Game() {
 
     }
@@ -47,6 +57,7 @@ public class Game implements Serializable {
     public void setMap(List<Map> map) {
         this.map = map;
     }
+    
 
     public String getTotalTime() {
         return totalTime;
@@ -55,6 +66,7 @@ public class Game implements Serializable {
     public void setTotalTime(String totalTime) {
         this.totalTime = totalTime;
     }
+
 
     @Override
     public int hashCode() {
@@ -95,5 +107,10 @@ public class Game implements Serializable {
     public void setMaterial(Material[] materialList) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    
+
+   
+  
 
 }

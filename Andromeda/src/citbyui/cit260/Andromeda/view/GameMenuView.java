@@ -13,6 +13,8 @@ import byui.cit260.andromeda.control.GameControl;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
 import byui.cit260.andromeda.model.Planet;
+import byui.cit260.andromeda.model.Weapon;
+import static citbyui.cit260.Andromeda.view.StarshipStatus.weapon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -37,7 +39,8 @@ public class GameMenuView extends View {
                 + "\nE : Exit to Main Menu"
                 + "\n"
                 + "\n1 : Print Game Report"
-                + "\n2 : Calculate Planets Distance");
+                + "\n2 : Calculate Planets Distance"
+                + "\n3 : Print Inventory");
     }
 
     public boolean doAction(String choice) {
@@ -64,6 +67,8 @@ public class GameMenuView extends View {
             case "1":
                 this.printReport();
                 break;
+            
+            
 
             case "2": {
                 try {
@@ -71,7 +76,11 @@ public class GameMenuView extends View {
                 } catch (MapControlException ex) {
                     Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
                 }
+                break;
             }
+            case "3":
+                this.printInventory();
+                break;
 
             default:
                 this.console.println("\n*** Error *** Invalid selection. Try again.");
@@ -158,4 +167,47 @@ public class GameMenuView extends View {
             System.out.println("I/O Error: " + e.getMessage());
         }
     }
+
+    private void printInventory() {
+        this.console.println("\nEnter the file path and file name where the report is to be saved.");
+        Game game = Andromeda.getCurrentGame();
+        try {
+            String report = keyboard.readLine();
+            this.allInventory(game.getWeapons(), report);
+            //this.allPlanets(game.getMap(), report);
+            this.console.println("\n\nReport saved in " + report);
+        } catch (Exception e) {
+            ErrorView.display("GameMenuView", e.getMessage());
+        }
+    }
+    
+    private void allInventory(List<Weapon> weaponReport, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\tWeapons");
+            out.printf("%n%-20s%-20s%10s", "Name", "Attack Points","Quantity");
+            out.printf("%n%-20s%-20s%10s", "–––––––––––––––––", "–––––––––––––––––","––––––");
+
+            for (Weapon weapons : weaponReport) {
+                out.printf("%n%-20s", weapons.getName());
+
+                String name = "";
+                double attackpoints;
+                int quantity;
+                
+                for (int i = 0; i <= weapons.getQuantity(); i++) {
+                    name = weapons.getName();
+                    attackpoints = weapons.getAttackpoints();
+                    quantity = weapons.getQuantity();
+                    out.printf("%n%-20s%-20s%10s", "", name,attackpoints,quantity);
+                }
+
+            }
+
+        } catch (IOException e) {
+            System.out.println("I/O Error: " + e.getMessage());
+        }
+    }
+
+
+
 }

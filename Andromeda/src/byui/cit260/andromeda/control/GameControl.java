@@ -68,6 +68,10 @@ public class GameControl {
         List<Map> map = MapControl.createMap();
         //Andromeda.setMap(map);
         game.setMap(map);
+        
+        List<Weapon> weapons = createWeaponsList();
+        
+        game.setWeapons(weapons);
 
         /*Search a list for a value 
         for (int i=0; i<=planet.size()-1; i++){
@@ -142,6 +146,10 @@ public class GameControl {
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
+    }
+
+    public static List<Weapon> GetWeaponsList() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }
