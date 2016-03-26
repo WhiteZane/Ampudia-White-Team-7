@@ -62,8 +62,10 @@ public class MainMenuView extends View {
             String filePath = keyboard.readLine();
             GameControl.getSavedGame(filePath);
             this.console.println(
-                    "\n\nSaved game loaded!"
-                    + "\nWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!");
+                    "\nSaved game loaded."
+                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
+                    + "\n\tWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!"
+                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }
