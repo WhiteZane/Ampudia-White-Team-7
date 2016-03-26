@@ -14,7 +14,7 @@ import java.io.PrintWriter;
  */
 public class ErrorView {
 
-    private static final PrintWriter errorFile = Andromeda.getOutfile();
+    private static final PrintWriter errorFile = Andromeda.getOutFile();
     private static final PrintWriter logFile = Andromeda.getLogFile();
 
     public static void display(String className, String errorMessage) {

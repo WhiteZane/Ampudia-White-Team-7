@@ -19,7 +19,7 @@ import java.io.PrintWriter;
 public class CalcDistanceView {
 
     protected final BufferedReader keyboard = Andromeda.getInfile();
-    protected final PrintWriter console = Andromeda.getOutfile();
+    protected final PrintWriter console = Andromeda.getOutFile();
 
     public void displayCalcDistanceView() throws MapControlException {
         boolean done = false;

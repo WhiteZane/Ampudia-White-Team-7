@@ -96,9 +96,9 @@ public class GameMenuView extends View {
 
     private void saveGame() {
         this.console.println("\nEnter the file path for file where the game is to be saved.");
-        String filePath = this.getInput();
 
         try {
+            String filePath = keyboard.readLine();
             GameControl.saveGame(Andromeda.getCurrentGame(), filePath);
             this.console.println("\n\nSave complete!");
         } catch (Exception ex) {

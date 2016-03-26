@@ -137,11 +137,11 @@ public class GameControl {
             ObjectInputStream input = new ObjectInputStream(fips);
 
             game = (Game) input.readObject();
+            Andromeda.setCurrentGame(game);
+            
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
-        //close the output file
-        Andromeda.setCurrentGame(game);
     }
 
 }

@@ -18,7 +18,7 @@ public abstract class View implements ViewInterface {
     protected String displayMessage;
 
     protected final BufferedReader keyboard = Andromeda.getInfile();
-    protected final PrintWriter console = Andromeda.getOutfile();
+    protected final PrintWriter console = Andromeda.getOutFile();
 
     public View() {
 
@@ -48,23 +48,20 @@ public abstract class View implements ViewInterface {
         String value = ""; //value returned
         boolean valid = false; //initalize not valid
 
-        try {
-
-            while (!valid) { //loop when invalid value is entered
-                this.console.println("\n" + this.displayMessage);
-
+        while (!valid) { //loop when invalid value is entered
+            this.console.println("\n" + this.displayMessage);
+            try {
                 value = this.keyboard.readLine(); // get next line typed
-                value = value.trim();
-
-                if (value.length() < 1) {//value is blank
-                    ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.");
-                    continue;
-                }
-                break; //end loop
+            } catch (Exception e) {
+                ErrorView.display(this.getClass().getName(), value);
             }
-        } catch (Exception e) {
-            ErrorView.display(this.getClass().getName(),"* Error reading input: " + e.getMessage());
-            return null;
+            value = value.trim();
+
+            if (value.length() < 1) {//value is blank
+                ErrorView.display(this.getClass().getName(), "\n* Value can not be blank.");
+                continue;
+            }
+            break; //end loop
         }
 
         return value; // return entered value

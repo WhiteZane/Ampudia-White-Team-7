@@ -252,11 +252,11 @@ System.out.println(PlanetOne);
         Andromeda.logbook = logbook;
     }
 
-    public static PrintWriter getOutfile() {
+    public static PrintWriter getOutFile() {
         return outFile;
     }
 
-    public static void setOutfile(PrintWriter outfile) {
+    public static void setOutFile(PrintWriter outfile) {
         Andromeda.outFile = outfile;
     }
 

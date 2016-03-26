@@ -17,9 +17,9 @@ import java.util.Scanner;
  * @author ghosty
  */
 public class StartProgramView {
-    
+
     protected final BufferedReader keyboard = Andromeda.getInfile();
-    protected final PrintWriter console = Andromeda.getOutfile();
+    protected final PrintWriter console = Andromeda.getOutFile();
 
     //private String promptMessage;
     public StartProgramView() {
@@ -28,7 +28,7 @@ public class StartProgramView {
 
     private void displayBanner() {
         this.console.println(
-                 "\n      ___    _   ______  ____  ____  __  _____________  ___ "
+                "\n      ___    _   ______  ____  ____  __  _____________  ___ "
                 + "\n     /   |  / | / / __ \\/ __ \\/ __ \\/  |/  / ____/ __ \\/   |"
                 + "\n    / /| | /  |/ / / / / /_/ / / / / /|_/ / __/ / / / / /| |"
                 + "\n   / ___ |/ /|  / /_/ / _, _/ /_/ / /  / / /___/ /_/ / ___ |"
@@ -48,7 +48,7 @@ public class StartProgramView {
     }
 
     public void displayStartProgramView() {
-        
+
         boolean done = false; // set flag to not done
         do {
             //prompt for and get players name
@@ -68,13 +68,15 @@ public class StartProgramView {
 
         boolean isValidName = false; //initalize not valid
         String value = ""; //value returned
-        Scanner keyboard = new Scanner(System.in); // get from keyboard
 
         this.console.println("\nPlease enter your name: ");
 
         while (!isValidName) { //loop when invalid value is entered
-
-            value = keyboard.nextLine(); // get next line typed
+            try {
+                value = keyboard.readLine(); // get next line typed
+            } catch (Exception e) {
+                ErrorView.display(this.getClass().getName(), value);
+            }
             value = value.trim();
 
             break; //end loop
@@ -83,8 +85,8 @@ public class StartProgramView {
     }
 
     private boolean doAction(String playersName) {
-        if (playersName.length() < 2 || playersName.length() >= 20 || playersName == null) {
-            ErrorView.display(this.getClass().getName(),"\n* Invalid player's name."
+        if (playersName.length() < 2 || playersName.length() >= 20) {
+            ErrorView.display(this.getClass().getName(), "\n* Invalid player's name."
                     + "\n  The name must be greater than one and less than 20 characters in length.");
             return false;
         }
@@ -92,9 +94,9 @@ public class StartProgramView {
         //call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
         GameControl.createExcelsior();
-        
+
         if (player == null) {
-            ErrorView.display(this.getClass().getName(),"\n*** Error *** Error creating the player.");
+            ErrorView.display(this.getClass().getName(), "\n*** Error *** Error creating the player.");
             return false;
         }
 
