@@ -100,23 +100,24 @@ public class GameControl {
         List<Weapon> weaponList = new ArrayList<>();
 
         Weapon phaserBank = new Weapon();
-
         phaserBank.setName("Phaser Bank");
         phaserBank.setAttackpoints(5);
         phaserBank.setQuantity(1);
         weaponList.add(phaserBank);
 
         Weapon improvedPhaserBank = new Weapon();
-
         improvedPhaserBank.setName("Improved phaser Bank");
         improvedPhaserBank.setAttackpoints(7);
         improvedPhaserBank.setQuantity(0);
+        //Missing code 
+        weaponList.add(improvedPhaserBank);
 
         Weapon phaserArray = new Weapon();
-
         phaserArray.setName("Phaser Array");
         phaserArray.setAttackpoints(9);
         phaserArray.setQuantity(0);
+        //Missing code
+        weaponList.add(phaserArray);
 
         return weaponList;
     }

@@ -14,7 +14,7 @@ import java.io.Serializable;
 public class Weapon implements Serializable{
     
     private String name;
-    private double attackpoints;
+    private int attackpoints;
     private int quantity;
 
     public Weapon() {
@@ -31,11 +31,11 @@ public class Weapon implements Serializable{
         this.name = name;
     }
 
-    public double getAttackpoints() {
+    public int getAttackpoints() {
         return attackpoints;
     }
 
-    public void setAttackpoints(double attackpoints) {
+    public void setAttackpoints(int attackpoints) {
         this.attackpoints = attackpoints;
     }
 

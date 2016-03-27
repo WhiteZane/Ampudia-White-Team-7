@@ -1,0 +1,8 @@
+
+	Weapons
+
+Name                     Attack Points         Quantity
+––––––––––––––––––––     ––––––––––––––      –––––––––––
+Phaser Bank              5                   1         
+Improved phaser Bank     7                   0         
+Phaser Array             9                   0         

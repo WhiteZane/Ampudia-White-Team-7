@@ -184,25 +184,23 @@ public class GameMenuView extends View {
     private void allInventory(List<Weapon> weaponReport, String outputLocation) {
         try (PrintWriter out = new PrintWriter(outputLocation)) {
             out.println("\n\tWeapons");
-            out.printf("%n%-20s%-20s%10s", "Name", "Attack Points","Quantity");
-            out.printf("%n%-20s%-20s%10s", "–––––––––––––––––", "–––––––––––––––––","––––––");
+            out.printf("%n%-25s%-20s%10s", "Name", "Attack Points","Quantity");
+            out.printf("%n%-25s%-20s%10s", "––––––––––––––––––––", "––––––––––––––","–––––––––––");
 
             for (Weapon weapons : weaponReport) {
-                out.printf("%n%-20s", weapons.getName());
+                out.printf("%n%-25s%-20d%-10d", weapons.getName(),weapons.getAttackpoints(),weapons.getQuantity());
 
-                String name = "";
-                double attackpoints;
-                int quantity;
+                //String name = "";
+                //double attackpoints;
+                //int quantity;
                 
-                for (int i = 0; i <= weapons.getQuantity(); i++) {
-                    name = weapons.getName();
-                    attackpoints = weapons.getAttackpoints();
-                    quantity = weapons.getQuantity();
-                    out.printf("%n%-20s%-20s%10s", "", name,attackpoints,quantity);
-                }
-
+                //for (int i = 0; i <= weapons.getQuantity(); i++) {
+                //    name = weapons.getName();
+                //    attackpoints = weapons.getAttackpoints();
+                //    quantity = weapons.getQuantity();
+                //    out.printf("%n%-20s%-20s%10s", "", name,attackpoints,quantity);
+                //}
             }
-
         } catch (IOException e) {
             System.out.println("I/O Error: " + e.getMessage());
         }
