@@ -1,0 +1,37 @@
+
+PLANETS LIST
+
+SYSTEM              PLANET                COORDINATES    VISITED   
+–––––––––––––––––   ––––––––––––––––––––  ––––––––––––   ––––––––––––
+Local Cluster       
+                    Earth                 0,0            true      
+                    Mars                  1,1            true      
+                    Jupiter               4,4            true      
+                    Saturn                8,8            true      
+                    Uranus                18,18          true      
+                    Neptune               30,30          true      
+Crescent Nebula     
+                    Naxell                -120,-120      false     
+                    Thail                 -88,-88        false     
+                    Beregale              0,0            false     
+                    Illium                11,11          false     
+                    Ponolus               46,46          false     
+Nubian Expanse      
+                    Gamayun               -25,-25        false     
+                    Alkonost              -21,-21        false     
+                    Bannik                0,0            false     
+                    Pragia                13,13          false     
+                    Zimitra               34,34          false     
+Krogan DMZ          
+                    Ruam                  32,32          false     
+                    Tuchanka              33,33          false     
+                    Kruban                5,5            false     
+                    Durak                 0,0            false     
+                    Kanin                 -2,-2          false     
+Perseus Veil        
+                    Uriyah                -2,-2          false     
+                    Rannoch               -2,-2          false     
+                    Geth Debris Field     0,0            false     
+                    Geth Dreadnought      1,1            false     
+                    Migrant Fleet         2,2            false     
+                    Mass Relay            66,66          false     

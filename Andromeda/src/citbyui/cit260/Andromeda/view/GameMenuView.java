@@ -38,7 +38,7 @@ public class GameMenuView extends View {
                 + "\n"
                 + "\nE : Exit to Main Menu"
                 + "\n"
-                + "\n1 : Print Game Report"
+                + "\n1 : Print Map Report"
                 + "\n2 : Calculate Planets Distance"
                 + "\n3 : Print Inventory");
     }
@@ -67,8 +67,6 @@ public class GameMenuView extends View {
             case "1":
                 this.printReport();
                 break;
-            
-            
 
             case "2": {
                 try {
@@ -136,8 +134,9 @@ public class GameMenuView extends View {
         Game game = Andromeda.getCurrentGame();
         try {
             String report = keyboard.readLine();
-            this.allPlanets(game.getMap(), report);
-            this.console.println("\n\nReport saved in " + report);
+            GameControl.printReport(game.getMap(), report);
+            allPlanets(game.getMap(), report);
+            this.console.println("\nThe report was printed successfully to \"" + report + "\"");
         } catch (Exception e) {
             ErrorView.display("GameMenuView", e.getMessage());
         }
@@ -145,26 +144,31 @@ public class GameMenuView extends View {
 
     private void allPlanets(List<Map> mapReport, String outputLocation) {
         try (PrintWriter out = new PrintWriter(outputLocation)) {
-            out.println("\n\tPlanets");
-            out.printf("%n%-20s%-20s%10s", "System", "Planet","Coordinates");
-            out.printf("%n%-20s%-20s%10s", "–––––––––––––––––", "–––––––––––––––––","––––––");
+            out.println("\nPLANETS LIST");
+            out.printf("%n%-20s%-22s%-15s%-10s",
+                    "SYSTEM", "PLANET", "COORDINATES", "VISITED");
+            out.printf("%n%-20s%-22s%-15s%-10s",
+                    "–––––––––––––––––", "––––––––––––––––––––", "––––––––––––", "––––––––––––");
 
             for (Map map : mapReport) {
                 out.printf("%n%-20s", map.getSystem());
 
                 String planet = "";
                 String coordinates = "";
-                
+                boolean visited;
+
                 for (int i = 0; i <= map.getPlanets().size() - 1; i++) {
                     planet = map.getPlanets().get(i).getName();
-                    coordinates = map.getPlanets().get(i).getX()+","+map.getPlanets().get(i).getX();
-                    out.printf("%n%-20s%-20s%10s", "", planet,coordinates);
+                    coordinates = map.getPlanets().get(i).getX() + "," + map.getPlanets().get(i).getX();
+                    visited = map.getPlanets().get(i).getVisited();
+                    out.printf("%n%-20s%-22s%-15s%-10b",
+                            "", planet, coordinates, visited);
                 }
 
             }
 
-        } catch (IOException e) {
-            System.out.println("I/O Error: " + e.getMessage());
+        } catch (Exception e) {
+            ErrorView.display("GameMenuView", e.getMessage());
         }
     }
 
@@ -180,20 +184,19 @@ public class GameMenuView extends View {
             ErrorView.display("GameMenuView", e.getMessage());
         }
     }
-    
+
     private void allInventory(List<Weapon> weaponReport, String outputLocation) {
         try (PrintWriter out = new PrintWriter(outputLocation)) {
             out.println("\n\tWeapons");
-            out.printf("%n%-25s%-20s%10s", "Name", "Attack Points","Quantity");
-            out.printf("%n%-25s%-20s%10s", "––––––––––––––––––––", "––––––––––––––","–––––––––––");
+            out.printf("%n%-25s%-20s%10s", "Name", "Attack Points", "Quantity");
+            out.printf("%n%-25s%-20s%10s", "––––––––––––––––––––", "––––––––––––––", "–––––––––––");
 
             for (Weapon weapons : weaponReport) {
-                out.printf("%n%-25s%-20d%-10d", weapons.getName(),weapons.getAttackpoints(),weapons.getQuantity());
+                out.printf("%n%-25s%-20d%-10d", weapons.getName(), weapons.getAttackpoints(), weapons.getQuantity());
 
                 //String name = "";
                 //double attackpoints;
                 //int quantity;
-                
                 //for (int i = 0; i <= weapons.getQuantity(); i++) {
                 //    name = weapons.getName();
                 //    attackpoints = weapons.getAttackpoints();
@@ -205,7 +208,5 @@ public class GameMenuView extends View {
             System.out.println("I/O Error: " + e.getMessage());
         }
     }
-
-
 
 }

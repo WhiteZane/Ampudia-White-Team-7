@@ -148,6 +148,18 @@ public class GameControl {
             throw new GameControlException(e.getMessage());
         }
     }
+    
+    public static void printReport(List<Map> map, String filepath) throws GameControlException {
+        
+        try (FileOutputStream fops = new FileOutputStream(filepath)) {
+            ObjectOutputStream output = new ObjectOutputStream(fops);
+
+            output.writeObject(map);
+            
+        } catch (Exception e) {
+            throw new GameControlException(e.getMessage());
+        }
+    }
 
     public static List<Weapon> GetWeaponsList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
