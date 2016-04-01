@@ -10,6 +10,11 @@ package byui.cit260.andromeda.control;
  * @author ghosty
  */
 public class ArmorControl {
+    public void armorControl(){
+        
+      System.out.println(" Armor Upgrade Menu");  
+    
+    }
     
             
 }

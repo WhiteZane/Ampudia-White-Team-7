@@ -5,6 +5,7 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import byui.cit260.andromeda.control.ArmorControl;
 import byui.cit260.andromeda.model.Excelsior;
 import exceptions.ExcelsiorControlExceptions;
 import java.util.Scanner;
@@ -68,9 +69,19 @@ public class ArmorView extends View{
     }
     private void upgradeArmor() {
         
-        this.console.println("Select an upgrade to purchase it");
+        Scanner inputs = new Scanner(System.in);
         
         String result;
+        
+        this.console.println("******Armor Upgrade Menu**********"
+                            + "\nSelect an upgrade to purchase it"
+                            + "\n\t1. upgrade shield effeciency reduce damage by 5");
+        
+        result = inputs.next();
+        
+        
+        
+        
         
         
         
