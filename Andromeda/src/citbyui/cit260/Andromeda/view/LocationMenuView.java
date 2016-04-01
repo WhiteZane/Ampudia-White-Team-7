@@ -68,7 +68,9 @@ public class LocationMenuView extends View {
     }
 
     private void armorReinforce() {
-        System.out.println("*** armorReinforce function called ***");
+        ArmorView armorEnforce;
+        armorEnforce = new ArmorView();
+        armorEnforce.display();
     }
 
     private void createWeapons() {

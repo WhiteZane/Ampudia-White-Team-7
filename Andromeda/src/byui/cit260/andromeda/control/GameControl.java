@@ -109,15 +109,32 @@ public class GameControl {
         improvedPhaserBank.setName("Improved phaser Bank");
         improvedPhaserBank.setAttackpoints(7);
         improvedPhaserBank.setQuantity(0);
-        //Missing code 
+         
         weaponList.add(improvedPhaserBank);
 
         Weapon phaserArray = new Weapon();
         phaserArray.setName("Phaser Array");
         phaserArray.setAttackpoints(9);
         phaserArray.setQuantity(0);
-        //Missing code
+        
         weaponList.add(phaserArray);
+        
+        Weapon rocketLauncherPad = new Weapon();
+        rocketLauncherPad.setName("Rocket launcher pad");
+        rocketLauncherPad.setAttackpoints(10);
+        rocketLauncherPad.setQuantity(0);
+        
+        weaponList.add(rocketLauncherPad);
+        
+        Weapon photonTorpedoLauncher = new Weapon();
+        photonTorpedoLauncher.setName("Photon Torpedo Launcher");
+        photonTorpedoLauncher.setAttackpoints(15);
+        photonTorpedoLauncher.setQuantity(0);
+        
+        weaponList.add(photonTorpedoLauncher);
+        
+        
+        
 
         return weaponList;
     }

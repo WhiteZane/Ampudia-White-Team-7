@@ -152,6 +152,7 @@ public class RepairShip extends View {
 private void RepairShip() throws ExcelsiorControlExceptions{
         RepairShip view = new RepairShip();
         view.RepairShip();
+    
     }
     }
 
