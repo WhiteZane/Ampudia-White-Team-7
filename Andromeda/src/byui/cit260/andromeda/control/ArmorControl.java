@@ -5,16 +5,31 @@
  */
 package byui.cit260.andromeda.control;
 
+import static java.lang.Integer.parseInt;
+
 /**
  *
- * @author ghosty
+ * @author zane
  */
 public class ArmorControl {
-    public void armorControl(){
+    public double armorChoice(String result){
+        
+        
+      int choice = parseInt(result);
         
       System.out.println(" Armor Upgrade Menu");  
     
+      if(choice == 1){
+          System.out.println("you have chosen Shield effeciency");
+      return choice;
+      }else{
+              return -1;
+              }
     }
+
+    
+        
+    
     
             
 }

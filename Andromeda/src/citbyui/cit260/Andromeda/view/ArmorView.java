@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author ghosty
+ * @author zane 
  */
 public class ArmorView extends View{
     public ArmorView() {
@@ -69,15 +69,24 @@ public class ArmorView extends View{
     }
     private void upgradeArmor() {
         
+        ArmorControl armorUpgrade = new ArmorControl();
         Scanner inputs = new Scanner(System.in);
         
         String result;
         
+        
         this.console.println("******Armor Upgrade Menu**********"
                             + "\nSelect an upgrade to purchase it"
-                            + "\n\t1. upgrade shield effeciency reduce damage by 5");
+                            + "\n\t1. Upgrade shield effeciency reduce damage by 1"
+                            + "\n\t Upgrade cost: 5 iridium "
+                            + "\n\t2. Upgrade shield capicitors reduce damage by 2"
+                            + "\n\t Upgrade cost 10 iridium");
+        
         
         result = inputs.next();
+        
+        double total;
+        total = armorUpgrade.armorChoice(result);
         
         
         
