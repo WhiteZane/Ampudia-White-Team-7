@@ -66,8 +66,8 @@ public class MainMenuView extends View {
                     "\nSaved game loaded."
                     + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                     + "\n\tWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!"
-                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
-                    + "\n Materials " + Andromeda.getCurrentGame().getExcelsior().getMaterials().toString());
+                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
+                    //+ "\n Materials " + Andromeda.getCurrentGame().getExcelsior().getMaterials().toString());
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }

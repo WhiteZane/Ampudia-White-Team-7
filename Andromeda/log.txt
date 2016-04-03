@@ -1,0 +1,2 @@
+citbyui.cit260.Andromeda.view.LogBookView - 
+* Value can not be blank.
