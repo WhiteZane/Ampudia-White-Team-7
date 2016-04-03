@@ -19,8 +19,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -49,15 +47,6 @@ public class Andromeda {
 
         StartProgramView spv = null;
 
-        /*try {
-        startProgramView.displayStartProgramView();
-        } catch (Throwable te){
-            System.out.println(te.getMessage());
-            te.printStackTrace();
-            startProgramView.displayStartProgramView();
-
-
-        }*/
         try {
             // open stream
             Andromeda.inFile  = new BufferedReader(new InputStreamReader(System.in));

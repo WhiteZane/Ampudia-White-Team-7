@@ -5,9 +5,10 @@
  */
 package byui.cit260.andromeda.control;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Excelsior;
+import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Material;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *
@@ -15,35 +16,25 @@ import java.util.List;
  */
 public class MaterialControl {
 
-    /*public static List<Material> createMaterialList() {
-    List<Material> material = new ArrayList<>();
-    
-    Material iridium = new Material();
-    iridium.getAmount();
-    material.add(iridium);
-    
-    Material palladium = new Material();
-    palladium.getAmount();
-    material.add(palladium);
-    
-    Material platinum = new Material();
-    platinum.getAmount();
-    material.add(platinum);
-    
-    return material;
-    }*/
+    public static Material createPlanetMaterial() {
 
-    /*    public static List<Material> createMaterialsList() {
-    
-    List<Material> material = new ArrayList<>();
-    
-    Material shipMaterials = new Material();
-    shipMaterials.setIridium(5);
-    shipMaterials.setPalladium(10);
-    shipMaterials.setPlatinum(5);
-    
-    material.add(shipMaterials);
-    
-    return material;
-    }*/
+        Material material = new Material();
+
+        material.setIridium((int) (Math.random() * 10) + 2);
+        material.setPalladium((int) (Math.random() * 10) + 2);
+        material.setPlatinum((int) (Math.random() * 10) + 2);
+
+        return material;
+    }
+
+    public static void addMaterials(int newIridium, int newPalladium, int newPlatinum) {
+        Game game = Andromeda.getCurrentGame();
+        Excelsior ship = game.getExcelsior();
+        Material materials = ship.getMaterials();
+
+        materials.setIridium(newIridium + materials.getIridium());
+        materials.setPalladium(newPalladium + materials.getPalladium());
+        materials.setPlatinum(newPlatinum + materials.getPlatinum());
+
+    }
 }

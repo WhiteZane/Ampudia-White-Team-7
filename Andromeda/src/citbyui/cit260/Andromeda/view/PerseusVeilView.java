@@ -16,8 +16,8 @@ import java.util.List;
  */
 public class PerseusVeilView extends View {
 
-    Game game = Andromeda.getCurrentGame();
-    List<Map> map = game.getMap();
+    static Game game = Andromeda.getCurrentGame();
+    static List<Map> map = game.getMap();
     static int currentMapIndex = 4;
 
     public PerseusVeilView() {
@@ -44,51 +44,25 @@ public class PerseusVeilView extends View {
     }
 
     String toPlanet = "";
+    int planetIndex = 0;
     int i = 0;
 
     public boolean doAction(String choice) {
+        boolean flag = false;
 
-        choice = choice.toUpperCase();
+        for (i = 0; i <= map.get(currentMapIndex).getPlanets().size()-1; i++) {
+            int x = map.get(currentMapIndex).getPlanets().get(i).getX();
+            int y = map.get(currentMapIndex).getPlanets().get(i).getY();
 
-        switch (choice) {
-            case "-2,6":
-                i = 0;
+            if (choice.equals(x + "," + y)) {
+                flag = true;
                 toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
-                ;
+                planetIndex = i;
                 this.moveToLocation();
-                break;
-
-            case "-2,2":
-                i = 1;
-                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
-                ;
-                this.moveToLocation();
-                break;
-
-            case "0,0":
-                i = 2;
-                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
-                ;
-                this.moveToLocation();
-                break;
-
-            case "1,-1":
-                i = 3;
-                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
-                ;
-                this.moveToLocation();
-                break;
-
-            case "2,-4":
-                i = 4;
-                toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
-                ;
-                this.moveToLocation();
-                break;
-
-            default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
-                break;
+            }
+        }
+        if (flag == false) {
+            ErrorView.display(this.getClass().getName(), "Invalid coordinates.");
         }
         return false;
     }
@@ -98,12 +72,7 @@ public class PerseusVeilView extends View {
         game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
 
         LocationMenuView locationMenu;
-        locationMenu = new LocationMenuView(toPlanet);
+        locationMenu = new LocationMenuView(toPlanet,currentMapIndex,planetIndex);
         locationMenu.display();
-    }
-
-    private void exit() {
-        MainMenuView mainMenuView = new MainMenuView();
-        mainMenuView.display();
     }
 }

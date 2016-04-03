@@ -5,23 +5,44 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import java.util.List;
+
 /**
  *
  * @author oscar
  */
 public class ExploreLocationView extends View {
 
-    public ExploreLocationView() {
+    static Game game = Andromeda.getCurrentGame();
+    static List<Map> map = game.getMap();
+
+    public ExploreLocationView(int systemIndex, int planetIndex) {
         super(
                 "\n\t∞∞∞ Exploration ∞∞∞"
                 + "\nItems found:"
-                + "\nIridium +(random number)"
-                + "\nPaladium +(random number)"
-                + "\nPlatinum +(random number)"
+                + "\nIridium: \t+ "
+                + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getIridium()
+                + "\t(" + game.getExcelsior().getMaterials().getIridium() + ")"
+                + "\nPaladium: \t+ "
+                + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPalladium()
+                + "\t(" + game.getExcelsior().getMaterials().getPalladium() + ")"
+                + "\nPlatinum: \t+ "
+                + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPlatinum()
+                + "\t(" + game.getExcelsior().getMaterials().getPlatinum()+ ")"
                 + "\n"
                 + "\nNew crew members +(random number)"
                 + "\n"
-                + "\nE : Exit");
+                + "\nE : Exit"
+                + "\n"
+                + "");
+
+        game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().setIridium(0);
+        game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().setPalladium(0);
+        game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().setPlatinum(0);
+
     }
 
     public boolean doAction(String choice) {
@@ -41,7 +62,7 @@ public class ExploreLocationView extends View {
     }
 
     private void exit() {
-        ExploreLocationView exitMenu = new ExploreLocationView();
-        exitMenu.display();
+        //ExploreLocationView exitMenu = new ExploreLocationView();
+        //exitMenu.display();
     }
 }

@@ -50,7 +50,7 @@ public class MainMenuView extends View {
     }
 
     private void startNewGame() {
-        GameControl.createNewGame(Andromeda.getPlayer(), Andromeda.getShip());
+        GameControl.createNewGame(Andromeda.getPlayer());
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.display();
     }
@@ -61,11 +61,13 @@ public class MainMenuView extends View {
         try {
             String filePath = keyboard.readLine();
             GameControl.getSavedGame(filePath);
+            Andromeda.getCurrentGame();
             this.console.println(
                     "\nSaved game loaded."
                     + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                     + "\n\tWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!"
-                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
+                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
+                    + "\n Materials " + Andromeda.getCurrentGame().getExcelsior().getMaterials().toString());
         } catch (Exception ex) {
             ErrorView.display("MainMenuView", ex.getMessage());
         }

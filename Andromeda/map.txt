@@ -11,15 +11,15 @@ Local Cluster
                     Uranus                18,18          true      
                     Neptune               30,30          true      
 Crescent Nebula     
-                    Naxell                -120,-120      false     
-                    Thail                 -88,-88        false     
-                    Beregale              0,0            false     
-                    Illium                11,11          false     
-                    Ponolus               46,46          false     
+                    Naxell                -120,-120      true      
+                    Thail                 -88,-88        true      
+                    Beregale              0,0            true      
+                    Illium                11,11          true      
+                    Ponolus               46,46          true      
 Nubian Expanse      
                     Gamayun               -25,-25        false     
                     Alkonost              -21,-21        false     
-                    Bannik                0,0            false     
+                    Bannik                0,0            true      
                     Pragia                13,13          false     
                     Zimitra               34,34          false     
 Krogan DMZ          

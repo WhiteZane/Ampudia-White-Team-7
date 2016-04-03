@@ -8,6 +8,7 @@ package byui.cit260.andromeda.control;
 import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
+import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
 import exceptions.MapControlException;
 import java.util.ArrayList;
@@ -71,6 +72,7 @@ public class MapControl {
             Earth.setY(0);
             Earth.setPlanetCode(0);
             Earth.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Earth.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Earth);
 
             Planet Mars = new Planet();
@@ -83,6 +85,7 @@ public class MapControl {
             Mars.setY(1);
             Mars.setPlanetCode(1);
             Mars.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Mars.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Mars);
 
             Planet Jupiter = new Planet();
@@ -95,6 +98,7 @@ public class MapControl {
             Jupiter.setY(4);
             Jupiter.setPlanetCode(2);
             Jupiter.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Jupiter.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Jupiter);
 
             Planet Saturn = new Planet();
@@ -107,6 +111,7 @@ public class MapControl {
             Saturn.setY(5);
             Saturn.setPlanetCode(3);
             Saturn.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Saturn.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Saturn);
 
             Planet Uranus = new Planet();
@@ -119,6 +124,7 @@ public class MapControl {
             Uranus.setY(7);
             Uranus.setPlanetCode(4);
             Uranus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Uranus.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Uranus);
 
             Planet Neptune = new Planet();
@@ -131,6 +137,7 @@ public class MapControl {
             Neptune.setY(7);
             Neptune.setPlanetCode(5);
             Neptune.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Neptune.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Neptune);
 //</editor-fold>
         }
@@ -156,6 +163,7 @@ public class MapControl {
             Naxell.setY(-280);
             Naxell.setPlanetCode(6);
             Naxell.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Naxell.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Naxell);
 
             Planet Thail = new Planet();
@@ -171,6 +179,7 @@ public class MapControl {
             Thail.setY(-38);
             Thail.setPlanetCode(7);
             Thail.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Thail.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Thail);
 
             Planet Beregale = new Planet();
@@ -197,6 +206,7 @@ public class MapControl {
             Beregale.setY(0);
             Beregale.setPlanetCode(8);
             Beregale.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Beregale.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Beregale);
 
             Planet Illium = new Planet();
@@ -224,6 +234,7 @@ public class MapControl {
             Illium.setY(4);
             Illium.setPlanetCode(9);
             Illium.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Illium.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Illium);
 
             Planet Ponolus = new Planet();
@@ -246,6 +257,7 @@ public class MapControl {
             Ponolus.setY(25);
             Ponolus.setPlanetCode(10);
             Ponolus.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Ponolus.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Ponolus);
 //</editor-fold>
         }
@@ -268,6 +280,7 @@ public class MapControl {
             Gamayun.setY(36);
             Gamayun.setPlanetCode(11);
             Gamayun.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Gamayun.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Gamayun);
 
             Planet Alkonost = new Planet();
@@ -283,6 +296,7 @@ public class MapControl {
             Alkonost.setY(5);
             Alkonost.setPlanetCode(12);
             Alkonost.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Alkonost.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Alkonost);
 
             Planet Bannik = new Planet();
@@ -302,6 +316,7 @@ public class MapControl {
             Bannik.setY(0);
             Bannik.setPlanetCode(13);
             Bannik.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Bannik.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Bannik);
 
             Planet Pragia = new Planet();
@@ -322,6 +337,7 @@ public class MapControl {
             Pragia.setY(-13);
             Pragia.setPlanetCode(14);
             Pragia.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Pragia.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Pragia);
 
             Planet Zimitra = new Planet();
@@ -337,6 +353,7 @@ public class MapControl {
             Zimitra.setY(-48);
             Zimitra.setPlanetCode(15);
             Zimitra.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Zimitra.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Zimitra);
 //</editor-fold>
         }
@@ -360,6 +377,7 @@ public class MapControl {
             Ruam.setY(66);
             Ruam.setPlanetCode(16);
             Ruam.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Ruam.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Ruam);
 
             Planet Tuchanka = new Planet();
@@ -396,6 +414,7 @@ public class MapControl {
             Tuchanka.setY(60);
             Tuchanka.setPlanetCode(17);
             Tuchanka.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Tuchanka.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Tuchanka);
 
             Planet Kruban = new Planet();
@@ -428,6 +447,7 @@ public class MapControl {
             Kruban.setY(6);
             Kruban.setPlanetCode(18);
             Kruban.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Kruban.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Kruban);
 
             Planet Durak = new Planet();
@@ -457,6 +477,7 @@ public class MapControl {
             Durak.setY(0);
             Durak.setPlanetCode(19);
             Durak.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Durak.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Durak);
 
             Planet Kanin = new Planet();
@@ -474,6 +495,7 @@ public class MapControl {
             Kanin.setY(-1);
             Kanin.setPlanetCode(20);
             Kanin.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Kanin.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Kanin);
 //</editor-fold>
         }
@@ -498,6 +520,7 @@ public class MapControl {
             Uriyah.setY(6);
             Uriyah.setPlanetCode(21);
             Uriyah.setEnemy(EnemyControl.createEnemy(Math.random() * 10).toString());
+            Uriyah.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Uriyah);
 
             Planet Rannoch = new Planet();
@@ -524,6 +547,7 @@ public class MapControl {
             Rannoch.setY(2);
             Rannoch.setPlanetCode(22);
             Rannoch.setEnemy(EnemyControl.createEnemy(9).toString());
+            Rannoch.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(Rannoch);
 
             Planet GethDebrisField = new Planet();
@@ -548,6 +572,7 @@ public class MapControl {
             GethDebrisField.setY(0);
             GethDebrisField.setPlanetCode(23);
             GethDebrisField.setEnemy(EnemyControl.createEnemy(9).toString());
+            GethDebrisField.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(GethDebrisField);
 
             Planet GethDreadnought = new Planet();
@@ -567,6 +592,7 @@ public class MapControl {
             GethDreadnought.setY(-1);
             GethDreadnought.setPlanetCode(24);
             GethDreadnought.setEnemy(EnemyControl.createEnemy(9).toString());
+            GethDreadnought.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(GethDreadnought);
 
             Planet MigrantFleet = new Planet();
@@ -594,6 +620,7 @@ public class MapControl {
             MigrantFleet.setY(-4);
             MigrantFleet.setPlanetCode(25);
             MigrantFleet.setEnemy(EnemyControl.createEnemy(9).toString());
+            MigrantFleet.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(MigrantFleet);
 
             Planet MassRelay = new Planet();
@@ -613,7 +640,7 @@ public class MapControl {
             MassRelay.setY(66);
             MassRelay.setPlanetCode(26);
             MassRelay.setEnemy(EnemyControl.createEnemy(9).toString());
-            //MassRelay.setResources(showMaterialsList());
+            MassRelay.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(MassRelay);
 //</editor-fold>
         }
@@ -662,7 +689,6 @@ public class MapControl {
         Game game = Andromeda.getCurrentGame();
         List<Map> map = game.getMap();
 
-        //List<Map> map = (List<Map>) game.getMap();
         if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
             throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
 
@@ -677,15 +703,6 @@ public class MapControl {
         List<Planet> planets = map.get(0).getPlanets();
         int mapSize = 0;
 
-        /*SYSTEM
-        for (int i = 0; i <= map.size() - 1; i++) {
-
-            if (system.equals(map.get(i).getSystem())) {
-                systemValid = true;
-                mapSize = map.get(i).getPlanets().size() - 1;
-                planets = map.get(i).getPlanets();
-            }
-        }*/
         mapSize = map.get(0).getPlanets().size() - 1;
 
         boolean planetNameValid = false;
@@ -736,32 +753,6 @@ public class MapControl {
         return distance;
     }
 
-    /*for (int i = 0; i <= planets.length ; i++) {
-                    try {
-                    if (fromPlanet.equals(planets[i][0])) {
-                    if ((Double.parseDouble(planets[i][1]) == x1) && Double.parseDouble(planets[i][2]) == y1) {
-                    isValid = 1;
-                    
-                    for (int j = 0; j <= planets.length; j++) {
-                    if (toPlanet.equals(planets[j][0]) && isValid == 1) {
-                    if ((Double.parseDouble(planets[j][1]) == x2) && Double.parseDouble(planets[j][2]) == y2) {
-                    return distance;
-                    } else {
-                    throw new MapControlException("\n*** Error *** To planet coordinates invalid.");
-                    }
-                    }
-                    }
-                    
-                    } else {
-                    throw new MapControlException("\n*** Error *** From planet coordinates invalid.");
-                    }
-                    }
-                    } catch (ArrayIndexOutOfBoundsException e) {
-                    }
-                    }*/
-    //    throw new MapControlException(
-    //"\n*** Error *** Planet name invalid.");
-    //   }
     public double calcTime(double inputDistance, int speed, String fromPlanet, String toPlanet) {
 
         double distance = Math.round(planetDistance(fromPlanet, toPlanet) * 10) / 10.0;
@@ -801,17 +792,4 @@ public class MapControl {
         return distance;
     }
 
-    /*public static void showAllPlanets() {
-        Game game = Andromeda.getCurrentGame();
-        List<Map> map = game.getMap();
-
-        for (int i = 0; i <= map.size() - 1; i++) {
-            List<Planet> planetList = map.get(i).getPlanets();
-            //The use of the for-each style loop
-            for (Planet planetName : planetList) {
-                System.out.println(planetName.getName() + " - " + map.get(i).getSystem());
-            }
-        }
-
-    }*/
 }

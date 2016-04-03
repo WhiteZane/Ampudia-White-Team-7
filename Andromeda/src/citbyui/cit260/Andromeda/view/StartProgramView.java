@@ -10,7 +10,6 @@ import byui.cit260.andromeda.control.GameControl;
 import byui.cit260.andromeda.model.Player;
 import java.io.BufferedReader;
 import java.io.PrintWriter;
-import java.util.Scanner;
 
 /**
  *
@@ -93,7 +92,7 @@ public class StartProgramView {
 
         //call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
-        GameControl.createExcelsior();
+        //GameControl.createExcelsior();
 
         if (player == null) {
             ErrorView.display(this.getClass().getName(), "\n*** WARNING *** Error creating the player.");

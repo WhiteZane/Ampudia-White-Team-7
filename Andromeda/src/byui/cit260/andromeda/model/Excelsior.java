@@ -29,7 +29,7 @@ public class Excelsior implements Serializable {
     private int crew = 10;
     private int credits = 500;
     private int codePlanet = 0;
-    List<Material> materials;
+    Material materials = null;
 
     public Excelsior() {
 
@@ -87,11 +87,11 @@ public class Excelsior implements Serializable {
         this.codePlanet = codePlanet;
     }
 
-    public List<Material> getMaterials() {
+    public Material getMaterials() {
         return materials;
     }
 
-    public void setMaterials(List<Material> materials) {
+    public void setMaterials(Material materials) {
         this.materials = materials;
     }
 

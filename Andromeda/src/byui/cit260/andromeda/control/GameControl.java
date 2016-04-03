@@ -48,50 +48,43 @@ public class GameControl {
         ship.getCredits();
         ship.getCrew();
         ship.getDescription();
-        ship.setMaterials(GameControl.createMaterialList());
         ship.getShipIntegrity();
-        ship.setWeapons(GameControl.createWeaponsList());
+        ship.setWeapons(createWeaponsList());
 
         Andromeda.setShip(ship);
 
         return ship;
     }
 
-    public static void createNewGame(Player player, Excelsior ship) {
+    public static void createNewGame(Player player) {
 
         Game game = new Game(); // create new game
         Andromeda.setCurrentGame(game); // save in Andromeda
 
         game.setPlayer(player);
-        game.setExcelsior(ship);
+        game.setExcelsior(createExcelsior());
+        game.getExcelsior().setMaterials(createMaterialList());
 
         List<Map> map = MapControl.createMap();
-        //Andromeda.setMap(map);
         game.setMap(map);
-        
+
         List<Weapon> weapons = createWeaponsList();
-        
         game.setWeapons(weapons);
 
-        /*Search a list for a value 
-        for (int i=0; i<=planet.size()-1; i++){
-            if(planet.get(i).getName()=="Earth"){
-                System.out.println("\nYou are on Earth");
-            }
-        }*/
         Andromeda.setCurrentGame(game);
 
-        //System.out.print("\n\nObjects Initialized...\n\n" + game);
+        System.out.print("\n\nObjects Initialized...\n\n"
+                + "\n" + game.getMap().get(0).getPlanets().get(0).getMaterial()
+                + "\nPlanet " + game.getMap().get(0).getPlanets().get(0).getName()
+                + "\nMaterials "+game.getExcelsior().getMaterials().toString());
     }
 
-    private static List<Material> createMaterialList() {
-        List<Material> material = new ArrayList<>();
+    private static Material createMaterialList() {
+        Material material = new Material();
 
-        Material list = new Material();
-        list.setIridium(5);
-        list.setPalladium(10);
-        list.setPlatinum(5);
-        material.add(list);
+        material.setIridium(5);
+        material.setPalladium(10);
+        material.setPlatinum(5);
 
         return material;
     }
@@ -109,43 +102,36 @@ public class GameControl {
         improvedPhaserBank.setName("Improved phaser Bank");
         improvedPhaserBank.setAttackpoints(7);
         improvedPhaserBank.setQuantity(0);
-         
         weaponList.add(improvedPhaserBank);
 
         Weapon phaserArray = new Weapon();
         phaserArray.setName("Phaser Array");
         phaserArray.setAttackpoints(9);
         phaserArray.setQuantity(0);
-        
         weaponList.add(phaserArray);
-        
+
         Weapon rocketLauncherPad = new Weapon();
         rocketLauncherPad.setName("Rocket launcher pad");
         rocketLauncherPad.setAttackpoints(10);
         rocketLauncherPad.setQuantity(0);
-        
         weaponList.add(rocketLauncherPad);
-        
+
         Weapon photonTorpedoLauncher = new Weapon();
         photonTorpedoLauncher.setName("Photon Torpedo Launcher");
         photonTorpedoLauncher.setAttackpoints(15);
         photonTorpedoLauncher.setQuantity(0);
-        
         weaponList.add(photonTorpedoLauncher);
-        
-        
-        
 
         return weaponList;
     }
 
     public static void saveGame(Game game, String filepath) throws GameControlException {
-        
+
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
 
             output.writeObject(game);
-            
+
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
@@ -160,19 +146,19 @@ public class GameControl {
 
             game = (Game) input.readObject();
             Andromeda.setCurrentGame(game);
-            
+
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }
     }
-    
+
     public static void printReport(List<Map> map, String filepath) throws GameControlException {
-        
+
         try (FileOutputStream fops = new FileOutputStream(filepath)) {
             ObjectOutputStream output = new ObjectOutputStream(fops);
 
             output.writeObject(map);
-            
+
         } catch (Exception e) {
             throw new GameControlException(e.getMessage());
         }

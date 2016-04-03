@@ -6,3 +6,5 @@ Name                     Attack Points         Quantity
 Phaser Bank              5                   1         
 Improved phaser Bank     7                   0         
 Phaser Array             9                   0         
+Rocket launcher pad      10                  0         
+Photon Torpedo Launcher  15                  0         

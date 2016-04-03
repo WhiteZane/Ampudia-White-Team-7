@@ -12,9 +12,7 @@ import java.util.logging.Logger;
 import byui.cit260.andromeda.control.GameControl;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
-import byui.cit260.andromeda.model.Planet;
 import byui.cit260.andromeda.model.Weapon;
-import static citbyui.cit260.Andromeda.view.StarshipStatus.weapon;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -40,7 +38,8 @@ public class GameMenuView extends View {
                 + "\n"
                 + "\n1 : Print Map Report"
                 + "\n2 : Calculate Planets Distance"
-                + "\n3 : Print Inventory");
+                + "\n3 : Print Inventory"
+                + "\n");
     }
 
     public boolean doAction(String choice) {
@@ -94,9 +93,8 @@ public class GameMenuView extends View {
     }
 
     private void viewShipStatus() {
-
-        StarshipStatus status;
-        status = new StarshipStatus();
+        StarshipStatusView status;
+        status = new StarshipStatusView();
         status.display();
     }
 

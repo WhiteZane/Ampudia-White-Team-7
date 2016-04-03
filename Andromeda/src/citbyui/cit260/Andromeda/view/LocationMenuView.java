@@ -5,16 +5,24 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.control.MaterialControl;
+import byui.cit260.andromeda.model.Excelsior;
+import byui.cit260.andromeda.model.Game;
+
 /**
  *
  * @author ghosty
  */
 public class LocationMenuView extends View {
 
-    public LocationMenuView(String toPlanet) {
+    int iSystem = 0;
+    int iPlanet = 0;
+
+    public LocationMenuView(String planet, int systemIndex, int planetIndex) {
         super(
                 "\n……………………………………………………………………………………………………………"
-                + "\n  Current Location: " + toPlanet + " "
+                + "\n  Current Location: " + planet
                 + "\n……………………………………………………………………………………………………………"
                 + "\nL : Explore location "
                 + "\nF : Fortify/Repair Excelsior "
@@ -22,18 +30,20 @@ public class LocationMenuView extends View {
                 + "\nB : Buy/Create weapons"
                 + "\nR : Recruit new crew members"
                 + "\n"
-                + "\nE : Return to System Map ");
+                + "\nE : Return to System Map "
+                + "\n");
+        iSystem = systemIndex;
+        iPlanet = planetIndex;
     }
 
-    String fromPlanet = "";
-
+    //String fromPlanet = "";
     public boolean doAction(String locationOption) {
 
         locationOption = locationOption.toUpperCase();
 
         switch (locationOption) {
             case "L":
-                this.exploreLocation();
+                this.exploreLocation(iSystem, iPlanet);
                 break;
             case "F":
                 this.repairFortify();
@@ -55,9 +65,18 @@ public class LocationMenuView extends View {
         return false;
     }
 
-    private void exploreLocation() {
+    private void exploreLocation(int systemIndex, int planetIndex) {
+        Game game = Andromeda.getCurrentGame();
+        Excelsior ship = game.getExcelsior();
+
+        int iridium = game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().getIridium();
+        int palladium = game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPalladium();
+        int platinum = game.getMap().get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPlatinum();
+
+        MaterialControl.addMaterials(iridium, palladium, platinum);
+
         ExploreLocationView exploreLocations;
-        exploreLocations = new ExploreLocationView();
+        exploreLocations = new ExploreLocationView(systemIndex, planetIndex);
         exploreLocations.display();
     }
 
