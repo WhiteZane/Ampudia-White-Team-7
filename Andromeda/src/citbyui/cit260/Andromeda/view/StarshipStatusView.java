@@ -9,6 +9,8 @@ import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Excelsior;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Weapon;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 
 /**
@@ -16,7 +18,7 @@ import java.util.List;
  * @author ghosty
  */
 public class StarshipStatusView extends View {
-    
+
     static Game game = Andromeda.getCurrentGame();
     static Excelsior ship = game.getExcelsior();
 
@@ -46,9 +48,11 @@ public class StarshipStatusView extends View {
                 + "\n"
                 + "\nWeapons List" + weapon
                 + "\n"
+                + "\nP : Print Inventory"
+                + "\n"
                 + "\nE : Exit to Game Menu"
                 + "\n");
-        
+
     }
 
     public boolean doAction(String shipOption) {
@@ -56,11 +60,44 @@ public class StarshipStatusView extends View {
         shipOption = shipOption.toUpperCase();
 
         switch (shipOption) {
+            case "P":
+                this.printInventory();
+                break;
 
             default:
                 this.console.println("\n*** Error *** Invalid selection. Try again.");
                 break;
         }
         return false;
+    }
+
+    private void printInventory() {
+        this.console.println("\nEnter the file path and file name where the report is to be saved.");
+        Game game = Andromeda.getCurrentGame();
+        try {
+            String report = keyboard.readLine();
+            this.allInventory(game.getWeapons(), report);
+            //this.allPlanets(game.getMap(), report);
+            this.console.println(
+                    "\n*****************************************************************"
+                    + "\n\tReport saved in \"" + report + "\""
+                    + "\n*****************************************************************");
+        } catch (Exception e) {
+            ErrorView.display("GameMenuView", e.getMessage());
+        }
+    }
+
+    private void allInventory(List<Weapon> weaponReport, String outputLocation) {
+        try (PrintWriter out = new PrintWriter(outputLocation)) {
+            out.println("\n\tWeapons");
+            out.printf("%n%-25s%-20s%10s", "Name", "Attack Points", "Quantity");
+            out.printf("%n%-25s%-20s%10s", "––––––––––––––––––––", "––––––––––––––", "–––––––––––");
+
+            for (Weapon weapons : weaponReport) {
+                out.printf("%n%-25s%-20d%-10d", weapons.getName(), weapons.getAttackpoints(), weapons.getQuantity());
+            }
+        } catch (IOException e) {
+            System.out.println("I/O Error: " + e.getMessage());
+        }
     }
 }

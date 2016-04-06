@@ -43,7 +43,7 @@ public class MainMenuView extends View {
                 break;
 
             default:
-                this.console.println("\n*** Invalid selection *** Try again");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
         return false;
@@ -63,16 +63,17 @@ public class MainMenuView extends View {
             GameControl.getSavedGame(filePath);
             Andromeda.getCurrentGame();
             this.console.println(
-                    "\nSaved game loaded."
+                    "\n\n\n– Saved game loaded –"
+                    + "\n"
                     + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                     + "\n\tWelcome back " + Andromeda.getCurrentGame().getPlayer().getName() + "!"
-                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––");
-                    //+ "\n Materials " + Andromeda.getCurrentGame().getExcelsior().getMaterials().toString());
+                    + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n");
+            GameMenuView gameMenu = new GameMenuView();
+            gameMenu.display();
         } catch (Exception ex) {
-            ErrorView.display("MainMenuView", ex.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.display();
+
     }
 
     private void howToPlay() {

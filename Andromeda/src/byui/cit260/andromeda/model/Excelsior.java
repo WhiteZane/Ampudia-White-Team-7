@@ -23,7 +23,7 @@ public class Excelsior implements Serializable {
             + "\nreconnaissance missions deep within unstable regions, using "
             + "\nstate-of-the-art stealth technology powered by an experimental "
             + "\ndrive core. ";
-    private int shipIntegrity = 90;
+    private int shipIntegrity = 100;
     private int armor = 100;
     List<Weapon> weapons;
     private int crew = 10;

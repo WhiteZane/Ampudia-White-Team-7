@@ -11,8 +11,8 @@ import java.io.Serializable;
  *
  * @author oscar
  */
-public class Weapon implements Serializable{
-    
+public class Weapon implements Serializable {
+
     private String name;
     private int attackpoints;
     private int quantity;
@@ -46,16 +46,11 @@ public class Weapon implements Serializable{
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
-    
+
     @Override
     public String toString() {
-        return "\n" + name
-                + "\nAttack points: \t" + attackpoints
-                + "\nQuantity:\t" + quantity
-                + "\n";
+        return "\n" + name + ""
+                + "\n\tAttack points: " + attackpoints + "\tQuantity: " + quantity;
     }
 
-    
-    
-    
 }

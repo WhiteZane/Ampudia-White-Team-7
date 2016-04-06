@@ -21,55 +21,151 @@ public class CalcDistanceView {
     protected final BufferedReader keyboard = Andromeda.getInfile();
     protected final PrintWriter console = Andromeda.getOutFile();
 
-    public void displayCalcDistanceView() throws MapControlException {
+    public void displayCalcDistanceView(int system) throws MapControlException {
         boolean done = false;
         do {
             //From System
-            String system = "Local Cluster";
+            //system = "Local Cluster";
             //From Planet
-            this.console.println("From planet: ");
+            console.println("From planet: ");
             String fromPlanet = this.getInput();
             if (fromPlanet.toUpperCase().equals("E")) {
                 return;
             }
-            this.console.println("Coodinates\nx: ");
+            console.println("Coodinates\nx: ");
             double x1 = Double.parseDouble(this.getNumber());
-            this.console.println("y: ");
+            console.println("y: ");
             double y1 = Double.parseDouble(this.getNumber());
 
             //To Planet
-            this.console.println("\nTo planet: ");
+            console.println("\nTo planet: ");
             String toPlanet = this.getInput();
-            this.console.println("Coodinates\nx: ");
+            console.println("Coodinates\nx: ");
             double x2 = Double.parseDouble(this.getNumber());
-            this.console.println("y: ");
+            console.println("y: ");
             double y2 = Double.parseDouble(this.getNumber());
 
             done = this.doAction(system, fromPlanet, x1, y1, toPlanet, x2, y2);
         } while (!done);
     }
 
-    private String menu;
+    public CalcDistanceView(int system) {
+        if (system == 0) {
+            this.console.print(
+                    "\n\nCalculate the distance between planets in Astronomical Units(AU)."
+                    + "\n"
+                    + "\n—————————————————————— [ Local Cluster ] ———————————————————————"
+                    + "\n                                                                "
+                    + "\n                                o Uranus   o Neptune            "
+                    + "\n                                  [18][7]     [30][7]           "
+                    + "\n                    -O- Saturn                                  "
+                    + "\n                         [8][5]                                 "
+                    + "\n              O Jupiter                                         "
+                    + "\n                  [4][4]                                        "
+                    + "\n                                                                "
+                    + "\n    . Mars                                                      "
+                    + "\n      [1][1]                                                    "
+                    + "\n. Earth                                                         "
+                    + "\n  [0][0]                                                        "
+                    + "\n                                                                "
+                    + "\n");
+        }
+        if (system == 1) {
+            this.console.print(
+                    "\n\nCalculate the distance between planets in Astronomical Units(AU)."
+                    + "\n"
+                    + "\n————————————————————— [ Crescent Nebula ] ——————————————————————"
+                    + "\n                                                                "
+                    + "\n                                                  o Ponolus     "
+                    + "\n                                                    [46][25]    "
+                    + "\n                                          º Illium              "
+                    + "\n                                            [11][4]             "
+                    + "\n                                o Beregale                      "
+                    + "\n                                     [0][0]                     "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n        ¨O Thail                                                 "
+                    + "\n           [-88][-38]                                           "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\nO Naxell                                                        "
+                    + "\n  [-120][-280]                                                  "
+                    + "\n");
+        }
+        if (system == 2) {
+            this.console.print(
+                    "\n\nCalculate the distance between planets in Astronomical Units(AU)."
+                    + "\n"
+                    + "\n—————————————————————— [ Nubian Expanse ] ——————————————————————"
+                    + "\n-O- Gamayun                                                     "
+                    + "\n    [-25][36]                                                   "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n    o Alkonost                                                  "
+                    + "\n       [-21][5]                                                 "
+                    + "\n                             º Bannik                           "
+                    + "\n                                [0][0]                          "
+                    + "\n                                             O Pragia           "
+                    + "\n                                               [13][-13]        "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                 . Zimitra      "
+                    + "\n                                                   [34][-48]    "
+                    + "\n                                                                "
+                    + "\n");
+        }
+        if (system == 3) {
+            this.console.print(
+                    "\n\nCalculate the distance between planets in Astronomical Units(AU)."
+                    + "\n"
+                    + "\n—————————————————————— [ Krogan DMZ ] ———————————————————————"
+                    + "\n                                                   o Ruam       "
+                    + "\n                                                     [32][66]   "
+                    + "\n                                                 º Tuchanka     "
+                    + "\n                                                    [33][60]    "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                     .Oº Kruban                                 "
+                    + "\n                          [5][6]                                "
+                    + "\n           º Durak                                              "
+                    + "\n             [0][0]                                             "
+                    + "\n        o Kanin                                                 "
+                    + "\n          [-2][-1]                                              "
+                    + "\n                                                                "
+                    + "\n");
+        }
 
-    public CalcDistanceView() {
-        this.menu
-                = "\n\nCalculate the distance between planets in Astronomical Units(AU)."
-                + "\n"
-                + "\n—————————————————————— [ Local Cluster ] ———————————————————————"
-                + "\n                                                                "
-                + "\n                                o Uranus   o Neptune            "
-                + "\n                                  [18][7]     [30][7]           "
-                + "\n                    -O- Saturn                                  "
-                + "\n                         [8][5]                                 "
-                + "\n              O Jupiter                                         "
-                + "\n                  [4][4]                                        "
-                + "\n                                                                "
-                + "\n    . Mars                                                      "
-                + "\n      [1][1]                                                    "
-                + "\n. Earth                                                         "
-                + "\n  [0][0]                                                        "
-                + "\n                                                                ";
-        this.console.println(menu);
+        if (system == 4) {
+            this.console.print(
+                    "\n\nCalculate the distance between planets in Astronomical Units(AU)."
+                    + "\n"
+                    + "——————————————————————— [ Perseus Veil ] ———————————————————————"
+                    + "\n      O Uriyah                                        * Unknown "
+                    + "\n        [-2][6]                                          [?][?] "
+                    + "\n                                                                "
+                    + "\n     o Rannoch                                                  "
+                    + "\n        [-2][2]                                                 "
+                    + "\n                                                                "
+                    + "\n                   ¨o*’.- Geth Debris Field                     "
+                    + "\n                                [0][0]                          "
+                    + "\n                        . Geth Dreadnought                      "
+                    + "\n                                [1][-1]                         "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                                                "
+                    + "\n                                             . Migrant Fleet    "
+                    + "\n                                                      [2][-4]   "
+                    + "\n                                                                "
+                    + "\n");
+        }
+
     }
 
     public String getInput() {
@@ -82,7 +178,7 @@ public class CalcDistanceView {
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.");
+                ErrorView.display(this.getClass().getName(), "Value can not be blank.");
                 continue;
             }
             break;
@@ -100,20 +196,20 @@ public class CalcDistanceView {
             selection = selection.trim();
 
             if (selection.length() < 1) {
-                ErrorView.display(this.getClass().getName(),"\n* Value can not be blank.\n");
+                ErrorView.display(this.getClass().getName(), "Value can not be blank.");
                 continue;
             }
             try {
                 Double.parseDouble(selection);
                 valid = true;
             } catch (NumberFormatException nfe) {
-                ErrorView.display(this.getClass().getName(), "\n* The value must be a number.");
+                ErrorView.display(this.getClass().getName(), "The value must be a number.");
             }
         }
         return selection;
     }
 
-    public boolean doAction(String system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+    public boolean doAction(int system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
 
         MapControl distance = new MapControl();
 

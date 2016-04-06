@@ -85,7 +85,7 @@ public class StartProgramView {
 
     private boolean doAction(String playersName) {
         if (playersName.length() < 2 || playersName.length() >= 20) {
-            ErrorView.display(this.getClass().getName(), "\n  Invalid player's name."
+            ErrorView.display(this.getClass().getName(), "Invalid player's name."
                     + "\n  The name must be between 2 and 20 characters in length.");
             return false;
         }
@@ -95,7 +95,7 @@ public class StartProgramView {
         //GameControl.createExcelsior();
 
         if (player == null) {
-            ErrorView.display(this.getClass().getName(), "\n*** WARNING *** Error creating the player.");
+            ErrorView.display(this.getClass().getName(), "Error creating the player.");
             return false;
         }
 
@@ -105,10 +105,10 @@ public class StartProgramView {
 
     private void displayNextView(Player player) {
         this.console.println(
-                "––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
+                "\n\n\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                 + "\n\tWelcome to Andromeda " + player.getName()
                 + "\n\tA great adventure awaits you!"
-                + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
+                + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n"
         );
 
         MainMenuView mainMenuView = new MainMenuView();

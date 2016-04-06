@@ -19,12 +19,14 @@ public class PerseusVeilView extends View {
     static Game game = Andromeda.getCurrentGame();
     static List<Map> map = game.getMap();
     static int currentMapIndex = 4;
-
-    public PerseusVeilView() {
+    static int sx = 0;
+    static int sy = 0;
+    
+    public PerseusVeilView(String secret, String x, String y) {
         super(
                 "——————————————————————— [ Perseus Veil ] ———————————————————————"
-                + "\n      O Uriyah                                         ! Unknown"
-                + "\n        [-2][6]                                           [?][?]"
+                + "\n      O Uriyah                                       * " + secret
+                + "\n        [-2][6]                                        [" + x + "][" + y + "]"
                 + "\n                                                                "
                 + "\n     o Rannoch                                                  "
                 + "\n        [-2][2]                                                 "
@@ -40,7 +42,10 @@ public class PerseusVeilView extends View {
                 + "\n                                                      [2][-4]   "
                 + "\n                                                                "
                 + "\n[Enter coordinates – Example: 4,4]"
-                + "\nE : Return to Galaxy Map");
+                + "\nE : Return to Galaxy Map"
+                + "\n");
+        sx = Integer.getInteger(x);
+        sy = Integer.getInteger(y);
     }
 
     String toPlanet = "";
@@ -50,14 +55,20 @@ public class PerseusVeilView extends View {
     public boolean doAction(String choice) {
         boolean flag = false;
 
-        for (i = 0; i <= map.get(currentMapIndex).getPlanets().size()-1; i++) {
+        for (i = 0; i <= map.get(currentMapIndex).getPlanets().size() - 1; i++) {
             int x = map.get(currentMapIndex).getPlanets().get(i).getX();
             int y = map.get(currentMapIndex).getPlanets().get(i).getY();
 
             if (choice.equals(x + "," + y)) {
                 flag = true;
                 toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
                 planetIndex = i;
+                
+                if (choice.equals(sx + "," + sy)) {
+                    console.println("\n\n\nCongratulations! You have reached Andromeda Galaxy!\n\n\n");
+                    System.exit(0);
+                }
                 this.moveToLocation();
             }
         }
@@ -69,10 +80,10 @@ public class PerseusVeilView extends View {
 
     private void moveToLocation() {
         Game game = Andromeda.getCurrentGame();
-        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
 
         LocationMenuView locationMenu;
-        locationMenu = new LocationMenuView(toPlanet,currentMapIndex,planetIndex);
+        locationMenu = new LocationMenuView(toPlanet, currentMapIndex, planetIndex);
         locationMenu.display();
     }
+
 }

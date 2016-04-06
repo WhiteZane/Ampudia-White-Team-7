@@ -21,19 +21,20 @@ public class ExploreLocationView extends View {
 
     public ExploreLocationView(int systemIndex, int planetIndex) {
         super(
-                "\n\t∞∞∞ Exploration ∞∞∞"
-                + "\nItems found:"
+                "– Items found –"
+                + "\n\t\t\tTotal"
+                + ""
                 + "\nIridium: \t+ "
                 + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getIridium()
-                + "\t(" + game.getExcelsior().getMaterials().getIridium() + ")"
+                + "\t (" + game.getExcelsior().getMaterials().getIridium() + ")"
                 + "\nPaladium: \t+ "
                 + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPalladium()
-                + "\t(" + game.getExcelsior().getMaterials().getPalladium() + ")"
+                + "\t (" + game.getExcelsior().getMaterials().getPalladium() + ")"
                 + "\nPlatinum: \t+ "
                 + map.get(systemIndex).getPlanets().get(planetIndex).getMaterial().getPlatinum()
-                + "\t(" + game.getExcelsior().getMaterials().getPlatinum()+ ")"
+                + "\t (" + game.getExcelsior().getMaterials().getPlatinum() + ")"
                 + "\n"
-                + "\nNew crew members +(random number)"
+                + "\nNew crew members +(Not implemented yet)"
                 + "\n"
                 + "\nE : Exit"
                 + "\n"

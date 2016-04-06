@@ -10,12 +10,6 @@ import exceptions.MapControlException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import byui.cit260.andromeda.control.GameControl;
-import byui.cit260.andromeda.model.Game;
-import byui.cit260.andromeda.model.Map;
-import byui.cit260.andromeda.model.Weapon;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.List;
 
 /**
  *
@@ -35,10 +29,6 @@ public class GameMenuView extends View {
                 + "\nS : Save Game"
                 + "\n"
                 + "\nE : Exit to Main Menu"
-                + "\n"
-                + "\n1 : Print Map Report"
-                + "\n2 : Calculate Planets Distance"
-                + "\n3 : Print Inventory"
                 + "\n");
     }
 
@@ -63,24 +53,8 @@ public class GameMenuView extends View {
                 this.saveGame();
                 break;
 
-            case "1":
-                this.printReport();
-                break;
-
-            case "2": {
-                try {
-                    this.calculation();
-                } catch (MapControlException ex) {
-                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                break;
-            }
-            case "3":
-                this.printInventory();
-                break;
-
             default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
         return false;
@@ -116,94 +90,12 @@ public class GameMenuView extends View {
         try {
             String filePath = keyboard.readLine();
             GameControl.saveGame(Andromeda.getCurrentGame(), filePath);
-            this.console.println("\n\nSave complete!");
+            this.console.println(
+                    "\n*****************************************************************"
+                    + "\n\tSave complete!"
+                    + "\n*****************************************************************");
         } catch (Exception ex) {
-            ErrorView.display("GameMenuView", ex.getMessage());
-        }
-    }
-
-    private void calculation() throws MapControlException {
-        CalcDistanceView view = new CalcDistanceView();
-        view.displayCalcDistanceView();
-    }
-
-    private void printReport() {
-        this.console.println("\nEnter the file path and file name where the report is to be saved.");
-        Game game = Andromeda.getCurrentGame();
-        try {
-            String report = keyboard.readLine();
-            GameControl.printReport(game.getMap(), report);
-            allPlanets(game.getMap(), report);
-            this.console.println("\nThe report was printed successfully to \"" + report + "\"");
-        } catch (Exception e) {
-            ErrorView.display("GameMenuView", e.getMessage());
-        }
-    }
-
-    private void allPlanets(List<Map> mapReport, String outputLocation) {
-        try (PrintWriter out = new PrintWriter(outputLocation)) {
-            out.println("\nPLANETS LIST");
-            out.printf("%n%-20s%-22s%-15s%-10s",
-                    "SYSTEM", "PLANET", "COORDINATES", "VISITED");
-            out.printf("%n%-20s%-22s%-15s%-10s",
-                    "–––––––––––––––––", "––––––––––––––––––––", "––––––––––––", "––––––––––––");
-
-            for (Map map : mapReport) {
-                out.printf("%n%-20s", map.getSystem());
-
-                String planet = "";
-                String coordinates = "";
-                boolean visited;
-
-                for (int i = 0; i <= map.getPlanets().size() - 1; i++) {
-                    planet = map.getPlanets().get(i).getName();
-                    coordinates = map.getPlanets().get(i).getX() + "," + map.getPlanets().get(i).getX();
-                    visited = map.getPlanets().get(i).getVisited();
-                    out.printf("%n%-20s%-22s%-15s%-10b",
-                            "", planet, coordinates, visited);
-                }
-
-            }
-
-        } catch (Exception e) {
-            ErrorView.display("GameMenuView", e.getMessage());
-        }
-    }
-
-    private void printInventory() {
-        this.console.println("\nEnter the file path and file name where the report is to be saved.");
-        Game game = Andromeda.getCurrentGame();
-        try {
-            String report = keyboard.readLine();
-            this.allInventory(game.getWeapons(), report);
-            //this.allPlanets(game.getMap(), report);
-            this.console.println("\n\nReport saved in " + report);
-        } catch (Exception e) {
-            ErrorView.display("GameMenuView", e.getMessage());
-        }
-    }
-
-    private void allInventory(List<Weapon> weaponReport, String outputLocation) {
-        try (PrintWriter out = new PrintWriter(outputLocation)) {
-            out.println("\n\tWeapons");
-            out.printf("%n%-25s%-20s%10s", "Name", "Attack Points", "Quantity");
-            out.printf("%n%-25s%-20s%10s", "––––––––––––––––––––", "––––––––––––––", "–––––––––––");
-
-            for (Weapon weapons : weaponReport) {
-                out.printf("%n%-25s%-20d%-10d", weapons.getName(), weapons.getAttackpoints(), weapons.getQuantity());
-
-                //String name = "";
-                //double attackpoints;
-                //int quantity;
-                //for (int i = 0; i <= weapons.getQuantity(); i++) {
-                //    name = weapons.getName();
-                //    attackpoints = weapons.getAttackpoints();
-                //    quantity = weapons.getQuantity();
-                //    out.printf("%n%-20s%-20s%10s", "", name,attackpoints,quantity);
-                //}
-            }
-        } catch (IOException e) {
-            System.out.println("I/O Error: " + e.getMessage());
+            ErrorView.display(this.getClass().getName(), ex.getMessage());
         }
     }
 

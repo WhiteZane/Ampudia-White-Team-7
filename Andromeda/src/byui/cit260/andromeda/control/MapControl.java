@@ -8,7 +8,6 @@ package byui.cit260.andromeda.control;
 import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
-import byui.cit260.andromeda.model.Material;
 import byui.cit260.andromeda.model.Planet;
 import exceptions.MapControlException;
 import java.util.ArrayList;
@@ -64,7 +63,13 @@ public class MapControl {
             //<editor-fold defaultstate="collapsed" desc="comment">
             Planet Earth = new Planet();
             Earth.setName("Earth");
-            Earth.setDescription("This is Earth");
+            Earth.setDescription(
+                    "The homeworld and capital of humanity is entering a new golden"
+                    + "\nage. The resource wealth of a dozen settled colonies and a"
+                    + "\nhundred industrial outposts flows back to Earth, fueling"
+                    + "\ngreat works of industry, commerce, and art. The great cities"
+                    + "\nare greening as arcology skyscrapers and telecommuting allow"
+                    + "\nmore efficient use of land. ");
             Earth.setSystem(system);
             Earth.setVisited(Boolean.TRUE);
             Earth.setExplored(Boolean.FALSE);
@@ -77,7 +82,13 @@ public class MapControl {
 
             Planet Mars = new Planet();
             Mars.setName("Mars");
-            Mars.setDescription("This is Mars");
+            Mars.setDescription(
+                    "Once considered a prospect for terraforming and colonization, "
+                    + "\nthe discovery of faster than light travel turned Mars into"
+                    + "\na quiet backwater. Its southern pole is a historical preserve"
+                    + "\ncentered on the Prothean ruins found there. Immigration and"
+                    + "\ndevelopment are restricted as the search for Prothean"
+                    + "\nartifacts continues. ");
             Mars.setSystem(system);
             Mars.setVisited(Boolean.FALSE);
             Mars.setExplored(Boolean.FALSE);
@@ -90,7 +101,11 @@ public class MapControl {
 
             Planet Jupiter = new Planet();
             Jupiter.setName("Jupiter");
-            Jupiter.setDescription("This is Jupiter");
+            Jupiter.setDescription(
+                    "Jupiter's deep gravity well and lethal radiation have kept"
+                    + "\nits moons from being significantly exploited. The largest"
+                    + "\noutpost is Binary Helix Corporation's Nautilus facility,"
+                    + "\nattached to the underside of Europa's ice sheet. ");
             Jupiter.setSystem(system);
             Jupiter.setVisited(Boolean.FALSE);
             Jupiter.setExplored(Boolean.FALSE);
@@ -103,7 +118,11 @@ public class MapControl {
 
             Planet Saturn = new Planet();
             Saturn.setName("Saturn");
-            Saturn.setDescription("This is Saturn");
+            Saturn.setDescription(
+                    "Saturn has been a major source of helium-3 fuel for fusion"
+                    + "\nplants since the 2150s. The moon of Titan is mined for"
+                    + "\nhydrocarbons, and used as a hostile environment training"
+                    + "\nfacility for Alliance Marines. ");
             Saturn.setSystem(system);
             Saturn.setVisited(Boolean.FALSE);
             Saturn.setExplored(Boolean.FALSE);
@@ -116,7 +135,12 @@ public class MapControl {
 
             Planet Uranus = new Planet();
             Uranus.setName("Uranus");
-            Uranus.setDescription("This is Uranus");
+            Uranus.setDescription(
+                    "After the development of mass effect FTL drive, distant Uranus"
+                    + "\nwas the target of a \"land rush\" to exploit its combination"
+                    + "\nof plentiful helium-3 fuel and shallow (for a gas giant)"
+                    + "\ngravity well. Today Uranus is the largest producer of He-3"
+                    + "\nin Alliance space. ");
             Uranus.setSystem(system);
             Uranus.setVisited(Boolean.FALSE);
             Uranus.setExplored(Boolean.FALSE);
@@ -129,7 +153,12 @@ public class MapControl {
 
             Planet Neptune = new Planet();
             Neptune.setName("Neptune");
-            Neptune.setDescription("This is Neptune");
+            Neptune.setDescription(
+                    "Though Neptune, like Uranus, has plentiful helium, its remoteness"
+                    + "\nmade it an unpromising target for mining before the development"
+                    + "\nof mass effect drive. With Uranus cheaper to exploit, it has"
+                    + "\nnever seen extensive development. The only permanent human"
+                    + "\npresence is a small research facility on Triton. ");
             Neptune.setSystem(system);
             Neptune.setVisited(Boolean.FALSE);
             Neptune.setExplored(Boolean.FALSE);
@@ -189,7 +218,7 @@ public class MapControl {
                     + "\n[sic] is scarcely more hospitable. In addition to being the "
                     + "\nclosest to the star Tasale, its core contains many radioactives "
                     + "\nand other heavy elements. These increase the heat of the planet "
-                    + "\nand drive volcanism.\n"
+                    + "\nand drive volcanism."
                     + "\n"
                     + "\nBeregale's crust is too rigid for plate tectonics to function, "
                     + "\nand the planet will go through cycles in which the pressure "
@@ -219,7 +248,7 @@ public class MapControl {
                     + "\nare relaxed. Officially Illium is not an asari world; it is "
                     + "\ncolonized and operated by asari corporate interests. This gives "
                     + "\nit the same legal latitude enjoyed by the human corporate research "
-                    + "\nenclaves of Noveria.\n"
+                    + "\nenclaves of Noveria."
                     + "\n"
                     + "\nIllium is one of the youngest asari colonies settled during the "
                     + "\n7th Expansion Wave. The first child born on the world is only "
@@ -397,11 +426,11 @@ public class MapControl {
                     + "\nto rise. In order to maintain livable temperatures, a vast "
                     + "\nshroud was assembled at the L1 Lagrange point. It is maintained "
                     + "\nby the Council Demilitarization Enforcement Mission (CDEM) which "
-                    + "\nis based on orbiting battlestations.\n"
+                    + "\nis based on orbiting battlestations."
                     + "\n"
                     + "\nCDEM ADVISORY: Visitors to Tuchanka land at their own risk. "
                     + "\nThe CDEM will not attempt to extract citizens threatened by "
-                    + "\nclan warfare.\n"
+                    + "\nclan warfare."
                     + "\n"
                     + "\nTRAVEL ADVISORY: The ecology of Tuchanka is deadly. Nearly every"
                     + "\nnative species engages in some predatory behavior; even the "
@@ -533,7 +562,7 @@ public class MapControl {
                     + "\nand oceans, with large expanses of desert in between. The "
                     + "\nimportance of plant life and shade in ancient quarian culture "
                     + "\nis evident in the translation of Rannoch's name -- \"walled "
-                    + "\ngarden.\"\n"
+                    + "\ngarden.\""
                     + "\n"
                     + "\nTo a starship's sensors, the most obvious feature of the "
                     + "\nquarian homeworld is the numerous heat sources in orbit. "
@@ -559,7 +588,7 @@ public class MapControl {
                     + "\nthe ultra-lightweight constructions around the sun to collect "
                     + "\nenergy, arranged in a vast array known as a Dyson bubble. "
                     + "\nScattered among them are space stations and servers that draw "
-                    + "\npower from the statites through wireless energy transfer.\n"
+                    + "\npower from the statites through wireless energy transfer."
                     + "\n"
                     + "\nMost of the space stations are wreckage now, and no small "
                     + "\nnumber of solar sails have also been destroyed. It appears "
@@ -605,7 +634,7 @@ public class MapControl {
                     + "\nseventeen million quarians in total. The Fleet is so large it "
                     + "\ncan take days for all the ships to pass through a mass relay. "
                     + "\nSome of the vessels date from the original flight from the geth "
-                    + "\nthree centuries ago.\n"
+                    + "\nthree centuries ago."
                     + "\n"
                     + "\nThe Migrant Fleet is rarely welcoming to outsiders, as any "
                     + "\nrisk to the Fleet is a risk to the quarian species. Quarians "
@@ -636,8 +665,6 @@ public class MapControl {
             MassRelay.setSystem(system);
             MassRelay.setVisited(Boolean.FALSE);
             MassRelay.setExplored(Boolean.FALSE);
-            MassRelay.setX(66);
-            MassRelay.setY(66);
             MassRelay.setPlanetCode(26);
             MassRelay.setEnemy(EnemyControl.createEnemy(9).toString());
             MassRelay.setMaterial(MaterialControl.createPlanetMaterial());
@@ -685,25 +712,23 @@ public class MapControl {
     };
 //</editor-fold>
 
-    public static double calcPlanetDistance(String system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+    public static double calcPlanetDistance(int system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
         Game game = Andromeda.getCurrentGame();
         List<Map> map = game.getMap();
 
-        if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
-            throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
-
+        /*if ((x1 < -100 || x1 > 100) || (y1 < -100 || y1 > 100)) {
+        throw new MapControlException("\n*** Error *** Coordinates out of boundaries");
+        
         }
         if ((x2 < -100 || x2 > 100) || (y2 < -100 || y2 > 100)) {
-            throw new MapControlException("\n***Error *** Coordinates out of boundaries");
-        }
+        throw new MapControlException("\n***Error *** Coordinates out of boundaries");
+        }*/
 
         double distance = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
 
         boolean systemValid = false;
-        List<Planet> planets = map.get(0).getPlanets();
-        int mapSize = 0;
-
-        mapSize = map.get(0).getPlanets().size() - 1;
+        List<Planet> planets = map.get(system).getPlanets();
+        int mapSize = map.get(system).getPlanets().size() - 1;
 
         boolean planetNameValid = false;
         int index = 0;

@@ -58,7 +58,7 @@ public abstract class View implements ViewInterface {
             value = value.trim();
 
             if (value.length() < 1) {//value is blank
-                ErrorView.display(this.getClass().getName(), "\n* Value can not be blank.");
+                ErrorView.display(this.getClass().getName(), "Value can not be blank.");
                 continue;
             }
             break; //end loop

@@ -40,7 +40,8 @@ public class KroganSystemView extends View {
                 + "\n          [-2][-1]                                              "
                 + "\n                                                                "
                 + "\n[Enter coordinates – Example: 4,4]                              "
-                + "\n E : Return to Galaxy Map                                       ");
+                + "\n E : Return to Galaxy Map                                       "
+                + "\n");
     }
 
     String toPlanet = "";
@@ -50,13 +51,14 @@ public class KroganSystemView extends View {
     public boolean doAction(String choice) {
         boolean flag = false;
 
-        for (i = 0; i <= map.get(currentMapIndex).getPlanets().size()-1; i++) {
+        for (i = 0; i <= map.get(currentMapIndex).getPlanets().size() - 1; i++) {
             int x = map.get(currentMapIndex).getPlanets().get(i).getX();
             int y = map.get(currentMapIndex).getPlanets().get(i).getY();
 
             if (choice.equals(x + "," + y)) {
                 flag = true;
                 toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
+                game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
                 planetIndex = i;
                 this.moveToLocation();
             }
@@ -69,10 +71,9 @@ public class KroganSystemView extends View {
 
     private void moveToLocation() {
         Game game = Andromeda.getCurrentGame();
-        game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
 
         LocationMenuView locationMenu;
-        locationMenu = new LocationMenuView(toPlanet,currentMapIndex,planetIndex);
+        locationMenu = new LocationMenuView(toPlanet, currentMapIndex, planetIndex);
         locationMenu.display();
     }
 }

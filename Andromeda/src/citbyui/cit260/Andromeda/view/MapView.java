@@ -5,6 +5,12 @@
  */
 package citbyui.cit260.Andromeda.view;
 
+import andromeda.Andromeda;
+import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import byui.cit260.andromeda.model.Planet;
+import java.util.List;
+
 /**
  *
  * @author oscar
@@ -16,18 +22,19 @@ public class MapView extends View {
                 "\n————————————————————————— [ Galaxy ] ———————————————————————————"
                 + "\n                                                               "
                 + "\n  Local Cluster [LC]                                           "
+                + "\n                                              Krogan DMZ [KD]  "
                 + "\n                                                               "
-                + "\n                                              Perseus Veil [PV]"
                 + "\n                                                               "
                 + "\n                         Crescent Nebula [CN]                  "
                 + "\n                                                               "
                 + "\n                                                               "
                 + "\n        Nubian Expanse [NE]                                    "
                 + "\n                                                               "
-                + "\n                                           Krogan DMZ [KD]  "
-                + "\n"
-                + "\nV : View All Planets (List)"
-                + "\nE : Exit to Game Menu");
+                + "\n                                           Perseus Veil [PV]   "
+                + "\n                                                               "
+                + "\n[Enter coordinates – Example: lc]                             "
+                + "\nE : Exit to Game Menu"
+                + "\n");
     }
 
     public boolean doAction(String choice) {
@@ -55,15 +62,8 @@ public class MapView extends View {
                 this.KroganDMZ();
                 break;
 
-            //Modify one of the Menu View classes in the View Layer to call 
-            //and display the results of the function/s by selecting an option 
-            //on the appropriate menu.
-            case "V":
-                //MapControl.showAllPlanets();
-                break;
-
             default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
         return false;
@@ -76,8 +76,40 @@ public class MapView extends View {
     }
 
     private void PerseusVeil() {
+        Game game = Andromeda.getCurrentGame();
+        List<Map> map = game.getMap();
+        String secret = "Unknown";
+        String x = "?";
+        String y = "?";
+        int key = 0;
+
+        for (int j = 0; j <= map.size() - 1; j++) {
+            List<Planet> planet = map.get(j).getPlanets();
+            for (int i = 0; i <= planet.size() - 1; i++) {
+                if (planet.get(i).getVisited() == true) {
+                    key += 1;
+                    if (key == 26) {
+                        secret = "Mass Relay";
+                        int setX = (int) (Math.random() * 100);
+                        int setY = (int) (Math.random() * 100);
+
+                        map.get(4).getPlanets().get(5).setX(setX);
+                        map.get(4).getPlanets().get(5).setY(setY);
+
+                        x = Integer.toString(setX);
+                        y = Integer.toString(setY);
+
+                        console.println(
+                                  "\n\n*************************************************"
+                                + "\n*\tYou have discovered a new Location!\t*"
+                                + "\n*************************************************\n");
+                    }
+                }
+            }
+        }
+
         PerseusVeilView perseusVeil;
-        perseusVeil = new PerseusVeilView();
+        perseusVeil = new PerseusVeilView(secret, x, y);
         perseusVeil.display();
     }
 

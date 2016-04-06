@@ -73,18 +73,18 @@ public class GameControl {
 
         Andromeda.setCurrentGame(game);
 
-        System.out.print("\n\nObjects Initialized...\n\n"
-                + "\n" + game.getMap().get(0).getPlanets().get(0).getMaterial()
-                + "\nPlanet " + game.getMap().get(0).getPlanets().get(0).getName()
-                + "\nMaterials "+game.getExcelsior().getMaterials().toString());
+        //System.out.print("\n\nObjects Initialized...\n\n"
+        //        + "\n" + game.getMap().get(0).getPlanets().get(0).getMaterial()
+        //        + "\nPlanet " + game.getMap().get(0).getPlanets().get(0).getName()
+        //        + "\nMaterials "+game.getExcelsior().getMaterials().toString());
     }
 
     private static Material createMaterialList() {
         Material material = new Material();
 
-        material.setIridium(5);
+        material.setIridium(10);
         material.setPalladium(10);
-        material.setPlatinum(5);
+        material.setPlatinum(10);
 
         return material;
     }

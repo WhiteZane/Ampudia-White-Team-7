@@ -9,6 +9,11 @@ import andromeda.Andromeda;
 import byui.cit260.andromeda.control.MaterialControl;
 import byui.cit260.andromeda.model.Excelsior;
 import byui.cit260.andromeda.model.Game;
+import byui.cit260.andromeda.model.Map;
+import exceptions.MapControlException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -16,19 +21,23 @@ import byui.cit260.andromeda.model.Game;
  */
 public class LocationMenuView extends View {
 
+    static Game game = Andromeda.getCurrentGame();
+    static List<Map> map = game.getMap();
+
     int iSystem = 0;
     int iPlanet = 0;
 
     public LocationMenuView(String planet, int systemIndex, int planetIndex) {
         super(
-                "\n……………………………………………………………………………………………………………"
-                + "\n  Current Location: " + planet
-                + "\n……………………………………………………………………………………………………………"
+                "——————————————————————— [ " + map.get(systemIndex).getPlanets().get(planetIndex).getName() + " ] ———————————————————————"
+                + "\n" + map.get(systemIndex).getPlanets().get(planetIndex).getDescription()
+                + "\n"
                 + "\nL : Explore location "
                 + "\nF : Fortify/Repair Excelsior "
                 + "\nA : Armor reinforcment"
                 + "\nB : Buy/Create weapons"
-                + "\nR : Recruit new crew members"
+                + "\n"
+                + "\n1 : Calculate Planets Distance"
                 + "\n"
                 + "\nE : Return to System Map "
                 + "\n");
@@ -45,21 +54,30 @@ public class LocationMenuView extends View {
             case "L":
                 this.exploreLocation(iSystem, iPlanet);
                 break;
+
             case "F":
                 this.repairFortify();
                 break;
+
             case "A":
                 this.armorReinforce();
                 break;
+
             case "B":
                 this.createWeapons();
                 break;
-            case "R":
-                this.recruitMembers();
+
+            case "1": {
+                try {
+                    this.calculation();
+                } catch (MapControlException ex) {
+                    Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 break;
+            }
 
             default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
         return false;
@@ -98,7 +116,10 @@ public class LocationMenuView extends View {
         buyWeapons.display();
     }
 
-    private void recruitMembers() {
-        System.out.println("*** recruitMembers function called ***");
+    private void calculation() throws MapControlException {
+        int system = iSystem;
+        CalcDistanceView view = new CalcDistanceView(system);
+        view.displayCalcDistanceView(system);
     }
+
 }
