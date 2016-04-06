@@ -106,7 +106,6 @@ public class CreateWeapons extends View {
     }
 
     private void exit() {
-        //System.out.println("*** leadQuitGame function called ***");
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
     }

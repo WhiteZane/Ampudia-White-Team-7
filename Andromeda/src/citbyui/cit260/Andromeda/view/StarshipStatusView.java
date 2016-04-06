@@ -52,7 +52,6 @@ public class StarshipStatusView extends View {
                 + "\n"
                 + "\nE : Exit to Game Menu"
                 + "\n");
-
     }
 
     public boolean doAction(String shipOption) {

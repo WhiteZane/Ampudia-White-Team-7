@@ -43,7 +43,6 @@ public class StartProgramView {
                 + "\nHumanity has already discovered FTL (faster-than-light) travel,"
                 + "\nthrough an alien tech device found on Earth at the bottom of"
                 + "\nthe sea in 2016.");
-        //this.console.println(welcome);
     }
 
     public void displayStartProgramView() {
@@ -86,13 +85,11 @@ public class StartProgramView {
     private boolean doAction(String playersName) {
         if (playersName.length() < 2 || playersName.length() >= 20) {
             ErrorView.display(this.getClass().getName(), "Invalid player's name."
-                    + "\n  The name must be between 2 and 20 characters in length.");
+                    + "\n\tThe name must be between 2 and 20 characters in length.");
             return false;
         }
 
-        //call createPlayer() control function
         Player player = GameControl.createPlayer(playersName);
-        //GameControl.createExcelsior();
 
         if (player == null) {
             ErrorView.display(this.getClass().getName(), "Error creating the player.");
@@ -108,9 +105,7 @@ public class StartProgramView {
                 "\n\n\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
                 + "\n\tWelcome to Andromeda " + player.getName()
                 + "\n\tA great adventure awaits you!"
-                + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n"
-        );
-
+                + "\n––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––\n");
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();
     }

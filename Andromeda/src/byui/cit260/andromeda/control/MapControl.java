@@ -666,8 +666,6 @@ public class MapControl {
             MassRelay.setVisited(Boolean.FALSE);
             MassRelay.setExplored(Boolean.FALSE);
             MassRelay.setPlanetCode(26);
-            MassRelay.setEnemy(EnemyControl.createEnemy(9).toString());
-            MassRelay.setMaterial(MaterialControl.createPlanetMaterial());
             planetList.add(MassRelay);
 //</editor-fold>
         }
@@ -712,7 +710,8 @@ public class MapControl {
     };
 //</editor-fold>
 
-    public static double calcPlanetDistance(int system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) throws MapControlException {
+    public static double calcPlanetDistance(int system, String fromPlanet, double x1, double y1, String toPlanet, double x2, double y2) 
+            throws MapControlException {
         Game game = Andromeda.getCurrentGame();
         List<Map> map = game.getMap();
 

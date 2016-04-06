@@ -7,16 +7,14 @@ package citbyui.cit260.Andromeda.view;
 
 import byui.cit260.andromeda.control.ArmorControl;
 import byui.cit260.andromeda.model.Excelsior;
-import exceptions.ExcelsiorControlExceptions;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
- * @author zane 
+ * @author zane
  */
-public class ArmorView extends View{
+public class ArmorView extends View {
+
     public ArmorView() {
         super(
                 "…………………………………………………………………………………"
@@ -26,7 +24,7 @@ public class ArmorView extends View{
                 + "\nU : Upgrade Ship Armor"
                 + "\nE : Return to Location Menu ");
     }
-    
+
     public boolean doAction(String repairOption) {
 
         repairOption = repairOption.toUpperCase();
@@ -46,8 +44,7 @@ public class ArmorView extends View{
         }
         return false;
     }
-    
-    
+
     private void checkStatus() {
         Excelsior excelsior = new Excelsior();
         int status = excelsior.getShipIntegrity();
@@ -67,34 +64,26 @@ public class ArmorView extends View{
             this.console.println("\t Excelsior has taken major damage");
         }
     }
+
     private void upgradeArmor() {
-        
+
         ArmorControl armorUpgrade = new ArmorControl();
         Scanner inputs = new Scanner(System.in);
-        
+
         String result;
-        
-        
+
         this.console.println("******Armor Upgrade Menu**********"
-                            + "\nSelect an upgrade to purchase it"
-                            + "\n\t1. Upgrade shield effeciency reduce damage by 1"
-                            + "\n\t Upgrade cost: 5 iridium "
-                            + "\n\t2. Upgrade shield capicitors reduce damage by 2"
-                            + "\n\t Upgrade cost 10 iridium");
-        
-        
+                + "\nSelect an upgrade to purchase it"
+                + "\n\t1. Upgrade shield effeciency reduce damage by 1"
+                + "\n\t Upgrade cost: 5 iridium "
+                + "\n\t2. Upgrade shield capicitors reduce damage by 2"
+                + "\n\t Upgrade cost 10 iridium");
+
         result = inputs.next();
-        
+
         double total;
         total = armorUpgrade.armorChoice(result);
-        
-        
-        
-        
-        
-        
-        
+
     }
-    
-    
+
 }

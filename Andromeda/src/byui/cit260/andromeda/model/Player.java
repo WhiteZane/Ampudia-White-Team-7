@@ -14,7 +14,6 @@ import java.util.Objects;
  */
 public class Player implements Serializable{
 
-    //class instance variables
     private String name;
 
     public Player(String name) {
@@ -25,8 +24,6 @@ public class Player implements Serializable{
 
     }
     
-    
-
     public String getName() {
         return name;
     }

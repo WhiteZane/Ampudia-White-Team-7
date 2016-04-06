@@ -6,7 +6,6 @@
 package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 /**
  *
@@ -30,8 +29,8 @@ public class Planet implements Serializable {
         this.description = null;
         this.system = null;
         this.visited = false;
-        this.x = 0;
-        this.y = 0;
+        this.x = 666;
+        this.y = 666;
         this.planetCode = 0;
         this.enemy = null;
         this.material = null;
@@ -121,13 +120,13 @@ public class Planet implements Serializable {
     @Override
     public String toString() {
         return "\nName:\t\t" + name
-                //+ "\nDescription:"
-                //+ "\n" + description
+                + "\nDescription:"
+                + "\n" + description
                 + "\nSystem:\t\t" + system
                 + "\nVisited:\t" + visited
                 + "\nExplored:\t" + explored
                 + "\nCoordinates:\t" + x + "," + y
-                //+ "\nMaterial:\t"+ material
+                + "\nMaterial:\t"+ material
                 + "\n"
                 + "\nEnemies on location "
                 + "\n" + enemy

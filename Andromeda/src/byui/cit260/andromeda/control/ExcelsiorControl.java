@@ -5,12 +5,7 @@
  */
 package byui.cit260.andromeda.control;
 
-import andromeda.Andromeda;
 import byui.cit260.andromeda.model.Excelsior;
-import byui.cit260.andromeda.model.Game;
-import byui.cit260.andromeda.model.Map;
-import byui.cit260.andromeda.model.Planet;
-import byui.cit260.andromeda.model.Player;
 import exceptions.ExcelsiorControlExceptions;
 import static java.lang.Integer.parseInt;
 
@@ -43,18 +38,13 @@ public class ExcelsiorControl {
                     excelsior.setShipIntegrity(100);
                 } else {
                     throw new ExcelsiorControlExceptions("\n*** Error *** Failed to repair");
-
                 }
                 return repairCost;
-
             }
-
         } catch (NumberFormatException e) {
 
         }
-
         return -1;
-
     }
 
 }

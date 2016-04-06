@@ -33,6 +33,22 @@ public class MainMenuView extends View {
 
         switch (choice) {
             case "G":
+                this.console.print(
+                        "\nYour are currently on Earth.\n\n"
+                        + "                                        \n"
+                        + "                 _.u[[/;:,.             \n"
+                        + "              .o888UU[[[/;:-.           \n"
+                        + "     O       oN88888UU[[[/;::-.         \n"
+                        + "            dNMMNN888UU[[[/;:--.        \n"
+                        + "           ,MMMMMMN888UU[[/;::-.        \n"
+                        + "           NNMMMNN888UU[[[/~.:--.       \n"
+                        + "           888888888UU[[[/;:--..        \n"
+                        + "           I8888888UU[[[/;:--..         \n"
+                        + "            YUUUUU[[[/;::---..          \n"
+                        + "             ^/////;:::---..            \n"
+                        + "              ^///;::---...             \n"
+                        + "                   `^^^^                \n"
+                        + "");
                 this.startNewGame();
                 break;
             case "L":

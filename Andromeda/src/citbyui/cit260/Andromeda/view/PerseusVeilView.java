@@ -6,6 +6,7 @@
 package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
+import byui.cit260.andromeda.control.GameControl;
 import byui.cit260.andromeda.model.Game;
 import byui.cit260.andromeda.model.Map;
 import java.util.List;
@@ -19,9 +20,9 @@ public class PerseusVeilView extends View {
     static Game game = Andromeda.getCurrentGame();
     static List<Map> map = game.getMap();
     static int currentMapIndex = 4;
-    static int sx = 0;
-    static int sy = 0;
-    
+    static int sx = 666;
+    static int sy = 666;
+
     public PerseusVeilView(String secret, String x, String y) {
         super(
                 "——————————————————————— [ Perseus Veil ] ———————————————————————"
@@ -44,8 +45,10 @@ public class PerseusVeilView extends View {
                 + "\n[Enter coordinates – Example: 4,4]"
                 + "\nE : Return to Galaxy Map"
                 + "\n");
-        sx = Integer.getInteger(x);
-        sy = Integer.getInteger(y);
+        if (!"?".equals(x) || !"?".equals(y)) {
+            sx = Integer.parseInt(x);
+            sy = Integer.parseInt(y);
+        }
     }
 
     String toPlanet = "";
@@ -64,10 +67,9 @@ public class PerseusVeilView extends View {
                 toPlanet = map.get(currentMapIndex).getPlanets().get(i).getName();
                 game.getMap().get(currentMapIndex).getPlanets().get(i).setVisited(Boolean.TRUE);
                 planetIndex = i;
-                
+
                 if (choice.equals(sx + "," + sy)) {
-                    console.println("\n\n\nCongratulations! You have reached Andromeda Galaxy!\n\n\n");
-                    System.exit(0);
+                    GameControl.endGame();
                 }
                 this.moveToLocation();
             }

@@ -32,7 +32,7 @@ public class MapView extends View {
                 + "\n                                                               "
                 + "\n                                           Perseus Veil [PV]   "
                 + "\n                                                               "
-                + "\n[Enter coordinates – Example: lc]                             "
+                + "\n[Enter coordinates – Example: LC]                              "
                 + "\nE : Exit to Game Menu"
                 + "\n");
     }
@@ -101,7 +101,7 @@ public class MapView extends View {
 
                         console.println(
                                   "\n\n*************************************************"
-                                + "\n*\tYou have discovered a new Location!\t*"
+                                + "\n*\tYou have discovered a Mass Relay!\t*"
                                 + "\n*************************************************\n");
                     }
                 }

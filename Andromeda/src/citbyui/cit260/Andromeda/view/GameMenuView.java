@@ -6,9 +6,6 @@
 package citbyui.cit260.Andromeda.view;
 
 import andromeda.Andromeda;
-import exceptions.MapControlException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import byui.cit260.andromeda.control.GameControl;
 
 /**

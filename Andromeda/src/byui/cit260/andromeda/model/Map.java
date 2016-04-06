@@ -7,7 +7,6 @@ package byui.cit260.andromeda.model;
 
 import java.io.Serializable;
 import java.util.List;
-import java.util.ArrayList;
 /**
  *
  * @author ghosty
@@ -56,7 +55,7 @@ public class Map implements Serializable{
                 + "\nCoordinates: " + coordinates
                 + "\n";
     }
-    //The use of the for-each style loop
+
     public String PlanetList(){
         String planetList="";
         for(Planet name:planets){

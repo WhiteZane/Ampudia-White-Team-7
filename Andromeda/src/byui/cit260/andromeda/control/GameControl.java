@@ -19,6 +19,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 /**
  *
@@ -166,6 +167,57 @@ public class GameControl {
 
     public static List<Weapon> GetWeaponsList() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public static void endGame() {
+        Game game = Andromeda.getCurrentGame();
+        String unknown = game.getMap().get(4).getPlanets().get(5).getName();
+        String description = game.getMap().get(4).getPlanets().get(5).getDescription();
+
+        System.out.print(
+                "\n——————————————————————— [ " + unknown + " ] ———————————————————————"
+                + "\n" + description
+                + "\n"
+                + "\n–––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––––"
+                + "\n");
+        Scanner keyboard = new Scanner(System.in);
+        System.out.print("\n[Press Enter to continue]");
+        keyboard.nextLine();
+        System.out.print(
+                 "\n"
+                + "\n"
+                + "\nCongratulations! You have reached Andromeda Galaxy!"
+                + "\n"
+                + "\n"
+                + "                                         _.oo.\n"
+                + "                 _.u[[/;:,.         .odMMMMMM'\n"
+                + "              .o888UU[[[/;:-.  .o@P^    MMM^\n"
+                + "             oN88888UU[[[/;::-.        dP^\n"
+                + "            dNMMNN888UU[[[/;:--.   .o@P^\n"
+                + "           ,MMMMMMN888UU[[/;::-. o@^\n"
+                + "           NNMMMNN888UU[[[/~.o@P^\n"
+                + "           888888888UU[[[/o@^-..\n"
+                + "          oI8888UU[[[/o@P^:--..\n"
+                + "       .@^  YUU[[[/o@^;::---..\n"
+                + "     oMP     ^/o@P^;:::---..\n"
+                + "  .dMMM    .o@^ ^;::---...\n"
+                + " dMMMMMMM@^`       `^^^^\n"
+                + "YMMMUP^\n"
+                + " ^^"
+                + "\n"
+                + "  ________                __                              \n"
+                + " /_  __/ /_  ____ _____  / /__   __  ______  __  __       \n"
+                + "  / / / __ \\/ __ `/ __ \\/ //_/  / / / / __ \\/ / / /       \n"
+                + " / / / / / / /_/ / / / / ,<    / /_/ / /_/ / /_/ /        \n"
+                + "/_/ /_/ /_/\\__,_/_/ /_/_/|_|   \\__, /\\____/\\__,_/         \n"
+                + "    ____                    __/____/      _             __\n"
+                + "   / __/___  _____   ____  / /___ ___  __(_)___  ____ _/ /\n"
+                + "  / /_/ __ \\/ ___/  / __ \\/ / __ `/ / / / / __ \\/ __ `/ / \n"
+                + " / __/ /_/ / /     / /_/ / / /_/ / /_/ / / / / / /_/ /_/  \n"
+                + "/_/  \\____/_/     / .___/_/\\__,_/\\__, /_/_/ /_/\\__, (_)   \n"
+                + "                 /_/            /____/        /____/      "
+                + "\n\n");
+        System.exit(0);
     }
 
 }

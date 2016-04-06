@@ -22,7 +22,9 @@ public class HelpMenuView extends View {
                 + "\nS : Ship status explanation and upgrades "
                 + "\nR : Recruiting Crew Members"
                 + "\nA : About Enemies"
-                + "\nE : Exit to Main Menu");
+                + "\n"
+                + "\nE : Exit to Main Menu"
+                + "\n");
     }
 
     public boolean doAction(String helpOption) {
@@ -44,7 +46,7 @@ public class HelpMenuView extends View {
                 break;
 
             default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
         return false;
@@ -68,7 +70,7 @@ public class HelpMenuView extends View {
         boolean isValid = true;
 
         while (isValid) {
-            this.console.println("\n[Hit enter to continue]");
+            this.console.println("[Hit enter to continue]");
 
             value = keyboard.nextLine();
             value = "";
@@ -82,10 +84,10 @@ public class HelpMenuView extends View {
         this.console.println(
                 "\n\t∞∞∞ What is Your Goal? ∞∞∞"
                 + "\n∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞∞"
-                + "\nYour goal is to travel through uncharted planets, defeat enemies"
-                + "\nyou might encounter, and reach the Andromeda Galaxy."
-                + "\n"
-                + "\n*** More details can be added later ***\n");
+                + "\nYour goal is to travel through different systems within the"
+                + "\nMilky Way, explore planets, defeat enemies you might encounter,"
+                + "\nand reach the Andromeda Galaxy."
+                + "\n");
 
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
@@ -99,8 +101,7 @@ public class HelpMenuView extends View {
                 + "\nYou will need to be prepared by upgrading your spaceship, repair"
                 + "\nand fortify, reinforce armor, add weapons by collecting Material"
                 + "\nResources (Iridium, Palladium, Platinum)."
-                + "\n"
-                + "\n*** More details can be added later ***\n");
+                + "\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }
@@ -113,8 +114,7 @@ public class HelpMenuView extends View {
                 + "\nupgrades materials. Your crew help you decide which planet you"
                 + "\nshould go next and based on your ship status they can help to"
                 + "\ndecide whether to face or avoid enemies."
-                + "\n"
-                + "\n*** More details can be added later ***\n");
+                + "\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }
@@ -129,8 +129,7 @@ public class HelpMenuView extends View {
                 + "\nBattles can be hard and you might lose crew members, weapons and"
                 + "\nyour ship can be damaged. If the ship integrity reaches 0% the"
                 + "\ngame will be over. Be careful!"
-                + "\n"
-                + "\n*** More details can be added later ***\n");
+                + "\n");
         HelpMenuView exitMenu = new HelpMenuView();
         exitMenu.displayExitMenu();
     }

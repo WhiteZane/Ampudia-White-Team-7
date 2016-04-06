@@ -24,8 +24,6 @@ public class CalcDistanceView {
     public void displayCalcDistanceView(int system) throws MapControlException {
         boolean done = false;
         do {
-            //From System
-            //system = "Local Cluster";
             //From Planet
             console.println("From planet: ");
             String fromPlanet = this.getInput();
@@ -146,7 +144,7 @@ public class CalcDistanceView {
             this.console.print(
                     "\n\nCalculate the distance between planets in Astronomical Units(AU)."
                     + "\n"
-                    + "——————————————————————— [ Perseus Veil ] ———————————————————————"
+                    + "\n——————————————————————— [ Perseus Veil ] ———————————————————————"
                     + "\n      O Uriyah                                        * Unknown "
                     + "\n        [-2][6]                                          [?][?] "
                     + "\n                                                                "

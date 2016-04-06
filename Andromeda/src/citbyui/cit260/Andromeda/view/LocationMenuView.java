@@ -29,7 +29,7 @@ public class LocationMenuView extends View {
 
     public LocationMenuView(String planet, int systemIndex, int planetIndex) {
         super(
-                "——————————————————————— [ " + map.get(systemIndex).getPlanets().get(planetIndex).getName() + " ] ———————————————————————"
+                "——————————————–––––————————— [ " + map.get(systemIndex).getPlanets().get(planetIndex).getName() + " ] ——————————————–––––—————————"
                 + "\n" + map.get(systemIndex).getPlanets().get(planetIndex).getDescription()
                 + "\n"
                 + "\nL : Explore location "
@@ -37,7 +37,7 @@ public class LocationMenuView extends View {
                 + "\nA : Armor reinforcment"
                 + "\nB : Buy/Create weapons"
                 + "\n"
-                + "\n1 : Calculate Planets Distance"
+                + "\n1 : Calculate Planets Distance in " + map.get(systemIndex).getSystem()
                 + "\n"
                 + "\nE : Return to System Map "
                 + "\n");

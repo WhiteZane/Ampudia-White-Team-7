@@ -47,23 +47,13 @@ public class ExploreLocationView extends View {
     }
 
     public boolean doAction(String choice) {
-        choice = choice.toUpperCase();
 
         switch (choice) {
-            case "E":
-                this.exit();
-                break;
-
             default:
-                this.console.println("\n*** Error *** Invalid selection. Try again.");
+                ErrorView.display(this.getClass().getName(), "Invalid selection.");
                 break;
         }
-
         return false;
     }
 
-    private void exit() {
-        //ExploreLocationView exitMenu = new ExploreLocationView();
-        //exitMenu.display();
-    }
 }

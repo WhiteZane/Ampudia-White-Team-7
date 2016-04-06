@@ -16,6 +16,7 @@ public class TalkToCrewView extends View {
                 "\n…………………………………………………………………………………"
                 + "\n  Talk to Crew"
                 + "\n…………………………………………………………………………………"
+                + "\n"
                 + "\n *** Shows a message based on the game progress. ***"
                 + "\n"
                 + "\nE : Exit");
